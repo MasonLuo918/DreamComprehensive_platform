@@ -217,6 +217,14 @@
       <version>3.9</version>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpmime -->
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpmime</artifactId>
+      <version>4.5.9</version>
+    </dependency>
+
+
     <!-- jackson -->
     <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
     <dependency>
@@ -277,6 +285,27 @@
       <artifactId>activation</artifactId>
       <version>1.1.1</version>
     </dependency>
+
+    <!-- QRCode 二维码生成工具-->
+    <dependency>
+      <groupId>cn.bingoogolapple</groupId>
+      <artifactId>bga-qrcode-zxing</artifactId>
+      <version>1.2.5</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient</artifactId>
+      <version>4.5.9</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-transports-http -->
+    <dependency>
+      <groupId>org.apache.cxf</groupId>
+      <artifactId>cxf-rt-transports-http</artifactId>
+      <version>3.3.2</version>
+    </dependency>
+
   </dependencies>
 
   <build>
