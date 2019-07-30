@@ -3,13 +3,15 @@ package com.Dream.entity;
 public class Section {
     private Integer id;
 
-    private Integer departmentId;
+    private Integer departmentID;
 
     private String account;
 
     private String name;
 
     private String password;
+
+    private Department department;
 
     public Integer getId() {
         return id;
@@ -19,12 +21,12 @@ public class Section {
         this.id = id;
     }
 
-    public Integer getDepartmentId() {
-        return departmentId;
+    public Integer getDepartmentID() {
+        return departmentID;
     }
 
-    public void setDepartmentId(Integer departmentId) {
-        this.departmentId = departmentId;
+    public void setDepartmentID(Integer departmentID) {
+        this.departmentID = departmentID;
     }
 
     public String getAccount() {
@@ -49,5 +51,13 @@ public class Section {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 }

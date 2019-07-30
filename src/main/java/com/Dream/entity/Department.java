@@ -7,9 +7,11 @@ public class Department {
 
     private String password;
 
-    private String orgName;
+    private String deptName;
 
     private String college;
+
+    private Integer status;
 
     public Integer getId() {
         return id;
@@ -35,19 +37,27 @@ public class Department {
         this.password = password;
     }
 
-    public String getOrgName() {
-        return orgName;
-    }
-
-    public void setOrgName(String orgName) {
-        this.orgName = orgName;
-    }
-
     public String getCollege() {
         return college;
     }
 
     public void setCollege(String college) {
         this.college = college;
+    }
+
+    public String getDeptName() {
+        return deptName;
+    }
+
+    public void setDeptName(String deptName) {
+        this.deptName = deptName;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 }

@@ -1,13 +1,14 @@
 package com.Dream.entity;
 
-import java.util.Date;
+
+import java.time.LocalDate;
 
 public class Activity {
     private Integer id;
 
     private String name;
 
-    private Date time;
+    private LocalDate time;
 
     private String materialURL;
 
@@ -31,14 +32,6 @@ public class Activity {
         this.name = name;
     }
 
-    public Date getTime() {
-        return time;
-    }
-
-    public void setTime(Date time) {
-        this.time = time;
-    }
-
     public String getMaterialURL() {
         return materialURL;
     }
@@ -60,6 +53,15 @@ public class Activity {
     }
 
     public void setActivityScoreDocURL(String activityScoreDocURL) {
+
         this.activityScoreDocURL = activityScoreDocURL;
+    }
+
+    public LocalDate getTime() {
+        return time;
+    }
+
+    public void setTime(LocalDate time) {
+        this.time = time;
     }
 }

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.Dream.dao.ActivityDao">
+    <resultMap id="activityMap" type="activity">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="time" column="time"  typeHandler="com.Dream.typeHandler.LocalDateTypeHandler"/>
+        <result property="materialURL" column="material_url"/>
+        <result property="volunTimeDocURL" column="volun_time_doc_url"/>
+        <result property="activityScoreDocURL" column="activity_score_doc_url"/>
+    </resultMap>
+    <sql id="activitySelect">
+        SELECT id, name, time, material_url,volun_time_doc_url, activity_score_doc_url
+        FROM activity
+    </sql>
+    <insert id="insert" parameterType="activity" keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO activity
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="name != null and name != ''">
+                name,
+            </if>
+            <if test="time != null and time != ''">
+                time,
+            </if>
+            <if test="materialURL != null and materialURL != ''">
+                material_url,
+            </if>
+            <if test="volunTimeDocURL != null and volunTimeDocURL != ''">
+                volun_time_doc_url,
+            </if>
+            <if test="activityScoreDocURL != null and activityScoreDocURL != ''">
+                activity_score_doc_url
+            </if>
+        </trim>
+        <trim prefix=" values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="name != null and name != ''">
+                #{name},
+            </if>
+            <if test="time != null and time != ''">
+                #{time,javaType=java.time.LocalTime, jdbcType=DATE},
+            </if>
+            <if test="materialURL != null and materialURL != ''">
+                #{materialURL},
+            </if>
+            <if test="volunTimeDocURL != null and volunTimeDocURL != ''">
+                #{volunTimeDocURL},
+            </if>
+            <if test="activityScoreDocURL != null and activityScoreDocURL != ''">
+                #{activityScoreDocURL}
+            </if>
+        </trim>
+    </insert>
+
+    <update id="update" parameterType="activity">
+        UPDATE activity
+        <set>
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="time != null and time != ''">
+                time = #{time,javaType=java.time.LocalTime, jdbcType=DATE},
+            </if>
+            <if test="materialURL != null and materialURL != ''">
+                material_url = #{materialURL},
+            </if>
+            <if test="volunTimeDocURL != null and volunTimeDocURL != ''">
+                volun_time_doc_url = #{volunTimeDocURL},
+            </if>
+            <if test="activityScoreDocURL != null and activityScoreDocURL != ''">
+                activity_score_doc_url = #{activityScoreDocURL}
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="int">
+        DELETE FROM activity
+        WHERE id = #{id}
+    </delete>
+
+    <select id="selectOne" parameterType="activity" resultMap="activityMap">
+        <include refid="activitySelect"/>
+        WHERE id = #{id}
+    </select>
+
+    <select id="selectByName" parameterType="string" resultMap="activityMap">
+        <include refid="activitySelect"/>
+        WHERE name like concat('%',#{name},'%')
+    </select>
+
+    <select id="selectByDate" parameterType="java.time.LocalDate" resultMap="activityMap">
+        <include refid="activitySelect"/>
+        <where>
+            <if test="startDate != null and startDate != ''">
+                <![CDATA[ DATE_FORMAT(time, '%Y-%m-%d') >= DATE_FORMAT(#{startDate,
+              typeHandler=com.Dream.typeHandler.LocalDateTypeHandler }, '%Y-%m-%d') ]]>
+            </if>
+            <if test="endDate != null and endDate != ''">
+              and <![CDATA[ DATE_FORMAT(time, '%Y-%m-%d') <= DATE_FORMAT(#{endDate,
+              typeHandler=com.Dream.typeHandler.LocalDateTypeHandler }, '%Y-%m-%d') ]]>
+            </if>
+        </where>
+    </select>
+</mapper>

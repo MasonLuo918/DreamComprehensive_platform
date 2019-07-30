@@ -1,16 +1,18 @@
 package com.Dream.dao;
 
 import com.Dream.entity.Department;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface DepartmentDao extends BaseDao<Department> {
     /**
      * 根据组织名称查找组织（多个学院的用一组织）
-     * @param departmentName
+     * @param deptName
      * @return
      */
-    List<Department> selectByDeDepartmentName(String departmentName);
+    List<Department> selectByDepartmentName(String deptName);
 
     /**
      * 根据学院查找组织
