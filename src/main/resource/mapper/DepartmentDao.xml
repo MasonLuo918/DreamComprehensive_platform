@@ -10,6 +10,7 @@
         <result property="password" column="password"/>
         <result property="deptName" column="dept_name"/>
         <result property="college" column="college"/>
+        <result property="status" column="status"/>
     </resultMap>
 
     <insert id="insert" parameterType="department" useGeneratedKeys="true" keyProperty="id">
@@ -88,6 +89,6 @@
     </select>
 
     <sql id="fields">
-        id, email, password, dept_name, college
+        id, email, password, dept_name, college, status
     </sql>
 </mapper>

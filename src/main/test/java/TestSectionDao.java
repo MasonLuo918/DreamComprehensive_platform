@@ -60,6 +60,5 @@ public class TestSectionDao extends AbstractJUnit4SpringContextTests {
     @Test
     public void testSelectByAccount(){
         Section section = sectionDao.selectByAccount("test");
-        System.out.println();
     }
 }

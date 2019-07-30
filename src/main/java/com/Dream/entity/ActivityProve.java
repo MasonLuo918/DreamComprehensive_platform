@@ -3,17 +3,19 @@ package com.Dream.entity;
 public class ActivityProve {
     private Integer id;
 
-    private Integer activityId;
+    private Integer activityID;
 
-    private double volunTimeNum;
+    private Double volunTimeNum;
 
-    private double activityScore;
+    private Double activityScore;
 
-    private Integer stuNum;
+    private String stuNum;
 
     private String stuClass;
 
     private String stuName;
+
+    private Activity activity;
 
     public Integer getId() {
         return id;
@@ -24,35 +26,11 @@ public class ActivityProve {
     }
 
     public Integer getActivityId() {
-        return activityId;
+        return activityID;
     }
 
     public void setActivityId(Integer activityId) {
-        this.activityId = activityId;
-    }
-
-    public double getVolunTimeNum() {
-        return volunTimeNum;
-    }
-
-    public void setVolunTimeNum(double volunTimeNum) {
-        this.volunTimeNum = volunTimeNum;
-    }
-
-    public double getActivityScore() {
-        return activityScore;
-    }
-
-    public void setActivityScore(double activityScore) {
-        this.activityScore = activityScore;
-    }
-
-    public Integer getStuNum() {
-        return stuNum;
-    }
-
-    public void setStuNum(Integer stuNum) {
-        this.stuNum = stuNum;
+        this.activityID = activityId;
     }
 
     public String getStuClass() {
@@ -69,5 +47,45 @@ public class ActivityProve {
 
     public void setStuName(String stuName) {
         this.stuName = stuName;
+    }
+
+    public Activity getActivity() {
+        return activity;
+    }
+
+    public Double getVolunTimeNum() {
+        return volunTimeNum;
+    }
+
+    public void setVolunTimeNum(Double volunTimeNum) {
+        this.volunTimeNum = volunTimeNum;
+    }
+
+    public Double getActivityScore() {
+        return activityScore;
+    }
+
+    public void setActivityScore(Double activityScore) {
+        this.activityScore = activityScore;
+    }
+
+    public void setActivity(Activity activity) {
+        this.activity = activity;
+    }
+
+    public Integer getActivityID() {
+        return activityID;
+    }
+
+    public void setActivityID(Integer activityID) {
+        this.activityID = activityID;
+    }
+
+    public String getStuNum() {
+        return stuNum;
+    }
+
+    public void setStuNum(String stuNum) {
+        this.stuNum = stuNum;
     }
 }

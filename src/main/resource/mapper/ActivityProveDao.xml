@@ -3,4 +3,140 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.Dream.dao.ActivityProveDao">
+    <resultMap id="activityProveMap" type="activityProve">
+        <id column="id" property="id"/>
+        <result property="activityId" column="act_id"/>
+        <result property="volunTimeNum" column="volun_time_num"/>
+        <result property="activityScore" column="activity_score"/>
+        <result property="stuNum" column="stu_num"/>
+        <result property="stuClass" column="stu_class"/>
+        <result property="stuName" column="stu_name"/>
+        <association property="activity" select="com.Dream.dao.ActivityDao.selectOne" column="{id=act_id}"/>
+    </resultMap>
+
+    <sql id="activityProveSelect">
+        SELECT id, act_id, volun_time_num, activity_score, stu_num, stu_class, stu_name
+        FROM activity_prove
+    </sql>
+
+    <insert id="insert" parameterType="activity" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO activity_prove
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="activityId != null">
+                act_id,
+            </if>
+            <if test="volunTimeNum != null and volunTimeNum != ''">
+                volun_time_num,
+            </if>
+            <if test="activityScore != null and activityScore != ''">
+                activity_score,
+            </if>
+            <if test="stuNum != null and stuNum != ''">
+                stu_num,
+            </if>
+            <if test="stuClass != null and stuClass != ''">
+                stu_class,
+            </if>
+            <if test="stuName != null and stuName != ''">
+                stu_name
+            </if>
+        </trim>
+        <trim prefix="values(" suffixOverrides="," suffix=")">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="activityId != null">
+                #{activityId},
+            </if>
+            <if test="volunTimeNum != null and volunTimeNum != ''">
+                #{volunTimeNum},
+            </if>
+            <if test="activityScore != null and activityScore != ''">
+                #{activityScore},
+            </if>
+            <if test="stuNum != null and stuNum != ''">
+                #{stuNum},
+            </if>
+            <if test="stuClass != null and stuClass != ''">
+                #{stuClass},
+            </if>
+            <if test="stuName != null and stuName != ''">
+                #{stuName}
+            </if>
+        </trim>
+    </insert>
+
+    <update id="update" parameterType="activityProve">
+        UPDATE activity_prove
+        <set>
+            <if test="activityId != null">
+                act_id = #{activityId},
+            </if>
+            <if test="volunTimeNum != null and volunTimeNum != ''">
+               volun_time_num = #{volunTimeNum},
+            </if>
+            <if test="activityScore != null and activityScore != ''">
+                activity_score = #{activityScore},
+            </if>
+            <if test="stuNum != null and stuNum != ''">
+                stu_num = #{stuNum},
+            </if>
+            <if test="stuClass != null and stuClass != ''">
+                stu_class = #{stuClass},
+            </if>
+            <if test="stuName != null and stuName != ''">
+                stu_name = #{stuName}
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="int">
+        DELETE FROM activity_prove
+        WHERE id = #{id}
+    </delete>
+
+    <delete id="deleteByActivityId" parameterType="int">
+        DELETE FROM activity_prove
+        WHERE act_id = #{activityId}
+    </delete>
+
+    <select id="selectOne" parameterType="activityProve" resultMap="activityProveMap">
+        <include refid="activityProveSelect"/>
+        <where>
+            <if test="id != null">
+                id = #{id}
+            </if>
+            <if test="activityId != null">
+                and act_id = #{activityId}
+            </if>
+            <if test="volunTimeNum != null and volunTimeNum != ''">
+                and volun_time_num = #{volunTimeNum}
+            </if>
+            <if test="activityScore != null and activityScore != ''">
+                and activity_score = #{activityScore}
+            </if>
+            <if test="stuNum != null and stuNum != ''">
+                and stu_num = #{stuNum}
+            </if>
+            <if test="stuClass != null and stuClass != ''">
+                and stu_class = #{stuClass}
+            </if>
+            <if test="stuName != null and stuName != ''">
+                and stu_name = #{stuName}
+            </if>
+        </where>
+        LIMIT 1
+    </select>
+    <select id="selectByActivityId" parameterType="int" resultMap="activityProveMap">
+        <include refid="activityProveSelect"/>
+        WHERE act_id = #{activityId}
+    </select>
+    <select id="selectByStuName" parameterType="string" resultMap="activityProveMap">
+        <include refid="activityProveSelect"/>
+        WHERE stu_name like concat('%', #{stuName},'%')
+    </select>
 </mapper>
