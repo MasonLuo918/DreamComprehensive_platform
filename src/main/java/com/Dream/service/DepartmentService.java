@@ -25,4 +25,11 @@ public interface DepartmentService {
 
     int update(Department department);
 
+    /**
+     * 根据邮箱和密码登录,密码未用md5加密
+     * @param email
+     * @param password
+     * @return
+     */
+    Department login(String email, String password);
 }

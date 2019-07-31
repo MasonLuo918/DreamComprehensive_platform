@@ -3,6 +3,7 @@ package com.Dream.service.impl;
 import com.Dream.dao.DepartmentDao;
 import com.Dream.entity.Department;
 import com.Dream.service.DepartmentService;
+import com.Dream.util.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
@@ -45,11 +46,12 @@ public class DepartmentServiceImpl implements DepartmentService {
         return departmentDao.update(department);
     }
 
-    public DepartmentDao getDepartmentDao() {
-        return departmentDao;
+    @Override
+    public Department login(String email, String password) {
+        Department department = new Department();
+        department.setEmail(email);
+        department.setPassword(MD5Util.getMD5(password));
+        return departmentDao.selectOne(department);
     }
 
-    public void setDepartmentDao(DepartmentDao departmentDao) {
-        this.departmentDao = departmentDao;
-    }
 }

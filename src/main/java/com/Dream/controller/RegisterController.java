@@ -61,7 +61,7 @@ public class RegisterController {
      * @param validateCode
      * @return
      */
-    @RequestMapping("/doRegister")
+    @RequestMapping("/department/doRegister")
     @ResponseBody
     public Map<String, Object> register(@RequestBody Map<String, String> map,
                                         @SessionAttribute(value = "validateCode") String validateCode) throws Exception {
@@ -77,13 +77,13 @@ public class RegisterController {
         //判断验证码是否正确,以及所需要参数是否已经传来
         if (registerEmail == null || registerPassword == null || registerCode == null || registerDeptName == null
                 || registerCollege == null) {
-            responseMap.put("status", 1);
+            responseMap.put("status", "002");
             responseMap.put("message", "注册失败,请检查注册信息");
             responseMap.put("info", "所需参数有丢失");
             return responseMap;
         }
         if (StringUtils.isEmpty(validateCode) || StringUtils.isEmpty(registerCode) || !registerCode.equals(validateCode)) {
-            responseMap.put("status", 1);
+            responseMap.put("status", "001");
             responseMap.put("message", "验证码错误或者已失效");
             return responseMap;
         }
@@ -95,7 +95,7 @@ public class RegisterController {
             if (queryDepartment.getStatus() == 0) {
                 String oldCode = (String) redisTemplate.opsForValue().get(registerEmail);
                 if (oldCode != null) {
-                    responseMap.put("status", 1);
+                    responseMap.put("status", "003");
                     responseMap.put("message", "fail");
                     responseMap.put("info", " 激活码未过期");
                     return responseMap;
@@ -105,7 +105,7 @@ public class RegisterController {
                     redisTemplate.opsForValue().set(registerEmail, activateCode);
                     //发送邮件
                     SendEmail.sendMail(registerEmail, activateCode, registerDeptName);
-                    responseMap.put("status", 0);
+                    responseMap.put("status", "004");
                     responseMap.put("message", "success");
                     responseMap.put("info", "注册成功，请前往邮箱激活");
                     //将密码信息清空
@@ -114,7 +114,7 @@ public class RegisterController {
                     return responseMap;
                 }
             } else {
-                responseMap.put("status", 1);
+                responseMap.put("status", "003");
                 responseMap.put("message", "fail");
                 responseMap.put("info", " 邮箱已注册");
                 return responseMap;
@@ -123,7 +123,7 @@ public class RegisterController {
         // 判断是否该学院的该组织已经注册过，如果已经注册过，则不允许注册
         queryDepartment = departmentService.findByCollegeAndDeptName(registerCollege, registerDeptName);
         if (queryDepartment != null) {
-            responseMap.put("status", 1);
+            responseMap.put("status", "003");
             responseMap.put("message", "fail");
             responseMap.put("info", " 组织已注册");
             return responseMap;
@@ -142,7 +142,7 @@ public class RegisterController {
                 redisTemplate.opsForValue().set(registerEmail, activateCode);
                 //发送邮件
                 SendEmail.sendMail(registerEmail, activateCode, registerDeptName);
-                responseMap.put("status", 0);
+                responseMap.put("status", "004");
                 responseMap.put("message", "success");
                 responseMap.put("info", "注册成功，请前往邮箱激活");
                 //将密码信息清空
@@ -150,7 +150,7 @@ public class RegisterController {
                 responseMap.put("department", resultDepartment);
                 return responseMap;
             } else {
-                responseMap.put("status", 1);
+                responseMap.put("status", "000");
                 responseMap.put("message", "fail");
                 responseMap.put("info", "注册失败，请重新注册");
                 return responseMap;
@@ -178,7 +178,7 @@ public class RegisterController {
      * @param validateCode 链接中的注册码
      * @return
      */
-    @RequestMapping("/activate")
+    @RequestMapping("/department/activate")
     @ResponseBody
     public Map<String, Object> activate(@RequestParam("email") String email, @RequestParam("validateCode") String validateCode) {
         Map<String, Object> resultMap = new HashMap<>();
