@@ -1,30 +1,30 @@
 package com.Dream.util;
 
+import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class MD5Util {
-    public static String getMD5(String password){
+    public static String getMD5(String str){
+        if (str == null || str.length() == 0) {
+            throw new IllegalArgumentException("String to encript cannot be null or zero length");
+        }
+        StringBuffer hexString = new StringBuffer();
         try {
-            MessageDigest md = MessageDigest.getInstance("SHA");//创建具有指定算法名称的摘要
-            md.update(password.getBytes());                    //使用指定的字节数组更新摘要
-            byte mdBytes[] = md.digest();                 //进行哈希计算并返回一个字节数组
-
-            String hash = "";
-            for(int i= 0;i<mdBytes.length;i++){           //循环字节数组
-                int temp;
-                if(mdBytes[i]<0)                          //如果有小于0的字节,则转换为正数
-                    temp =256+mdBytes[i];
-                else
-                    temp=mdBytes[i];
-                if(temp<16)
-                    hash+= "0";
-                hash+=Integer.toString(temp,16);         //将字节转换为16进制后，转换为字符串
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            md.update(str.getBytes());
+            byte[] hash = md.digest();
+            for (int i = 0; i < hash.length; i++) {
+                if ((0xff & hash[i]) < 0x10) {
+                    hexString.append("0" + Integer.toHexString((0xFF & hash[i])));
+                } else {
+                    hexString.append(Integer.toHexString(0xFF & hash[i]));
+                }
             }
-            return hash;
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
-        return null;
+        return hexString.toString();
     }
+
 }

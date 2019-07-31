@@ -22,7 +22,14 @@ public class SendEmail {
     private static String smtpHost = "smtp.qq.com";
 
     private static String port = "465";
-    public static void sendMail(String email, String validateCode) throws Exception {
+
+    /**
+     * @param email 收件人邮箱
+     * @param validateCode 验证代码
+     * @param personal 收件人名字
+     * @throws Exception
+     */
+    public static void sendMail(String email, String validateCode, String personal) throws Exception {
         Properties props = new Properties();
         props.setProperty("mail.transport.protocal","smtp");
         props.setProperty("mail.smtp.host",smtpHost);
@@ -38,7 +45,7 @@ public class SendEmail {
         session.setDebug(true);
 
         //3.创建一封邮件
-        MimeMessage message = createMimeMessage(session, SendEmail, email, validateCode);
+        MimeMessage message = createMimeMessage(session, SendEmail, email, validateCode, personal);
         //用session获取传输对象
         Transport transport = session.getTransport();
         //连接
@@ -49,16 +56,16 @@ public class SendEmail {
         transport.close();
 
     }
-    private static MimeMessage createMimeMessage(Session session, String sendEmail, String receiveEmail, String code) throws Exception{
+    private static MimeMessage createMimeMessage(Session session, String sendEmail, String receiveEmail, String code, String personal) throws Exception{
         //创建一封邮件
         MimeMessage message = new MimeMessage(session);
 
         //From：发件人
-        message.setFrom(new InternetAddress(sendEmail, "梦境网","UTF-8"));
+        message.setFrom(new InternetAddress(sendEmail, "易班综测平台","UTF-8"));
         //To: 收件人
-        message.setRecipient(MimeMessage.RecipientType.TO, new InternetAddress(receiveEmail, "XX用户", "UTF-8"));
+        message.setRecipient(MimeMessage.RecipientType.TO, new InternetAddress(receiveEmail, personal, "UTF-8"));
         //主题
-        message.setSubject("梦境网激活链接", "UTF-8");
+        message.setSubject("易班综测平台激活链接", "UTF-8");
         message.setContent( "<a href=\"http://localhost:8080//activateCode?email="+receiveEmail+"&validateCode="+ code+"\" target=\"_blank\">请于24小时内点击激活</a>","text/html;charset=gb2312");
         message.setSentDate(new Date());
         message.saveChanges();

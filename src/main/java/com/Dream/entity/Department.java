@@ -11,6 +11,7 @@ public class Department {
 
     private String college;
 
+    //0代表不可用状态
     private Integer status;
 
     public Integer getId() {

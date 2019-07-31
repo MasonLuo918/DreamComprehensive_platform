@@ -36,11 +36,12 @@ public class TestDepartmentDao extends AbstractJUnit4SpringContextTests {
     public void testSelect(){
         //测试根据字段查找department
         Department department = new Department();
-        department.setId(5);
+        department.setDeptName("xxx");
+        department.setCollege("xxx");
         Department result = departmentDao.selectOne(department);
-        Department resultEamil = departmentDao.selectByEmail("mason luo918@gamil.com");
-        List<Department> listByCollege = departmentDao.selectByCollege("数学与信息学院");
-        List<Department> listBydeptName = departmentDao.selectByDepartmentName("学生党务管理委员会");
+//        Department resultEamil = departmentDao.selectByEmail("mason luo918@gamil.com");
+//        List<Department> listByCollege = departmentDao.selectByCollege("数学与信息学院");
+//        List<Department> listBydeptName = departmentDao.selectByDepartmentName("学生党务管理委员会");
         System.out.println();
     }
 }

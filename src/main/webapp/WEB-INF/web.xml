@@ -72,7 +72,6 @@
     <url-pattern>*.html</url-pattern>
   </servlet-mapping>
 
-
   <!-- 监听器 -->
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

@@ -23,7 +23,7 @@ public class ValidateCode {
                 Color.CYAN
         };
         //绘制干扰线
-        for(int i = 0; i < 50; i++){
+        for(int i = 0; i < 30; i++){
             graphics.setColor(colors[random.nextInt(colors.length)]);
             int x = random.nextInt(width);
             int y = random.nextInt(height);
@@ -35,7 +35,7 @@ public class ValidateCode {
         }
         graphics.setFont(new Font("Comic Sans MS", Font.BOLD, 30));
         //绘制字母
-        for(int i = 0; i < 6; i++){
+        for(int i = 0; i < 4; i++){
             //转换成ascii码
             int temp = random.nextInt(26) + 97;
             String s = String.valueOf((char) temp);

@@ -9,13 +9,12 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.OutputStream;
 
-@WebServlet(urlPatterns = "/validateCode")
+//@WebServlet(urlPatterns = "/validateCode")
 public class VerifyCodeServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //获得当前的会话，如果没有，则新建
-        System.out.println("***");
         HttpSession httpSession = req.getSession();
         int width = 180;
         int height = 40;

@@ -14,8 +14,8 @@
     </resultMap>
 
     <insert id="insert" parameterType="department" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO department(id, password, dept_name, college, email)
-        VALUES (#{id}, #{password},#{deptName},#{college},#{email})
+        INSERT INTO department(id, password, dept_name, college, email,status)
+        VALUES (#{id}, #{password},#{deptName},#{college},#{email},#{status})
     </insert>
 
     <delete id="delete" parameterType="int">
