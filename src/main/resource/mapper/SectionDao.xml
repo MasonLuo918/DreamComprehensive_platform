@@ -9,16 +9,62 @@
         <result column="account" property="account"/>
         <result column="password" property="password"/>
         <result column="name" property="name"/>
+        <result column="create_time" property="createTime" typeHandler="com.Dream.typeHandler.LocalDateTypeHandler"/>
         <association property="department" select="com.Dream.dao.DepartmentDao.selectOne" column="{id=department_id}"/>
     </resultMap>
     <sql id="sectionSelect">
-        SELECT `id`, `department_id`, `account`, `name`, `password`
+        SELECT `id`, `department_id`, `account`, `name`, `password`, `create_time`
         FROM `section`
     </sql>
 
     <insert id="insert" parameterType="section" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO section(department_id, account, password, name)
-        VALUES (#{departmentID}, #{account}, #{password}, #{name})
+        INSERT INTO section
+        <trim prefix="(" suffixOverrides="," suffix=")">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="departmentID != null">
+                department_id,
+            </if>
+            <if test="account != null and account != ''">
+                account,
+            </if>
+            <if test="name != null and name != ''">
+                name,
+            </if>
+            <if test="password != null and password != ''">
+                password,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="createTime != null and createTime != ''">
+                create_time,
+            </if>
+        </trim>
+        <trim prefix="VALUES(" suffixOverrides="," suffix=")">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="departmentID != null">
+                #{departmentID},
+            </if>
+            <if test="account != null and account != ''">
+                #{account},
+            </if>
+            <if test="name != null and name != ''">
+                #{name},
+            </if>
+            <if test="password != null and password != ''">
+               #{password},
+            </if>
+            <if test="status != null">
+                #{status},
+            </if>
+            <if test="createTime != null and createTime != ''">
+                #{createTime, typeHandler= com.Dream.typeHandler.LocalDateTypeHandler},
+            </if>
+        </trim>
     </insert>
 
     <update id="update" parameterType="section">
@@ -34,7 +80,13 @@
                 name = #{name},
             </if>
             <if test="password != null and name != ''">
-                password = #{password}
+                password = #{password},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="createTime != null and createTime != ''">
+                create_time = #{createTime, typeHandler= com.Dream.typeHandler.LocalDateTypeHandler},
             </if>
         </set>
         where id = #{id}
@@ -52,7 +104,7 @@
             <if test="id != null">
                and id = #{id}
             </if>
-            
+
             <if test="departmentID != null">
                 and department_id = #{departmentID}
             </if>
@@ -65,6 +117,9 @@
             </if>
             <if test="password != null and password != ''">
                 and password = #{password}
+            </if>
+            <if test="status != null">
+                and status = #{status}
             </if>
         </where>
         LIMIT 1
@@ -84,6 +139,4 @@
         DELETE FROM section
         WHERE account = #{account}
     </delete>
-
-
 </mapper>

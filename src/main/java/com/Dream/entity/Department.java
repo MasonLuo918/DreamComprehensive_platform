@@ -1,5 +1,7 @@
 package com.Dream.entity;
 
+import java.time.LocalDate;
+
 public class Department {
     private Integer id;
 
@@ -13,6 +15,23 @@ public class Department {
 
     //0代表不可用状态
     private Integer status;
+
+    private LocalDate createTime;
+
+
+    public Department() {
+        createTime = LocalDate.now();
+    }
+
+
+    public Department(String email, String password, String deptName, String college, Integer status, LocalDate createTime) {
+        this.email = email;
+        this.password = password;
+        this.deptName = deptName;
+        this.college = college;
+        this.status = status;
+        this.createTime = createTime;
+    }
 
     public Integer getId() {
         return id;
@@ -60,5 +79,13 @@ public class Department {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public LocalDate getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(LocalDate createTime) {
+        this.createTime = createTime;
     }
 }

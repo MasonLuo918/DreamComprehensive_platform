@@ -66,7 +66,7 @@ public class SendEmail {
         message.setRecipient(MimeMessage.RecipientType.TO, new InternetAddress(receiveEmail, personal, "UTF-8"));
         //主题
         message.setSubject("易班综测平台激活链接", "UTF-8");
-        message.setContent( "<a href=\"http://localhost:8080//activateCode?email="+receiveEmail+"&validateCode="+ code+"\" target=\"_blank\">请于24小时内点击激活</a>","text/html;charset=gb2312");
+        message.setContent( "<a href=\"http://localhost:8080/register/activate?email="+receiveEmail+"&validateCode="+ code+"\" target=\"_blank\">请于24小时内点击激活</a>","text/html;charset=gb2312");
         message.setSentDate(new Date());
         message.saveChanges();
         return message;

@@ -15,20 +15,6 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Autowired
     private DepartmentDao departmentDao;
 
-    @Override
-    public boolean allowRegister(Department department) {
-        /*
-         * 根据学院和部门名称查询，如果已经存在，则不允许注册
-         */
-        Department queryDepartment = new Department();
-        queryDepartment.setDeptName(department.getDeptName());
-        queryDepartment.setCollege(department.getCollege());
-        Department resultDepartment = departmentDao.selectOne(queryDepartment);
-        if(resultDepartment != null){
-            return false;
-        }
-        return true;
-    }
 
     @Override
     @Transactional(propagation = Propagation.REQUIRES_NEW, isolation = Isolation.REPEATABLE_READ)
@@ -41,4 +27,29 @@ public class DepartmentServiceImpl implements DepartmentService {
         return departmentDao.deleteByEmail(eamil);
     }
 
+    @Override
+    public Department findByEmail(String email) {
+        return departmentDao.selectByEmail(email);
+    }
+
+    @Override
+    public Department findByCollegeAndDeptName(String college, String deptName) {
+        Department department = new Department();
+        department.setCollege(college);
+        department.setDeptName(deptName);
+        return departmentDao.selectOne(department);
+    }
+
+    @Override
+    public int update(Department department) {
+        return departmentDao.update(department);
+    }
+
+    public DepartmentDao getDepartmentDao() {
+        return departmentDao;
+    }
+
+    public void setDepartmentDao(DepartmentDao departmentDao) {
+        this.departmentDao = departmentDao;
+    }
 }

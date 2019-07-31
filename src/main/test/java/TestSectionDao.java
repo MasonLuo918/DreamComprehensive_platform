@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @ContextConfiguration(locations = {"classpath:spring-mybatis.xml"})
@@ -21,13 +22,15 @@ public class TestSectionDao extends AbstractJUnit4SpringContextTests {
         section.setDepartmentID(1);
         section.setName("test");
         section.setPassword("test");
+        section.setStatus(0);
+        section.setCreateTime(LocalDate.now());
         sectionDao.insert(section);
     }
 
     @Test
     public void testUpdate(){
         Section section = new Section();
-        section.setId(6);
+        section.setId(12);
         section.setPassword("updatePassword");
         section.setName("updateName");
         sectionDao.update(section);
