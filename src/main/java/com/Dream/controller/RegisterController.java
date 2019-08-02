@@ -200,4 +200,43 @@ public class RegisterController {
         resultMap.put("message", "激活成功");
         return resultMap;
     }
+    /**
+     * 判断邮箱是否输入正确
+     */
+    @ResponseBody
+    public Map<String,Object> checkEmail(@RequestParam("email") String email){
+        Map<String,Object> resultMap=new HashMap<>();
+        String string ="^([a-z0-9A-Z]+[-|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$";
+        Pattern p;
+        Matcher m;
+        p=Pattern.compile(string);
+        m=p.matcher(email);
+        if(m.matches()){
+            resultMap.put("status","005");
+            resultMap.put("message","输入的邮箱格式正确");
+            return resultMap;
+        }else{
+            resultMap.put("status","401");
+            resultMap.put("message","输入的邮箱格式错误");
+            return resultMap;
+        }
+    }
+    /**
+     * 查看组织是否存在
+     */
+    @ResponseBody
+    public Map<String,Object> checkSection(@RequestParam("deptName") String deptName,@RequestParam("college") String college){
+       Map<String,Object> resultMap=new HashMap<>();
+       Department department=departmentService.findByCollegeAndDeptName(college,deptName);
+       if(department==null){
+          resultMap.put("status","005");
+          resultMap.put("message","组织不存在，可以注册。");
+          return resultMap;
+       }else{
+           resultMap.put("status","003");
+           resultMap.put("message","该学院该组织已存在");
+       }
+       return resultMap;
+    }
+
 }
