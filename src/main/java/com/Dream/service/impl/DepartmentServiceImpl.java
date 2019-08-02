@@ -2,9 +2,11 @@ package com.Dream.service.impl;
 
 import com.Dream.dao.DepartmentDao;
 import com.Dream.entity.Department;
+import com.Dream.mail.SendEmail;
 import com.Dream.service.DepartmentService;
 import com.Dream.util.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
@@ -15,6 +17,9 @@ public class DepartmentServiceImpl implements DepartmentService {
 
     @Autowired
     private DepartmentDao departmentDao;
+
+    @Autowired
+    private RedisTemplate redisTemplate;
 
 
     @Override
@@ -52,6 +57,20 @@ public class DepartmentServiceImpl implements DepartmentService {
         department.setEmail(email);
         department.setPassword(MD5Util.getMD5(password));
         return departmentDao.selectOne(department);
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.DEFAULT)
+    public int register(Department department, String activateCode) {
+
+        int count = departmentDao.insert(department);
+        redisTemplate.opsForValue().set(department.getEmail(), activateCode);
+        try {
+            SendEmail.sendMail(department.getEmail(), activateCode, department.getDeptName());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return count;
     }
 
 }

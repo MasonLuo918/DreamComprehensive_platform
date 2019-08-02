@@ -41,7 +41,7 @@ public class RegisterController {
      * {
      * "status":0,
      * "message":"success",
-     * "info":"注册成功，请前往邮箱激活",
+     * "info":"注册成?功，请前往邮箱激活",
      * "department":{
      * "id",1,
      * "email":"xxx@email.com",
@@ -135,13 +135,10 @@ public class RegisterController {
             resultDepartment.setCreateTime(LocalDate.now());
             resultDepartment.setEmail(registerEmail);
             resultDepartment.setStatus(0);
-            int i = departmentService.insertDepartment(resultDepartment);
+            //生成激活验证码
+            String activateCode = MD5Util.getMD5(registerEmail + registerPassword + System.currentTimeMillis());
+            int i = departmentService.register(resultDepartment,activateCode);
             if (i != 0) {
-                //重新生成激活码
-                String activateCode = MD5Util.getMD5(registerEmail + registerPassword + System.currentTimeMillis());
-                redisTemplate.opsForValue().set(registerEmail, activateCode);
-                //发送邮件
-                SendEmail.sendMail(registerEmail, activateCode, registerDeptName);
                 responseMap.put("status", "004");
                 responseMap.put("message", "success");
                 responseMap.put("info", "注册成功，请前往邮箱激活");

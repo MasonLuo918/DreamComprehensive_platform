@@ -32,4 +32,15 @@ public interface DepartmentService {
      * @return
      */
     Department login(String email, String password);
+
+    /**
+     * 插入一个department，并且在redis中存放验证信息，
+     * 发送邮件
+     * 使用事务，一个出错，就回滚
+     * @param department
+     * @param activateCode
+     * @return
+     * @throws Exception
+     */
+    int register(Department department, String activateCode) throws Exception;
 }
