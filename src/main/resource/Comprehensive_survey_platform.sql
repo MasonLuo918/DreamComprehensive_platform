@@ -11,7 +11,7 @@
  Target Server Version : 50725
  File Encoding         : utf-8
 
- Date: 08/01/2019 02:25:11 AM
+ Date: 08/04/2019 00:47:23 AM
 */
 
 SET NAMES utf8;
@@ -29,7 +29,7 @@ CREATE TABLE `activity` (
   `volun_time_doc_url` varchar(255) DEFAULT NULL COMMENT 'Voluntary time document url，志愿时文档url',
   `activity_score_doc_url` varchar(255) DEFAULT NULL COMMENT '活动分文档url',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Table structure for `activity_prove`
@@ -42,7 +42,7 @@ CREATE TABLE `activity_prove` (
   `stu_num` varchar(255) NOT NULL COMMENT '学号',
   `stu_name` varchar(20) NOT NULL COMMENT '学生姓名',
   `stu_class` varchar(255) DEFAULT NULL COMMENT '学生班级',
-  `activity_score` decimal(5,1) DEFAULT '0.0',
+  `type` int(1) NOT NULL DEFAULT '0' COMMENT '1 代表志愿时公示， 0 代表活动分，如果是1则volun_time_num不能为空，0的话必须为空',
   PRIMARY KEY (`id`),
   KEY `act_id_index` (`act_id`),
   KEY `stu_score_index` (`stu_num`)
@@ -61,7 +61,7 @@ CREATE TABLE `department` (
   `status` int(11) NOT NULL DEFAULT '0',
   `create_time` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Table structure for `section`

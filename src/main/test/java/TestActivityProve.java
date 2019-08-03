@@ -18,7 +18,6 @@ public class TestActivityProve extends AbstractJUnit4SpringContextTests {
     public void testInsert(){
         ActivityProve activityProve = new ActivityProve();
         activityProve.setActivityId(2);
-        activityProve.setActivityScore(2.0);
         activityProve.setStuClass("计算机一班");
         activityProve.setStuName("xxx");
         activityProve.setStuNum("201725010000");
