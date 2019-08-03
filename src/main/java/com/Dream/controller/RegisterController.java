@@ -41,7 +41,7 @@ public class RegisterController {
      * <p>
      * 然后后台进行验证，是否可以注册，然后返回一个jason字符串,如下：
      * {
-     * "status":0,
+     * "status":400,
      * "message":"success",
      * "info":"注册成?功，请前往邮箱激活",
      * "department":{
@@ -63,7 +63,7 @@ public class RegisterController {
      * @param validateCode
      * @return
      */
-    @RequestMapping("/department/doRegister")
+    @RequestMapping(value = "/department/doRegister",method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> register(@RequestBody Map<String, String> map,
                                         @SessionAttribute(value = "validateCode") String validateCode) throws Exception {

@@ -135,4 +135,12 @@ public class LoginController {
     private Map<String, Object> doSectionLogin(String account, String password){
         return null;
     }
+
+    @RequestMapping("/test")
+    @ResponseBody
+    public Map test(){
+        Map map = new HashMap();
+        map.put("test","success");
+        return map;
+    }
 }
