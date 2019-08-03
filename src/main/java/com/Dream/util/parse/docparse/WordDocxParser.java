@@ -64,7 +64,7 @@ public class WordDocxParser extends AbstractDocParser {
                     for (int j = 0; j < row.getTableCells().size(); j++) {
                         XWPFTableCell cell = row.getTableCells().get(j);
                         int type = indexToResult.get(j);
-                        setProperty(prove, cell.getText(), type);
+                        setProperty(prove, cell.getText().trim(), type);
                     }
                     list.add(prove);
                 }

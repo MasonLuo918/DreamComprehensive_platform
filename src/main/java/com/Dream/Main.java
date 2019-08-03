@@ -1,5 +1,6 @@
 package com.Dream;
 import com.Dream.entity.ActivityProve;
+import com.Dream.util.parse.docparse.WordDocParser;
 import com.Dream.util.parse.docparse.WordDocxParser;
 import org.apache.poi.hwpf.HWPFDocument;
 import org.apache.poi.hwpf.usermodel.*;
@@ -18,8 +19,8 @@ import java.util.regex.Pattern;
 public class Main {
 
     public static void main(String[] args){
-        WordDocxParser wordDocxParser = new WordDocxParser();
-        List<ActivityProve> list = wordDocxParser.getResult("/Users/belle/Desktop/doc/doc1.docx");
+        WordDocParser wordDocParser = new WordDocParser();
+        List<ActivityProve> list = wordDocParser.getResult("/Users/belle/Desktop/doc/doc5.doc");
         System.out.println(list);
     }
 
