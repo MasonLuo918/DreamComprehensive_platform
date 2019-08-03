@@ -9,10 +9,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Main {
     public static void main(String[] args){
-        LocalDate localDate = LocalDate.of(2017, 2,1);
-        System.out.println(localDate);
+        Map map = new HashMap();
     }
 }
