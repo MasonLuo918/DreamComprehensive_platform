@@ -313,6 +313,14 @@
       <version>3.2.12</version>
     </dependency>
 
+    <!-- 文档解析依赖类 -->
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi</artifactId>
+      <version>4.1.0</version>
+    </dependency>
+
+
 
   </dependencies>
 
