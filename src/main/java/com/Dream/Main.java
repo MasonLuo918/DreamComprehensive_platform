@@ -1,5 +1,6 @@
 package com.Dream;
 import com.Dream.entity.ActivityProve;
+import com.Dream.util.MD5Util;
 import com.Dream.util.parse.docparse.WordDocParser;
 import com.Dream.util.parse.docparse.WordDocxParser;
 import org.apache.poi.hwpf.HWPFDocument;
@@ -19,9 +20,7 @@ import java.util.regex.Pattern;
 public class Main {
 
     public static void main(String[] args){
-        WordDocParser wordDocParser = new WordDocParser();
-        List<ActivityProve> list = wordDocParser.getResult("/Users/belle/Desktop/doc/doc5.doc");
-        System.out.println(list);
+        System.out.println(MD5Util.getMD5("junquan..0918.."));
     }
 
     public static void setStuVolunTime(ActivityProve prove, String volunTime){

@@ -12,6 +12,7 @@
         <result property="college" column="college"/>
         <result property="status" column="status"/>
         <result property="createTime" column="create_time" typeHandler="com.Dream.typeHandler.LocalDateTypeHandler"/>
+        <!--<collection property="activities" select="com.Dream.dao.ActivityDao.selectByDepartmentIDOrSectionID" column="{departmentID=id}"/>-->
     </resultMap>
 
     <sql id="fields">

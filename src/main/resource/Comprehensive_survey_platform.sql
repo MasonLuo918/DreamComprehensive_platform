@@ -11,7 +11,7 @@
  Target Server Version : 50725
  File Encoding         : utf-8
 
- Date: 08/04/2019 00:47:23 AM
+ Date: 08/04/2019 21:23:34 PM
 */
 
 SET NAMES utf8;
@@ -28,6 +28,8 @@ CREATE TABLE `activity` (
   `material_url` varchar(255) DEFAULT NULL COMMENT '志愿时证明材料url',
   `volun_time_doc_url` varchar(255) DEFAULT NULL COMMENT 'Voluntary time document url，志愿时文档url',
   `activity_score_doc_url` varchar(255) DEFAULT NULL COMMENT '活动分文档url',
+  `department_id` int(11) NOT NULL COMMENT '活动所属组织的id',
+  `section_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
@@ -38,7 +40,7 @@ DROP TABLE IF EXISTS `activity_prove`;
 CREATE TABLE `activity_prove` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '志愿时id',
   `act_id` int(11) NOT NULL COMMENT '所属活动id',
-  `volun_time_num` decimal(5,1) DEFAULT '0.0' COMMENT '志愿时个数',
+  `volun_time_num` decimal(5,1) DEFAULT NULL COMMENT '志愿时个数',
   `stu_num` varchar(255) NOT NULL COMMENT '学号',
   `stu_name` varchar(20) NOT NULL COMMENT '学生姓名',
   `stu_class` varchar(255) DEFAULT NULL COMMENT '学生班级',

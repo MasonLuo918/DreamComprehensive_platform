@@ -6,7 +6,6 @@ public class ActivityProve {
     private Integer activityID;
 
     private Double volunTimeNum;
-
     // 1 代表志愿时，0代表活动分
     private Integer type;
 
