@@ -1,6 +1,7 @@
 package com.Dream.entity;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class Department {
     private Integer id;
@@ -18,11 +19,10 @@ public class Department {
 
     private LocalDate createTime;
 
+    private List<Activity> activities;
 
     public Department() {
-        createTime = LocalDate.now();
     }
-
 
     public Department(String email, String password, String deptName, String college, Integer status, LocalDate createTime) {
         this.email = email;
@@ -87,5 +87,13 @@ public class Department {
 
     public void setCreateTime(LocalDate createTime) {
         this.createTime = createTime;
+    }
+
+    public List<Activity> getActivities() {
+        return activities;
+    }
+
+    public void setActivities(List<Activity> activities) {
+        this.activities = activities;
     }
 }

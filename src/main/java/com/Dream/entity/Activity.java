@@ -4,9 +4,14 @@ package com.Dream.entity;
 import java.time.LocalDate;
 
 public class Activity {
+
     private Integer id;
 
     private String name;
+
+    private Integer departmentID;
+
+    private Integer sectionID;
 
     private LocalDate time;
 
@@ -15,6 +20,10 @@ public class Activity {
     private String volunTimeDocURL;
 
     private String activityScoreDocURL;
+
+    private Department department;
+
+    private Section section;
 
     public Integer getId() {
         return id;
@@ -63,5 +72,37 @@ public class Activity {
 
     public void setTime(LocalDate time) {
         this.time = time;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
+    public Integer getDepartmentID() {
+        return departmentID;
+    }
+
+    public void setDepartmentID(Integer departmentID) {
+        this.departmentID = departmentID;
+    }
+
+    public Section getSection() {
+        return section;
+    }
+
+    public void setSection(Section section) {
+        this.section = section;
+    }
+
+    public Integer getSectionID() {
+        return sectionID;
+    }
+
+    public void setSectionID(Integer sectionID) {
+        this.sectionID = sectionID;
     }
 }

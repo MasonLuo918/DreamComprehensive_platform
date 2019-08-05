@@ -39,4 +39,13 @@ public class TestDepartmentDao extends AbstractJUnit4SpringContextTests {
             departmentDao.delete(id);
         }
     }
+
+    @Test
+    public void test(){
+        Department department = new Department();
+        department.setEmail("1066812978@qq.com");
+        department.setPassword("69f3574f4f008accc1b31695e7551bb8");
+        Department department1 = departmentDao.selectOne(department);
+        System.out.println(department1);
+    }
 }

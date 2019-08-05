@@ -323,6 +323,25 @@
       <version>3.2.12</version>
     </dependency>
 
+    <!-- 文档解析依赖类 -->
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi</artifactId>
+      <version>3.9</version>
+    </dependency>
+      <dependency>
+          <groupId>org.apache.poi</groupId>
+          <artifactId>poi-ooxml</artifactId>
+          <version>3.9</version>
+      </dependency>
+      <dependency>
+          <groupId>org.apache.poi</groupId>
+          <artifactId>poi-scratchpad</artifactId>
+          <version>3.9</version>
+      </dependency>
+
+
+
 
   </dependencies>
 
