@@ -12,6 +12,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.nio.Buffer;
 import java.util.HashMap;
 
 public class QRCode {
@@ -26,12 +27,23 @@ public class QRCode {
         String content="http://www.baidu.com";
         //二维码的参数
         HashMap hints =new HashMap();
+        //二维码内容编码
         hints.put(EncodeHintType.CHARACTER_SET,"UTF-8");
+        //设置纠错等级
         hints.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.M);
+        //设置边距
         hints.put(EncodeHintType.MARGIN,2);
+        BitMatrix bitMatrix=null;
         try{
-            BitMatrix bitMatrix=new MultiFormatWriter().encode(content, BarcodeFormat.QR_CODE,width,height,hints);
-            MatrixToImageWriter.writeToStream(bitMatrix,format,outputStream);
+            bitMatrix=new MultiFormatWriter().encode(content, BarcodeFormat.QR_CODE,width,height,hints);
+            BufferedImage image=MatrixToImageWriter.toBufferedImage(bitMatrix);
+            //输出二维码图片流
+            try{
+                ImageIO.write(image,format,outputStream);
+            }catch(IOException e){
+                e.printStackTrace();
+            }
+            //MatrixToImageWriter.writeToStream(bitMatrix,format,outputStream);
         }catch(Exception e){
             e.printStackTrace();
         }
