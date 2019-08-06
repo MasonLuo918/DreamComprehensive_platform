@@ -205,6 +205,7 @@ public class RegisterController {
     /**
      * 判断邮箱是否输入正确
      */
+    @RequestMapping("/department/checkEmail")
     @ResponseBody
     public Map<String,Object> checkEmail(@RequestParam("email") String email){
         Map<String,Object> resultMap=new HashMap<>();
@@ -226,6 +227,7 @@ public class RegisterController {
     /**
      * 查看组织是否存在
      */
+    @RequestMapping("/department/checkSection")
     @ResponseBody
     public Map<String,Object> checkSection(@RequestParam("deptName") String deptName,@RequestParam("college") String college){
        Map<String,Object> resultMap=new HashMap<>();
