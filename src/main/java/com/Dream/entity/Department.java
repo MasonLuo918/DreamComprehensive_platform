@@ -19,20 +19,6 @@ public class Department {
 
     private LocalDate createTime;
 
-    private List<Activity> activities;
-
-    public Department() {
-    }
-
-    public Department(String email, String password, String deptName, String college, Integer status, LocalDate createTime) {
-        this.email = email;
-        this.password = password;
-        this.deptName = deptName;
-        this.college = college;
-        this.status = status;
-        this.createTime = createTime;
-    }
-
     public Integer getId() {
         return id;
     }
@@ -57,20 +43,20 @@ public class Department {
         this.password = password;
     }
 
-    public String getCollege() {
-        return college;
-    }
-
-    public void setCollege(String college) {
-        this.college = college;
-    }
-
     public String getDeptName() {
         return deptName;
     }
 
     public void setDeptName(String deptName) {
         this.deptName = deptName;
+    }
+
+    public String getCollege() {
+        return college;
+    }
+
+    public void setCollege(String college) {
+        this.college = college;
     }
 
     public Integer getStatus() {
@@ -87,13 +73,5 @@ public class Department {
 
     public void setCreateTime(LocalDate createTime) {
         this.createTime = createTime;
-    }
-
-    public List<Activity> getActivities() {
-        return activities;
-    }
-
-    public void setActivities(List<Activity> activities) {
-        this.activities = activities;
     }
 }

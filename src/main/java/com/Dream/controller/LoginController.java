@@ -1,9 +1,8 @@
 package com.Dream.controller;
 
 import com.Dream.entity.Department;
-import com.Dream.entity.UserType;
+import com.Dream.entity.type.UserType;
 import com.Dream.service.DepartmentService;
-import com.Dream.util.MD5Util;
 import com.Dream.util.ParamUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

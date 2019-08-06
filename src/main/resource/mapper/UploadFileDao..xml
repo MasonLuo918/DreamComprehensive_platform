@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.Dream.dao.UploadFileDao">
+    <resultMap id="uploadFileMap" type="uploadFile">
+        <id column="uuid" property="uuid"/>
+        <result property="name" column="name"/>
+        <result property="path" column="path"/>
+    </resultMap>
+
+    <insert id="insert" parameterType="uploadFile">
+        INSERT INTO upload_file(uuid, path, name)
+        VALUES(#{uuid}, #{path}, #{name})
+    </insert>
+
+    <delete id="delete" parameterType="string">
+        DELETE FROM upload_file
+        WHERE uuid=#{id}
+    </delete>
+
+    <select id="select" parameterType="string" resultMap="uploadFileMap">
+        SELECT uuid, name, path
+        FROM upload_file
+        where uuid = #{uuid}
+    </select>
+</mapper>

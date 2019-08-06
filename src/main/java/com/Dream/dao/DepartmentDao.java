@@ -34,5 +34,4 @@ public interface DepartmentDao extends BaseDao<Department> {
      * @return
      */
     int deleteByEmail(String email);
-
 }

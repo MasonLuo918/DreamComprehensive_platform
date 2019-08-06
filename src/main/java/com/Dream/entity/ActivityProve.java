@@ -5,7 +5,9 @@ public class ActivityProve {
 
     private Integer activityID;
 
+    // 当type为0时，这个属性为null
     private Double volunTimeNum;
+
     // 1 代表志愿时，0代表活动分
     private Integer type;
 
@@ -15,6 +17,7 @@ public class ActivityProve {
 
     private String stuName;
 
+    // 所属活动
     private Activity activity;
 
     public Integer getId() {

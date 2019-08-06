@@ -1,6 +1,7 @@
 package com.Dream.entity;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class Section {
     private Integer id;
@@ -13,19 +14,15 @@ public class Section {
 
     private String password;
 
-    private Department department;
-
     private LocalDate createTime;
 
     private Integer status;
 
-    public LocalDate getCreateTime() {
-        return createTime;
-    }
+    // 该部门所属组织
+    private Department department;
 
-    public void setCreateTime(LocalDate createTime) {
-        this.createTime = createTime;
-    }
+    // 该部门的所有活动
+    private List<Activity> activities;
 
     public Integer getId() {
         return id;
@@ -67,12 +64,12 @@ public class Section {
         this.password = password;
     }
 
-    public Department getDepartment() {
-        return department;
+    public LocalDate getCreateTime() {
+        return createTime;
     }
 
-    public void setDepartment(Department department) {
-        this.department = department;
+    public void setCreateTime(LocalDate createTime) {
+        this.createTime = createTime;
     }
 
     public Integer getStatus() {
@@ -81,5 +78,21 @@ public class Section {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
+    public List<Activity> getActivities() {
+        return activities;
+    }
+
+    public void setActivities(List<Activity> activities) {
+        this.activities = activities;
     }
 }

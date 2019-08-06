@@ -2,7 +2,7 @@ package com.Dream.util;
 
 import com.Dream.entity.Department;
 import com.Dream.entity.Section;
-import com.Dream.entity.UserType;
+import com.Dream.entity.type.UserType;
 
 public class ParamUtil {
     public static boolean hasNull(Object ... args){
