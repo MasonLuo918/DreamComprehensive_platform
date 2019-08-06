@@ -139,4 +139,8 @@
         <include refid="activityProveSelect"/>
         WHERE stu_name like concat('%', #{stuName},'%')
     </select>
+    <select id="selectByStuNum" resultMap="activityProveMap" parameterType="string">
+        <include refid="activityProveSelect"/>
+        WHERE stu_num like concat('%',#{stuNum},'%')
+    </select>
 </mapper>

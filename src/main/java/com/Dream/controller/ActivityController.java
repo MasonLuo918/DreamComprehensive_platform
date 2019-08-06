@@ -11,7 +11,6 @@ import com.Dream.service.UploadFileService;
 import com.Dream.util.ParamUtil;
 import com.Dream.util.UUIDUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -41,6 +40,9 @@ public class ActivityController {
     @Autowired
     private UploadFileListService uploadFileListService;
 
+    @Autowired
+    private ActivityProveParser parser;
+
     private final String TIME_PATTERN = "yyyy-MM-dd";
 
     /**
@@ -62,6 +64,7 @@ public class ActivityController {
                                               @RequestParam("material") MultipartFile material,
                                               @RequestParam(value = "volun_doc", required = false) MultipartFile volunDoc,
                                               @RequestParam(value = "act_doc", required = false) MultipartFile actDoc) throws IOException {
+        List<UploadFile> parseDocList = new ArrayList<>();
         Map<String, Object> resultMap = new HashMap<>();
         if(ParamUtil.hasNull(actDoc, time)){
             resultMap.put("status","002");
@@ -106,17 +109,21 @@ public class ActivityController {
             String key = entry.getKey();
             UploadFile value = entry.getValue();
             if (key.equals("material")) {
-                activity.setMaterial(value.getUuid());
-            }
-            if (key.equals("volunteerTime")) {
-                activity.setVolunteerTime(value.getUuid());
-            }
-            if (key.equals("activityProve")) {
-                activity.setActivityProve(value.getUuid());
+                parser.setZipFile(value);
+            }else{
+                parseDocList.add(value);
+                if (key.equals("volunteerTime")) {
+                    activity.setVolunteerTime(value.getUuid());
+                }
+                if (key.equals("activityProve")) {
+                    activity.setActivityProve(value.getUuid());
+                }
             }
         }
+        parser.setDocList(parseDocList);
         // 数据库插入操作
         int activityCount = activityService.insert(activity);
+        parser.setActivityID(activity.getId());
         int FileUploadCount = uploadFileListService.insertMap(uploadFileMap);
         Map<String, Object> activityMap = new HashMap<>();
         activityMap.put("id", 7);
@@ -127,6 +134,11 @@ public class ActivityController {
         resultMap.put("status", "200");
         resultMap.put("activity", activityMap);
         resultMap.put("uploadFile",uploadFileMap);
+        /**
+         *  开启一个线程，进行异步处理
+         */
+        Thread thread = new Thread(parser);
+        thread.start();
         return resultMap;
     }
 
@@ -143,7 +155,7 @@ public class ActivityController {
         uploadFile.setUuid(UUIDUtils.getUUID());
         uploadFile.setName(fileName);
         // 将文件名重新命名为原名+uuid
-        File destFile = new File(parentPath, uploadFile.getUuid() + fileName);
+        File destFile = new File(parentPath, uploadFile.getUuid() + " "  + fileName);
         if (!destFile.getParentFile().exists()) {
             destFile.getParentFile().mkdirs();
         }

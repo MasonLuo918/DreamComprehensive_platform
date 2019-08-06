@@ -247,6 +247,6 @@ public class ZipUtils {
     }
 
     public static void main(String[] args) throws Exception {
-        decompress("/Users/belle/Desktop/material.zip");
+        decompress("/Users/belle/Desktop/归档.zip");
     }
 }

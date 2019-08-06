@@ -24,4 +24,17 @@
         FROM upload_file
         where uuid = #{uuid}
     </select>
+
+    <update id="update" parameterType="uploadFile">
+        UPDATE upload_file
+        <set>
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="path != null and path != ''">
+                path = #{path},
+            </if>
+        </set>
+        where uuid = #{uuid}
+    </update>
 </mapper>

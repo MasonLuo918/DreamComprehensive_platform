@@ -2,6 +2,7 @@ package com.Dream.util.parse.docparse;
 
 import com.Dream.entity.ActivityProve;
 
+import java.io.File;
 import java.util.List;
 
 public interface DocParser {
@@ -19,5 +20,5 @@ public interface DocParser {
      * 1代表志愿时，0代表活动分
      * @return
      */
-    List<ActivityProve> getResult(String filePath);
+    List<ActivityProve> getResult(String filePath, Integer activityID);
 }

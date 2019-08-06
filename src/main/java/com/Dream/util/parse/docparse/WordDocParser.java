@@ -64,13 +64,14 @@ public class WordDocParser extends AbstractDocParser {
     }
 
     @Override
-    public List<ActivityProve> getResult(String filePath) {
+    public List<ActivityProve> getResult(String filePath, Integer activityID) {
         try {
             loadFile(filePath);
             List<ActivityProve> list = new ArrayList<>();
             for (int i = 1; i < table.numRows(); i++) {
                 TableRow row = table.getRow(i);
                 ActivityProve prove = new ActivityProve();
+                prove.setActivityId(activityID);
                 prove.setType(dType);
                 for (int j = 0; j < row.numCells(); j++) {
                     TableCell cell = row.getCell(j);

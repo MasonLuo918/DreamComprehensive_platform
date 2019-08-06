@@ -52,7 +52,7 @@ public class WordDocxParser extends AbstractDocParser {
     }
 
     @Override
-    public List<ActivityProve> getResult(String filePath) {
+    public List<ActivityProve> getResult(String filePath, Integer activityID) {
         List<ActivityProve> list = new ArrayList<>();
         try {
             loadFile(filePath);
@@ -60,6 +60,7 @@ public class WordDocxParser extends AbstractDocParser {
                 for (int i = 1; i < rows.size(); i++) {
                     XWPFTableRow row = rows.get(i);
                     ActivityProve prove = new ActivityProve();
+                    prove.setActivityId(activityID);
                     prove.setType(dType);
                     for (int j = 0; j < row.getTableCells().size(); j++) {
                         XWPFTableCell cell = row.getTableCells().get(j);

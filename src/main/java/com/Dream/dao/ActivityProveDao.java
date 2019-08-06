@@ -12,5 +12,7 @@ public interface ActivityProveDao extends BaseDao<ActivityProve> {
 
     List<ActivityProve> selectByStuName(String stuName);
 
+    List<ActivityProve> selectByStuNum(String stuNum);
+
     int deleteByActivityId(Integer activityId);
 }
