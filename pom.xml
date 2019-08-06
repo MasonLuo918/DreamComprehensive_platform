@@ -329,6 +329,12 @@
           <artifactId>poi-scratchpad</artifactId>
           <version>3.9</version>
       </dependency>
+    <!-- unrar-->
+    <dependency>
+      <groupId>com.github.junrar</groupId>
+      <artifactId>junrar</artifactId>
+      <version>4.0.0</version>
+    </dependency>
 
 
 
