@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.faces.annotation.RequestMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
@@ -64,7 +65,9 @@ public class ActivityController {
                                               @RequestParam("material") MultipartFile material,
                                               @RequestParam(value = "volun_doc", required = false) MultipartFile volunDoc,
                                               @RequestParam(value = "act_doc", required = false) MultipartFile actDoc) throws IOException {
+        // 传入解析的list
         List<UploadFile> parseDocList = new ArrayList<>();
+        // 返回jason数据
         Map<String, Object> resultMap = new HashMap<>();
         if(ParamUtil.hasNull(actDoc, time)){
             resultMap.put("status","002");
@@ -140,6 +143,63 @@ public class ActivityController {
         Thread thread = new Thread(parser);
         thread.start();
         return resultMap;
+    }
+
+
+    /**
+     * 新建一个活动（不需要上传活动材料）
+     * @param session 当前会话
+     * @param activityName
+     * @param time
+     * @param departmentID
+     * @param sectionID
+     * @return
+     */
+    @RequestMapping("/new")
+    public Map<String, Object> newActivity(HttpSession session, @RequestParam("activity_name") String activityName,
+                                           @RequestParam("time") String time,
+                                           @RequestParam("department_id") Integer departmentID,
+                                           @RequestParam(value = "section_id", required = false) Integer sectionID) {
+        Map<String, Object> resultMap = new HashMap<>();
+        if(!sameUser(session, departmentID, sectionID)){
+            resultMap.put("status", "201");
+            resultMap.put("message","不是同一个用户");
+            session.removeAttribute("user");
+            return resultMap;
+        }
+
+        Activity activity = getNewActivity(time, activityName, session.getAttribute("user"));
+        int count = activityService.insert(activity);
+        if(count != 0){
+            resultMap.put("status", "200");
+            resultMap.put("activity", activity);
+            return resultMap;
+        }else{
+            resultMap.put("status", "000");
+            return resultMap;
+        }
+    }
+
+
+    public boolean sameUser(HttpSession session, Integer departmentID, Integer sectionID){
+        Object user = session.getAttribute("user");
+        if(user != null){
+            if(user instanceof Department){
+                Department department = (Department) user;
+                if(departmentID == null || !department.getId().equals(departmentID)){
+                    return false;
+                }
+            }
+            if(user instanceof Section){
+                Section section = (Section) user;
+                if(departmentID == null || sectionID == null || !section.getDepartmentID().equals(departmentID) ||
+                        !section.getId().equals(sectionID)){
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -256,4 +316,5 @@ public class ActivityController {
     public Activity getNewActivity(String time, String activityName, Object user) {
         return getNewActivity(time, activityName, user, null, null, null);
     }
+
 }
