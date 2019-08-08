@@ -19,7 +19,7 @@
         WHERE uuid=#{id}
     </delete>
 
-    <select id="select" parameterType="string" resultMap="uploadFileMap">
+    <select id="selectByUuid" parameterType="string" resultMap="uploadFileMap">
         SELECT uuid, name, path
         FROM upload_file
         where uuid = #{uuid}

@@ -1,7 +1,10 @@
+import com.Dream.dao.ActivityDao;
 import com.Dream.dao.DepartmentDao;
 import com.Dream.dao.SectionDao;
+import com.Dream.entity.Activity;
 import com.Dream.entity.Department;
 import com.Dream.entity.Section;
+import org.apache.ibatis.session.RowBounds;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -19,6 +22,9 @@ public class TestDao extends AbstractJUnit4SpringContextTests {
 
     @Autowired
     private SectionDao sectionDao;
+
+    @Autowired
+    private ActivityDao activityDao;
 
     @Test
     public void testDepartmentDaoUpdate(){
@@ -54,7 +60,14 @@ public class TestDao extends AbstractJUnit4SpringContextTests {
         System.out.println();
     }
 
+    @Test
+    public void testActivitySelect(){
+        List<Activity> lists= activityDao.selectByRegisterID(1,null);
 
+        RowBounds rowBounds = new RowBounds(0,10);
+        List<Activity> listsForRowBoundsFor = activityDao.selectByRegisterIDForRowBounds(1,null,rowBounds);
+        System.out.println();
+    }
 
     public Department getTestDepartment(int i){
         Department temp = new Department();

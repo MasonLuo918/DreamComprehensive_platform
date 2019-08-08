@@ -1,5 +1,6 @@
 package com.Dream.controller;
 
+import com.Dream.bean.Image;
 import com.Dream.entity.Activity;
 import com.Dream.entity.Department;
 import com.Dream.entity.Section;
@@ -8,19 +9,19 @@ import com.Dream.entity.type.FileType;
 import com.Dream.service.ActivityService;
 import com.Dream.service.UploadFileListService;
 import com.Dream.service.UploadFileService;
+import com.Dream.util.GetFileList;
 import com.Dream.util.ParamUtil;
 import com.Dream.util.UUIDUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import sun.misc.BASE64Encoder;
 
 import javax.faces.annotation.RequestMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.ws.rs.Path;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -45,7 +46,6 @@ public class ActivityController {
     private ActivityProveParser parser;
 
     private final String TIME_PATTERN = "yyyy-MM-dd";
-
     /**
      * 上传活动证明材料，同时会新建一个活动证明
      * @param request http请求，获取当前会话
@@ -138,48 +138,120 @@ public class ActivityController {
         resultMap.put("activity", activityMap);
         resultMap.put("uploadFile",uploadFileMap);
         /**
-         *  开启一个线程，进行异步处理
+         *  开启一个线程，进行异步处理（在高并发环境下会有风险）
+         *  (也可以利用切面编程解决)
          */
         Thread thread = new Thread(parser);
         thread.start();
         return resultMap;
     }
 
-
     /**
-     * 新建一个活动（不需要上传活动材料）
-     * @param session 当前会话
-     * @param activityName
-     * @param time
-     * @param departmentID
-     * @param sectionID
+     * 获取一个部门或者一个组织的所有活动
+     * 使用Restful api 请求格式，向一个url发送请求：
+     * /admin/activity/getAllActivity/1/10
+     * 其中，上面的1代表第几页，size代表每一页的条数
+     * @param page 第几页
+     * @param size 每一页的条数
      * @return
+     * {
+     *     "status":"200",
+     *     "activity":[
+     *          {
+     *              "id":"",
+     *              "name":"",
+     *              "time":"",
+     *              "material":"",
+     *              "volunteer_time":"",
+     *              "activity_prove":"",
+     *              "department_id":"",
+     *              "section_id":""
+     *          },...
+     *     ]
+     * }
+     *
+     * {
+     *     "status":"002",
+     *     "message":"传送参数丢失"
+     * }
+     *
+     * {
+     *     "status":"403",
+     *     "message:"用户未登录"
+     * }
      */
-    @RequestMapping("/new")
-    public Map<String, Object> newActivity(HttpSession session, @RequestParam("activity_name") String activityName,
-                                           @RequestParam("time") String time,
-                                           @RequestParam("department_id") Integer departmentID,
-                                           @RequestParam(value = "section_id", required = false) Integer sectionID) {
+    @RequestMapping("getAllActivity/{page}/{size}")
+    @ResponseBody
+    public Map<String, Object> getAllActivity(HttpSession session, @PathVariable("page") int page, @PathVariable(value = "size") int size){
         Map<String, Object> resultMap = new HashMap<>();
-        if(!sameUser(session, departmentID, sectionID)){
-            resultMap.put("status", "201");
-            resultMap.put("message","不是同一个用户");
-            session.removeAttribute("user");
-            return resultMap;
+        Integer departmentID = null;
+        Integer sectionID = null;
+        Object user = session.getAttribute("user");
+        if(user instanceof Department){
+            Department department = (Department) user;
+            departmentID = department.getId();
+        }else if(user instanceof Section){
+            Section section = (Section) user;
+            departmentID = section.getDepartmentID();
+            sectionID = section.getId();
         }
-
-        Activity activity = getNewActivity(time, activityName, session.getAttribute("user"));
-        int count = activityService.insert(activity);
-        if(count != 0){
-            resultMap.put("status", "200");
-            resultMap.put("activity", activity);
-            return resultMap;
+        int activityCount = activityService.activityCount(departmentID, sectionID);
+        List<Activity> list = activityService.findByRegisterID(departmentID, sectionID, page, size);
+        resultMap.put("status","200");
+        resultMap.put("activities",list);
+        resultMap.put("page",page);
+        resultMap.put("size",size);
+        boolean hasNextPage = false;
+        if(activityCount > (page - 1) * size + list.size()){
+            hasNextPage = true;
         }else{
-            resultMap.put("status", "000");
-            return resultMap;
+            hasNextPage = false;
         }
+        resultMap.put("has_next_page",hasNextPage);
+        return resultMap;
     }
 
+    /**
+     * 返回对应uuid的文件里面的所有图片,以base64串进行返回
+     * 请求参数:
+     * {
+     *     "uuid":"..."
+     * }
+     * 返回:
+     * {
+     *      "status":"",
+     *      "images":[
+     *          {"base64Str":"", "contentType":""},
+     *          {"base64Str":"", "contentType":""},
+     *          {"base64Str":"", "contentType":""}
+     *      ]
+     * }
+     * @param requestMap
+     * @return
+     */
+    @RequestMapping("/getZipContent") // 可以利用aop检查一下是否请求的文件uuid是该会话用户的，还有文档类型
+    @ResponseBody
+    public Map<String, Object> getZipFileContent(@RequestBody Map<String, Object> requestMap){
+        String uuid = (String)requestMap.get("uuid");
+        Map<String, Object> resultMap = new HashMap<>();
+        if(uuid == null){
+            return paramLost();
+        }
+        List<String> photoList = new ArrayList<>();
+        UploadFile file = uploadFileService.findByUuid(uuid);
+        if(file == null){
+            resultMap.put("status","201");
+            resultMap.put("message","uuid错误，文件不存在");
+        }
+        String[] paths = file.getPath().split(";");
+        String path = paths[1];
+        // 获取一个解析类
+        GetFileList getFileList = new GetFileList();
+        List<Image> base64List = getFileList.parseFile(path);
+        resultMap.put("status","200");
+        resultMap.put("images", base64List);
+        return resultMap;
+    }
 
     public boolean sameUser(HttpSession session, Integer departmentID, Integer sectionID){
         Object user = session.getAttribute("user");
@@ -317,4 +389,10 @@ public class ActivityController {
         return getNewActivity(time, activityName, user, null, null, null);
     }
 
+    public Map<String, Object> paramLost(){
+        Map<String, Object> map = new HashMap<>();
+        map.put("status","002");
+        map.put("message","请求参数丢失");
+        return map;
+    }
 }

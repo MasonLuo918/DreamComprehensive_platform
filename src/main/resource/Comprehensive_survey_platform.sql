@@ -11,7 +11,7 @@
  Target Server Version : 50725
  File Encoding         : utf-8
 
- Date: 08/04/2019 21:23:34 PM
+ Date: 08/09/2019 07:03:39 AM
 */
 
 SET NAMES utf8;
@@ -25,13 +25,13 @@ CREATE TABLE `activity` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '活动id',
   `name` varchar(255) NOT NULL COMMENT '活动名称',
   `time` date NOT NULL COMMENT '活动时间',
-  `material_url` varchar(255) DEFAULT NULL COMMENT '志愿时证明材料url',
-  `volun_time_doc_url` varchar(255) DEFAULT NULL COMMENT 'Voluntary time document url，志愿时文档url',
-  `activity_score_doc_url` varchar(255) DEFAULT NULL COMMENT '活动分文档url',
+  `material` varchar(255) DEFAULT NULL COMMENT '志愿时证明材料文件uuid',
+  `volunteer_time` varchar(255) DEFAULT NULL COMMENT '志愿时证明文档uuid',
+  `activity_prove` varchar(255) DEFAULT NULL COMMENT '活动证明文档uuid',
   `department_id` int(11) NOT NULL COMMENT '活动所属组织的id',
   `section_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=99 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Table structure for `activity_prove`
@@ -48,7 +48,7 @@ CREATE TABLE `activity_prove` (
   PRIMARY KEY (`id`),
   KEY `act_id_index` (`act_id`),
   KEY `stu_score_index` (`stu_num`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=256 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Table structure for `department`
@@ -63,7 +63,7 @@ CREATE TABLE `department` (
   `status` int(11) NOT NULL DEFAULT '0',
   `create_time` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Table structure for `section`
@@ -80,5 +80,27 @@ CREATE TABLE `section` (
   PRIMARY KEY (`id`),
   KEY `account_index` (`account`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='各大组织下属部门的数据表';
+
+-- ----------------------------
+--  Table structure for `t_role`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_role`;
+CREATE TABLE `t_role` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `role_name` varchar(255) DEFAULT NULL,
+  `note` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Table structure for `upload_file`
+-- ----------------------------
+DROP TABLE IF EXISTS `upload_file`;
+CREATE TABLE `upload_file` (
+  `uuid` varchar(255) NOT NULL,
+  `path` text NOT NULL,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`uuid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 SET FOREIGN_KEY_CHECKS = 1;

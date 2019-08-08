@@ -36,14 +36,17 @@
 
     <!-- 拦截器 -->
     <mvc:interceptors>
-        <mvc:interceptor>
-            <mvc:mapping path="/admin/**"/>
-            <bean class="com.Dream.interceptor.LoginInterceptor"/>
-        </mvc:interceptor>
+        <!--<mvc:interceptor>-->
+            <!--<mvc:mapping path="/admin/**"/>-->
+            <!--<bean class="com.Dream.interceptor.LoginInterceptor"/>-->
+        <!--</mvc:interceptor>-->
         <mvc:interceptor>
             <mvc:mapping path="/admin/activity/upload"/>
             <bean class="com.Dream.interceptor.FileUploadInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
+    <mvc:cors>
+        <mvc:mapping path="/**/"/>
+    </mvc:cors>
 
 </beans>

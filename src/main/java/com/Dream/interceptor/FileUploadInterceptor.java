@@ -79,7 +79,7 @@ public class FileUploadInterceptor implements HandlerInterceptor {
         }
         String fileName = file.getOriginalFilename();
         int start = fileName.lastIndexOf(".") + 1;
-        int end = fileName.length() - 1;
+        int end = fileName.length();
         String suffix = fileName.substring(start, end);
         for (String type : types) {
             if (suffix.equals(type)) {

@@ -9,6 +9,7 @@ import com.Dream.util.parse.docparse.DocParser;
 import com.Dream.util.parse.docparse.WordDocParser;
 import com.Dream.util.parse.docparse.WordDocxParser;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
+@Scope("prototype")  //每次都创建一个示例
 public class ActivityProveParser implements Runnable{
 
     private UploadFile zipFile;

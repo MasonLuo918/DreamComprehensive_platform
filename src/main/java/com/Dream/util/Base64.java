@@ -7,6 +7,10 @@ import java.io.*;
 
 public class Base64 {
     public static String getImageStr(String imgFile){
+        return getImageStr(new File(imgFile));
+    }
+
+    public static String getImageStr(File imgFile){
         InputStream inputStream = null;
         byte[] data = null;
         try{
@@ -43,8 +47,9 @@ public class Base64 {
             return false;
         }
     }
+
     public static void main(String[] args){
-        String str = getImageStr("/Users/belle/Desktop/综测平台/images/登录页/u0.jpg");
-        generateImage(str, "image.jpg");
+        String str = getImageStr("/Users/belle/Desktop/material/u407.jpg");
+        System.out.println(str.length());
     }
 }

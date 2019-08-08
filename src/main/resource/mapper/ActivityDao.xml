@@ -131,7 +131,7 @@
         </where>
     </select>
 
-    <select id="selectByDepartmentIDOrSectionID" resultMap="activityMap">
+    <select id="selectByRegisterID" resultMap="activityMap">
         <include refid="activitySelect"/>
         where
         department_id = #{departmentID}
@@ -139,4 +139,24 @@
             and section_id = sectionID
         </if>
     </select>
+
+    <select id="selectByRegisterIDForRowBounds" resultMap="activityMap">
+        <include refid="activitySelect"/>
+        where
+        department_id = #{departmentID}
+        <if test="sectionID != null">
+            and section_id = sectionID
+        </if>
+    </select>
+
+    <select id="count" resultType="int">
+        select count(id)
+        from activity
+        where
+        department_id = #{departmentID}
+        <if test="sectionID != null">
+            and section_id = sectionID
+        </if>
+    </select>
+
 </mapper>
