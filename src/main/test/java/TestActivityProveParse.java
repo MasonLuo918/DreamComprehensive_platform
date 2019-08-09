@@ -1,4 +1,4 @@
-import com.Dream.controller.ActivityProveParser;
+import com.Dream.service.ActivityProveParser;
 import com.Dream.entity.UploadFile;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +16,5 @@ public class TestActivityProveParse extends AbstractJUnit4SpringContextTests {
         uploadFile.setUuid("e18b49d14e26433fb2e7d73ef2556711");
         uploadFile.setPath("/Users/belle/Documents/MasonLuo/Idea/DreamComprehensive_platform/target/Dream.Comprehensive_platform/upload/college/depatNdaf/2019/09/22/material/e18b49d14e26433fb2e7d73ef2556711material.zip");
         uploadFile.setName("material.zip");
-        activityProveParser.decompress(uploadFile);
     }
 }

@@ -1,27 +1,22 @@
 package com.Dream.controller;
 
-import com.Dream.bean.Image;
 import com.Dream.entity.Activity;
 import com.Dream.entity.Department;
 import com.Dream.entity.Section;
 import com.Dream.entity.UploadFile;
 import com.Dream.entity.type.FileType;
+import com.Dream.service.ActivityProveParser;
 import com.Dream.service.ActivityService;
 import com.Dream.service.UploadFileListService;
 import com.Dream.service.UploadFileService;
-import com.Dream.util.GetFileList;
 import com.Dream.util.ParamUtil;
-import com.Dream.util.UUIDUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import sun.misc.BASE64Encoder;
 
-import javax.faces.annotation.RequestMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import javax.ws.rs.Path;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -65,8 +60,6 @@ public class ActivityController {
                                               @RequestParam("material") MultipartFile material,
                                               @RequestParam(value = "volun_doc", required = false) MultipartFile volunDoc,
                                               @RequestParam(value = "act_doc", required = false) MultipartFile actDoc) throws IOException {
-        // 传入解析的list
-        List<UploadFile> parseDocList = new ArrayList<>();
         // 返回jason数据
         Map<String, Object> resultMap = new HashMap<>();
         if(ParamUtil.hasNull(actDoc, time)){
@@ -79,70 +72,40 @@ public class ActivityController {
             return resultMap;
         }
         Object user = request.getSession().getAttribute("user");
-        Activity activity = null;
+
+        // 创建一个活动，并插入数据库，获得活动id
+        Activity activity = getNewActivity(time, activityName, user);
+        activityService.insert(activity);
+
         // 获取上下文路径以及构造文件上传的路径
         String contextPath = request.getSession().getServletContext().getRealPath("upload");
         String parentPath;
-        // 用来存放上传文件的pojo
-        Map<String, UploadFile> uploadFileMap = new HashMap<>();
         UploadFile file = null;
         if (material != null) {
             parentPath = getParentPath(contextPath, request, time, FileType.MATERIAL);
-            file = uploadSimpleFile(parentPath, material);
+            file = uploadFileService.uploadSimpleFile(parentPath, material, activity.getId());
             if (file != null) {
-                uploadFileMap.put("material", file);
+                activity.setMaterial(file.getUuid());
             }
         }
         if (volunDoc != null) {
             parentPath = getParentPath(contextPath, request, time, FileType.VOLUNTEER_DOC);
-            file = uploadSimpleFile(parentPath, volunDoc);
+            file = uploadFileService.uploadSimpleFile(parentPath, volunDoc, activity.getId());
             if (file != null) {
-                uploadFileMap.put("volunteerTime", file);
+                activity.setVolunteerTime(file.getUuid());
             }
         }
         if (actDoc != null) {
             parentPath = getParentPath(contextPath, request, time, FileType.ACTIVITY_PROVE_DOC);
-            file = uploadSimpleFile(parentPath, actDoc);
+            file = uploadFileService.uploadSimpleFile(parentPath, actDoc, activity.getId());
             if (file != null) {
-                uploadFileMap.put("activityProve", file);
+                activity.setActivityProve(file.getUuid());
             }
         }
-        activity = getNewActivity(time, activityName, user);
-        for (Map.Entry<String, UploadFile> entry : uploadFileMap.entrySet()) {
-            String key = entry.getKey();
-            UploadFile value = entry.getValue();
-            if (key.equals("material")) {
-                parser.setZipFile(value);
-            }else{
-                parseDocList.add(value);
-                if (key.equals("volunteerTime")) {
-                    activity.setVolunteerTime(value.getUuid());
-                }
-                if (key.equals("activityProve")) {
-                    activity.setActivityProve(value.getUuid());
-                }
-            }
-        }
-        parser.setDocList(parseDocList);
-        // 数据库插入操作
-        int activityCount = activityService.insert(activity);
-        parser.setActivityID(activity.getId());
-        int FileUploadCount = uploadFileListService.insertMap(uploadFileMap);
-        Map<String, Object> activityMap = new HashMap<>();
-        activityMap.put("id", 7);
-        activityMap.put("name", activity.getName());
-        activityMap.put("time",activity.getTime().toString());
-        activityMap.put("departmentID", activity.getDepartmentID());
-        activityMap.put("sectionID", activity.getSectionID());
+        // 更新一遍活动
+        activityService.update(activity);
         resultMap.put("status", "200");
-        resultMap.put("activity", activityMap);
-        resultMap.put("uploadFile",uploadFileMap);
-        /**
-         *  开启一个线程，进行异步处理（在高并发环境下会有风险）
-         *  (也可以利用切面编程解决)
-         */
-        Thread thread = new Thread(parser);
-        thread.start();
+        resultMap.put("activity", activity);
         return resultMap;
     }
 
@@ -211,47 +174,6 @@ public class ActivityController {
         return resultMap;
     }
 
-    /**
-     * 返回对应uuid的文件里面的所有图片,以base64串进行返回
-     * 请求参数:
-     * {
-     *     "uuid":"..."
-     * }
-     * 返回:
-     * {
-     *      "status":"",
-     *      "images":[
-     *          {"base64Str":"", "contentType":""},
-     *          {"base64Str":"", "contentType":""},
-     *          {"base64Str":"", "contentType":""}
-     *      ]
-     * }
-     * @param requestMap
-     * @return
-     */
-    @RequestMapping("/getZipContent") // 可以利用aop检查一下是否请求的文件uuid是该会话用户的，还有文档类型
-    @ResponseBody
-    public Map<String, Object> getZipFileContent(@RequestBody Map<String, Object> requestMap){
-        String uuid = (String)requestMap.get("uuid");
-        Map<String, Object> resultMap = new HashMap<>();
-        if(uuid == null){
-            return paramLost();
-        }
-        List<String> photoList = new ArrayList<>();
-        UploadFile file = uploadFileService.findByUuid(uuid);
-        if(file == null){
-            resultMap.put("status","201");
-            resultMap.put("message","uuid错误，文件不存在");
-        }
-        String[] paths = file.getPath().split(";");
-        String path = paths[1];
-        // 获取一个解析类
-        GetFileList getFileList = new GetFileList();
-        List<Image> base64List = getFileList.parseFile(path);
-        resultMap.put("status","200");
-        resultMap.put("images", base64List);
-        return resultMap;
-    }
 
     public boolean sameUser(HttpSession session, Integer departmentID, Integer sectionID){
         Object user = session.getAttribute("user");
@@ -272,28 +194,6 @@ public class ActivityController {
             return true;
         }
         return false;
-    }
-
-    /**
-     * 将文件传输到指定的路径上
-     * @param parentPath
-     * @param file
-     * @return
-     * @throws IOException
-     */
-    public UploadFile uploadSimpleFile(String parentPath, MultipartFile file) throws IOException {
-        String fileName = file.getOriginalFilename();
-        UploadFile uploadFile = new UploadFile();
-        uploadFile.setUuid(UUIDUtils.getUUID());
-        uploadFile.setName(fileName);
-        // 将文件名重新命名为原名+uuid
-        File destFile = new File(parentPath, uploadFile.getUuid() + " "  + fileName);
-        if (!destFile.getParentFile().exists()) {
-            destFile.getParentFile().mkdirs();
-        }
-        file.transferTo(destFile);
-        uploadFile.setPath(destFile.getPath());
-        return uploadFile;
     }
 
 

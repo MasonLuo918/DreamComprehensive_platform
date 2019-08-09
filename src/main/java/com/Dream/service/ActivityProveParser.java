@@ -1,8 +1,9 @@
-package com.Dream.controller;
+package com.Dream.service;
 
 import com.Dream.dao.UploadFileDao;
 import com.Dream.entity.ActivityProve;
 import com.Dream.entity.UploadFile;
+import com.Dream.entity.type.FileType;
 import com.Dream.service.ActivityProveListService;
 import com.Dream.util.compress.ZipUtils;
 import com.Dream.util.parse.docparse.DocParser;
@@ -18,11 +19,11 @@ import java.util.List;
 
 @Component
 @Scope("prototype")  //每次都创建一个示例
-public class ActivityProveParser implements Runnable{
+public class ActivityProveParser implements Runnable {
 
-    private UploadFile zipFile;
+    private UploadFile uploadFile;
 
-    private List<UploadFile> docList = new ArrayList<>();
+    private int fileType;
 
     private Integer activityID;
 
@@ -32,16 +33,17 @@ public class ActivityProveParser implements Runnable{
     @Autowired
     private UploadFileDao uploadFileDao;
 
-    public boolean decompress(UploadFile zipFile){
-        if(zipFile == null || zipFile.getPath() == null || !zipFile.getPath().endsWith("zip")){
+
+    public boolean decompress() {
+        if (uploadFile == null || uploadFile.getPath() == null || !uploadFile.getPath().endsWith("zip")) {
             return false;
         }
-        File srcFile = new File(zipFile.getPath());
-        String destPath = srcFile.getParent() + File.separator + zipFile.getUuid();
+        File srcFile = new File(uploadFile.getPath());
+        String destPath = srcFile.getParent() + File.separator + uploadFile.getUuid();
         try {
             ZipUtils.decompress(srcFile, destPath);
-            zipFile.setPath(zipFile.getPath() + ";" + destPath);
-            uploadFileDao.update(zipFile);
+            uploadFile.setPath(uploadFile.getPath() + ";" + destPath);
+            uploadFileDao.update(uploadFile);
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -49,13 +51,13 @@ public class ActivityProveParser implements Runnable{
         }
     }
 
-    public int parseDocument(UploadFile uploadFile){
+    public int parseDocument() {
         File file = new File(uploadFile.getPath());
         DocParser docParser = null;
         String fileName = file.getName();
-        if(fileName.endsWith(".doc")){
+        if (fileName.endsWith(".doc")) {
             docParser = new WordDocParser();
-        }else{
+        } else {
             docParser = new WordDocxParser();
         }
         List<ActivityProve> lists = docParser.getResult(uploadFile.getPath(), activityID);
@@ -64,30 +66,33 @@ public class ActivityProveParser implements Runnable{
 
     @Override
     public void run() {
-        if(zipFile != null){
-            decompress(zipFile);
+        switch (fileType) {
+            case FileType.MATERIAL:
+                decompress();
+                break;
+            case FileType.ACTIVITY_PROVE_DOC:
+                parseDocument();
+                break;
+            case FileType.VOLUNTEER_DOC:
+                parseDocument();
+                break;
         }
-        if(docList.size() != 0){
-            for(UploadFile file:docList){
-                parseDocument(file);
-            }
-        }
     }
 
-    public UploadFile getZipFile() {
-        return zipFile;
+    public UploadFile getUploadFile() {
+        return uploadFile;
     }
 
-    public void setZipFile(UploadFile zipFile) {
-        this.zipFile = zipFile;
+    public void setUploadFile(UploadFile uploadFile) {
+        this.uploadFile = uploadFile;
     }
 
-    public List<UploadFile> getDocList() {
-        return docList;
+    public int getFileType() {
+        return fileType;
     }
 
-    public void setDocList(List<UploadFile> docList) {
-        this.docList = docList;
+    public void setFileType(int fileType) {
+        this.fileType = fileType;
     }
 
     public Integer getActivityID() {
