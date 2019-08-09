@@ -13,6 +13,8 @@ public interface ActivityService {
 
     int update(Activity activity);
 
+    Activity findByID(Integer ID);
+
     /**
      * 寻找一个部门的所有活动
      * @param departmentID
@@ -25,6 +27,7 @@ public interface ActivityService {
     List<Activity> findByRegisterID(Integer departmentID, Integer sectionID, int page);
     List<Activity> findByRegisterID(Integer departmentID, Integer sectionID);
 
+
     /**
      * 查找这个部门活动的条数
      * @param departmentID
@@ -33,4 +36,10 @@ public interface ActivityService {
      */
     int activityCount(Integer departmentID, Integer sectionID);
     int activityCount(Integer departmentID);
+
+    /**
+     * 删除一个活动，并且把这个活动所解析出来的志愿时公示数据删除
+     * @param activityID
+     */
+    void deleteActivity(Integer activityID);
 }

@@ -8,6 +8,7 @@ import com.Dream.service.ActivityService;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -31,6 +32,13 @@ public class ActivityServiceImpl implements ActivityService {
     @Override
     public int update(Activity activity) {
         return activityDao.update(activity);
+    }
+
+    @Override
+    public Activity findByID(Integer ID) {
+        Activity activity = new Activity();
+        activity.setId(ID);
+        return activityDao.selectOne(activity);
     }
 
     @Override
@@ -61,6 +69,13 @@ public class ActivityServiceImpl implements ActivityService {
     @Override
     public int activityCount(Integer departmentID) {
         return activityCount(departmentID, null);
+    }
+
+    @Transactional
+    @Override
+    public void deleteActivity(Integer activityID) {
+        activityProveDao.deleteByActivityId(activityID);
+        activityDao.delete(activityID);
     }
 
 }

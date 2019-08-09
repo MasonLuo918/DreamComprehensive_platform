@@ -17,9 +17,6 @@ public class ActivityProve {
 
     private String stuName;
 
-    // 所属活动
-    private Activity activity;
-
     public Integer getId() {
         return id;
     }
@@ -52,9 +49,6 @@ public class ActivityProve {
         this.stuName = stuName;
     }
 
-    public Activity getActivity() {
-        return activity;
-    }
 
     public Double getVolunTimeNum() {
         return volunTimeNum;
@@ -62,10 +56,6 @@ public class ActivityProve {
 
     public void setVolunTimeNum(Double volunTimeNum) {
         this.volunTimeNum = volunTimeNum;
-    }
-
-    public void setActivity(Activity activity) {
-        this.activity = activity;
     }
 
     public Integer getActivityID() {

@@ -264,6 +264,28 @@ public class ActivityController {
     }
 
     /**
+     * 删除一个活动
+     * 选择一个活动进行删除
+     * 参数:
+     * activity_id: 该活动的id
+     * @param map
+     */
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> deleteActivity(@RequestBody Map<String, Object> map){
+        Map<String, Object> resultMap = new HashMap<>();
+        Integer activityID = (Integer) map.get("activity_id");
+        if(activityID == null){
+            return paramLost();
+        }
+        activityService.deleteActivity(activityID);
+        resultMap.put("status","200");
+        resultMap.put("message","成功删除活动");
+        resultMap.put("activity_id", activityID);
+        return resultMap;
+    }
+
+    /**
      * 判断是否是同一个用户
      * @param session
      * @param departmentID

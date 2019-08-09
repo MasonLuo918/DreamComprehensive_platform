@@ -11,7 +11,6 @@
         <result property="stuNum" column="stu_num"/>
         <result property="stuClass" column="stu_class"/>
         <result property="stuName" column="stu_name"/>
-        <association property="activity" select="com.Dream.dao.ActivityDao.selectOne" column="{id=act_id}"/>
     </resultMap>
 
     <sql id="activityProveSelect">
