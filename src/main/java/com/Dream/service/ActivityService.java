@@ -1,6 +1,7 @@
 package com.Dream.service;
 
 import com.Dream.entity.Activity;
+import com.Dream.entity.UploadFile;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ public interface ActivityService {
     int insert(Activity activity);
 
     int update(Activity activity);
+
     /**
      * 寻找一个部门的所有活动
      * @param departmentID

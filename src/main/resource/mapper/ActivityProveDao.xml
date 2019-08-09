@@ -104,6 +104,11 @@
         WHERE act_id = #{activityId}
     </delete>
 
+    <delete id="deleteByActivityIDAndType">
+        DELETE FROM activity_prove
+        WHERE act_id = #{activityID} and type = #{type}
+    </delete>
+
     <select id="selectOne" parameterType="activityProve" resultMap="activityProveMap">
         <include refid="activityProveSelect"/>
         <where>

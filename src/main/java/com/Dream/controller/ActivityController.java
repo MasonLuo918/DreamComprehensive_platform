@@ -1,15 +1,10 @@
 package com.Dream.controller;
 
-import com.Dream.entity.Activity;
-import com.Dream.entity.Department;
-import com.Dream.entity.Section;
-import com.Dream.entity.UploadFile;
+import com.Dream.entity.*;
 import com.Dream.entity.type.FileType;
-import com.Dream.service.ActivityProveParser;
-import com.Dream.service.ActivityService;
-import com.Dream.service.UploadFileListService;
-import com.Dream.service.UploadFileService;
+import com.Dream.service.*;
 import com.Dream.util.ParamUtil;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -35,12 +30,13 @@ public class ActivityController {
     private UploadFileService uploadFileService;
 
     @Autowired
-    private UploadFileListService uploadFileListService;
+    private ActivityProveService activityProveService;
 
     @Autowired
     private ActivityProveParser parser;
 
-    private final String TIME_PATTERN = "yyyy-MM-dd";
+    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
     /**
      * 上传活动证明材料，同时会新建一个活动证明
      * @param request http请求，获取当前会话
@@ -109,6 +105,8 @@ public class ActivityController {
         return resultMap;
     }
 
+
+
     /**
      * 获取一个部门或者一个组织的所有活动
      * 使用Restful api 请求格式，向一个url发送请求：
@@ -174,7 +172,104 @@ public class ActivityController {
         return resultMap;
     }
 
+    /**
+     * 编辑一个活动，发送一个表单数据过来
+     * @param request http请求
+     * @param activityID 活动id 必须
+     * @param activityName 活动名称 必须
+     * @param time 活动时间 必须
+     * @param material 活动材料 非必须
+     * @param volunDoc 志愿证明 非必须
+     * @param actDoc   活动证明 非必须
+     * @return
+     * @throws IOException
+     * 返回示例：
+     * {
+     *     "updateActivity": {
+     *         "id": 102,
+     *         "name": "IT先锋进社区",
+     *         "time": {
+     *             "year": 2017,
+     *             "month": "FEBRUARY",
+     *             "monthValue": 2,
+     *             "dayOfMonth": 2,
+     *             "dayOfWeek": "THURSDAY",
+     *             "era": "CE",
+     *             "dayOfYear": 33,
+     *             "leapYear": false,
+     *             "chronology": {
+     *                 "id": "ISO",
+     *                 "calendarType": "iso8601"
+     *             }
+     *         },
+     *         "departmentID": null,
+     *         "sectionID": null,
+     *         "material": null,
+     *         "volunteerTime": "80a97e8542044d44b1f35dc8ed6dc6cf",
+     *         "activityProve": "8dcb1ec46715483d928848b89fd96633",
+     *         "materialFile": null,
+     *         "volunteerTimeFile": null,
+     *         "activityProveFile": null,
+     *         "department": null
+     *     },
+     *     "status": "200"
+     * }
+     */
+    @RequestMapping(value = "/editActivity", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> editActivity(HttpServletRequest request, @RequestParam("activity_id") Integer activityID,
+                                            @RequestParam("activity_name") String activityName,
+                                            @RequestParam("time") String time,
+                                            @RequestParam(value = "material", required = false) MultipartFile material,
+                                            @RequestParam(value = "volun_doc", required = false) MultipartFile volunDoc,
+                                            @RequestParam(value = "act_doc", required = false) MultipartFile actDoc) throws IOException {
+        if(ParamUtil.hasNull(activityID, activityName, time)){
+            return paramLost();
+        }
+        String realPath = request.getSession().getServletContext().getRealPath("upload");
+        String parentPath = null;
+        Map<String, Object> resultMap = new HashMap<>();
+        Activity updateActivity = new Activity();
+        // 新建一个用来更新的activity
+        updateActivity.setId(activityID);
+        updateActivity.setName(activityName);
+        updateActivity.setTime(LocalDate.parse(time,formatter));
+        UploadFile file = null;
+        // 如果不为null，则重新上传活动证明材料，然后更新activity中的material字段
+        if(material != null){
+            parentPath = getParentPath(realPath, request, time, FileType.MATERIAL);
+            file = uploadFileService.uploadSimpleFile(parentPath, material, activityID);
+            updateActivity.setMaterial(file.getUuid());
+        }
+        // 如果文档不为null，则将之前的记录本全部删除，然后重新上传文档，并进行解析
+        if(volunDoc != null){
+            // 清除数据库中解析出来的记录
+            activityProveService.clearDocRecord(activityID, 1);
+            parentPath = getParentPath(realPath, request, time, FileType.VOLUNTEER_DOC);
+            file = uploadFileService.uploadSimpleFile(parentPath, volunDoc, activityID);
+            updateActivity.setVolunteerTime(file.getUuid());
+        }
+        if(actDoc != null){
+            // 清除数据库中解析出来的记录
+            activityProveService.clearDocRecord(activityID, 0);
+            parentPath = getParentPath(realPath, request, time, FileType.ACTIVITY_PROVE_DOC);
+            file = uploadFileService.uploadSimpleFile(parentPath, actDoc, activityID);
+            updateActivity.setActivityProve(file.getUuid());
+        }
+        // 更新活动数据
+        activityService.update(updateActivity);
+        resultMap.put("status", "200");
+        resultMap.put("updateActivity", updateActivity);
+        return resultMap;
+    }
 
+    /**
+     * 判断是否是同一个用户
+     * @param session
+     * @param departmentID
+     * @param sectionID
+     * @return
+     */
     public boolean sameUser(HttpSession session, Integer departmentID, Integer sectionID){
         Object user = session.getAttribute("user");
         if(user != null){
@@ -195,6 +290,7 @@ public class ActivityController {
         }
         return false;
     }
+
 
 
     /**
@@ -264,7 +360,6 @@ public class ActivityController {
      */
     public Activity getNewActivity(String time, String activityName, Object user, String material, String volunteerTime,
                                    String activityProve) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(TIME_PATTERN);
         LocalDate date = LocalDate.parse(time, formatter);
         Activity activity = new Activity();
         activity.setName(activityName);

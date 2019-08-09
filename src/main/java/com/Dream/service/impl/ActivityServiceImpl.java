@@ -1,7 +1,9 @@
 package com.Dream.service.impl;
 
 import com.Dream.dao.ActivityDao;
+import com.Dream.dao.ActivityProveDao;
 import com.Dream.entity.Activity;
+import com.Dream.service.ActivityProveParser;
 import com.Dream.service.ActivityService;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,12 @@ public class ActivityServiceImpl implements ActivityService {
 
     @Autowired
     private ActivityDao activityDao;
+
+    @Autowired
+    private ActivityProveDao activityProveDao;
+
+    @Autowired
+    private ActivityProveParser parser;
 
     @Override
     public int insert(Activity activity) {

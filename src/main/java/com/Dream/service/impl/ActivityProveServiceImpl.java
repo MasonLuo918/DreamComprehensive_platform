@@ -39,4 +39,10 @@ public class ActivityProveServiceImpl implements ActivityProveService {
     public List<ActivityProve> selectByActivityID(Integer activityID) {
         return activityProveDao.selectByActivityId(activityID);
     }
+
+    @Override
+    public int clearDocRecord(Integer activityID, int type) {
+        return activityProveDao.deleteByActivityIDAndType(activityID, type);
+    }
+
 }

@@ -15,4 +15,6 @@ public interface ActivityProveService {
     List<ActivityProve> selectByStuNum(String stuNum);
 
     List<ActivityProve> selectByActivityID(Integer activityID);
+
+    int clearDocRecord(Integer activityID, int type);
 }

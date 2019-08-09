@@ -11,7 +11,7 @@
  Target Server Version : 50725
  File Encoding         : utf-8
 
- Date: 08/09/2019 07:03:39 AM
+ Date: 08/09/2019 11:27:34 AM
 */
 
 SET NAMES utf8;
@@ -31,7 +31,7 @@ CREATE TABLE `activity` (
   `department_id` int(11) NOT NULL COMMENT '活动所属组织的id',
   `section_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=99 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Table structure for `activity_prove`
@@ -48,7 +48,7 @@ CREATE TABLE `activity_prove` (
   PRIMARY KEY (`id`),
   KEY `act_id_index` (`act_id`),
   KEY `stu_score_index` (`stu_num`)
-) ENGINE=InnoDB AUTO_INCREMENT=256 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=909 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Table structure for `department`
@@ -80,17 +80,6 @@ CREATE TABLE `section` (
   PRIMARY KEY (`id`),
   KEY `account_index` (`account`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='各大组织下属部门的数据表';
-
--- ----------------------------
---  Table structure for `t_role`
--- ----------------------------
-DROP TABLE IF EXISTS `t_role`;
-CREATE TABLE `t_role` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `role_name` varchar(255) DEFAULT NULL,
-  `note` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Table structure for `upload_file`
