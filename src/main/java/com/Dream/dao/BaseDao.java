@@ -5,10 +5,26 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 public interface BaseDao<T> {
+
+    /**
+     * 插入一个对象
+     * @param t
+     * @return
+     */
     int insert(T t);
 
+    /**
+     * 根据id更新一个对象
+     * @param t
+     * @return
+     */
     int update(T t);
 
+    /**
+     * 根据id删除一个对象
+     * @param id
+     * @return
+     */
     int delete(Integer id);
 
     /**

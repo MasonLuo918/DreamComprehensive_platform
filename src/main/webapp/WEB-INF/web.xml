@@ -43,7 +43,7 @@
     <load-on-startup>1</load-on-startup>
     <async-supported>true</async-supported>
     <multipart-config>
-      <location>/mvc/uploads/</location>
+      <!--<location>/Users/belle/Desktop/mvc/uploads</location>-->
       <max-file-size>52428800</max-file-size>
       <max-request-size>104857600</max-request-size>
       <file-size-threshold>0</file-size-threshold>

@@ -1,6 +1,7 @@
 package com.Dream.entity;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class Department {
     private Integer id;
@@ -17,21 +18,6 @@ public class Department {
     private Integer status;
 
     private LocalDate createTime;
-
-
-    public Department() {
-        createTime = LocalDate.now();
-    }
-
-
-    public Department(String email, String password, String deptName, String college, Integer status, LocalDate createTime) {
-        this.email = email;
-        this.password = password;
-        this.deptName = deptName;
-        this.college = college;
-        this.status = status;
-        this.createTime = createTime;
-    }
 
     public Integer getId() {
         return id;
@@ -57,20 +43,20 @@ public class Department {
         this.password = password;
     }
 
-    public String getCollege() {
-        return college;
-    }
-
-    public void setCollege(String college) {
-        this.college = college;
-    }
-
     public String getDeptName() {
         return deptName;
     }
 
     public void setDeptName(String deptName) {
         this.deptName = deptName;
+    }
+
+    public String getCollege() {
+        return college;
+    }
+
+    public void setCollege(String college) {
+        this.college = college;
     }
 
     public Integer getStatus() {

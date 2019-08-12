@@ -7,15 +7,14 @@
         <id column="id" property="id"/>
         <result property="activityId" column="act_id"/>
         <result property="volunTimeNum" column="volun_time_num"/>
-        <result property="activityScore" column="activity_score"/>
+        <result property="type" column="type"/>
         <result property="stuNum" column="stu_num"/>
         <result property="stuClass" column="stu_class"/>
         <result property="stuName" column="stu_name"/>
-        <association property="activity" select="com.Dream.dao.ActivityDao.selectOne" column="{id=act_id}"/>
     </resultMap>
 
     <sql id="activityProveSelect">
-        SELECT id, act_id, volun_time_num, activity_score, stu_num, stu_class, stu_name
+        SELECT id, act_id, volun_time_num, type, stu_num, stu_class, stu_name
         FROM activity_prove
     </sql>
 
@@ -31,8 +30,8 @@
             <if test="volunTimeNum != null and volunTimeNum != ''">
                 volun_time_num,
             </if>
-            <if test="activityScore != null and activityScore != ''">
-                activity_score,
+            <if test="type != null and type != ''">
+                type,
             </if>
             <if test="stuNum != null and stuNum != ''">
                 stu_num,
@@ -54,8 +53,8 @@
             <if test="volunTimeNum != null and volunTimeNum != ''">
                 #{volunTimeNum},
             </if>
-            <if test="activityScore != null and activityScore != ''">
-                #{activityScore},
+            <if test="type != null and type != ''">
+                #{type},
             </if>
             <if test="stuNum != null and stuNum != ''">
                 #{stuNum},
@@ -78,8 +77,8 @@
             <if test="volunTimeNum != null and volunTimeNum != ''">
                volun_time_num = #{volunTimeNum},
             </if>
-            <if test="activityScore != null and activityScore != ''">
-                activity_score = #{activityScore},
+            <if test="type != null and type != ''">
+                type = #{type},
             </if>
             <if test="stuNum != null and stuNum != ''">
                 stu_num = #{stuNum},
@@ -104,6 +103,11 @@
         WHERE act_id = #{activityId}
     </delete>
 
+    <delete id="deleteByActivityIDAndType">
+        DELETE FROM activity_prove
+        WHERE act_id = #{activityID} and type = #{type}
+    </delete>
+
     <select id="selectOne" parameterType="activityProve" resultMap="activityProveMap">
         <include refid="activityProveSelect"/>
         <where>
@@ -116,8 +120,8 @@
             <if test="volunTimeNum != null and volunTimeNum != ''">
                 and volun_time_num = #{volunTimeNum}
             </if>
-            <if test="activityScore != null and activityScore != ''">
-                and activity_score = #{activityScore}
+            <if test="type != null and type != ''">
+                and type = #{type}
             </if>
             <if test="stuNum != null and stuNum != ''">
                 and stu_num = #{stuNum}
@@ -138,5 +142,9 @@
     <select id="selectByStuName" parameterType="string" resultMap="activityProveMap">
         <include refid="activityProveSelect"/>
         WHERE stu_name like concat('%', #{stuName},'%')
+    </select>
+    <select id="selectByStuNum" resultMap="activityProveMap" parameterType="string">
+        <include refid="activityProveSelect"/>
+        WHERE stu_num like concat('%',#{stuNum},'%')
     </select>
 </mapper>

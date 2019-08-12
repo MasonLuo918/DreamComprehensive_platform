@@ -6,13 +6,16 @@
     <resultMap id="activityMap" type="activity">
         <id property="id" column="id"/>
         <result property="name" column="name"/>
-        <result property="time" column="time"  typeHandler="com.Dream.typeHandler.LocalDateTypeHandler"/>
-        <result property="materialURL" column="material_url"/>
-        <result property="volunTimeDocURL" column="volun_time_doc_url"/>
-        <result property="activityScoreDocURL" column="activity_score_doc_url"/>
+        <result property="time" column="time" typeHandler="com.Dream.typeHandler.LocalDateTypeHandler"/>
+        <result property="material" column="material"/>
+        <result property="volunteerTime" column="volunteer_time"/>
+        <result property="activityProve" column="activity_prove"/>
+        <result property="departmentID" column="department_id"/>
+        <result property="sectionID" column="section_id"/>
+        <association property="department" column="{id=department_id}" select="com.Dream.dao.DepartmentDao.selectOne"/>
     </resultMap>
     <sql id="activitySelect">
-        SELECT id, name, time, material_url,volun_time_doc_url, activity_score_doc_url
+        SELECT id, name, time, material,volunteer_time, activity_prove,section_id,department_id
         FROM activity
     </sql>
     <insert id="insert" parameterType="activity" keyProperty="id" useGeneratedKeys="true">
@@ -27,14 +30,20 @@
             <if test="time != null and time != ''">
                 time,
             </if>
-            <if test="materialURL != null and materialURL != ''">
-                material_url,
+            <if test="material != null and material != ''">
+                material,
             </if>
-            <if test="volunTimeDocURL != null and volunTimeDocURL != ''">
-                volun_time_doc_url,
+            <if test="volunteerTime != null and volunteerTime != ''">
+                volunteer_time,
             </if>
-            <if test="activityScoreDocURL != null and activityScoreDocURL != ''">
-                activity_score_doc_url
+            <if test="activityProve != null and activityProve != ''">
+                activity_prove,
+            </if>
+            <if test="departmentID != null">
+                department_id,
+            </if>
+            <if test="sectionID != null">
+                section_id,
             </if>
         </trim>
         <trim prefix=" values (" suffix=")" suffixOverrides=",">
@@ -47,14 +56,20 @@
             <if test="time != null and time != ''">
                 #{time,javaType=java.time.LocalTime, jdbcType=DATE},
             </if>
-            <if test="materialURL != null and materialURL != ''">
-                #{materialURL},
+            <if test="material != null and material != ''">
+                #{material},
             </if>
-            <if test="volunTimeDocURL != null and volunTimeDocURL != ''">
-                #{volunTimeDocURL},
+            <if test="volunteerTime != null and volunteerTime != ''">
+                #{volunteerTime},
             </if>
-            <if test="activityScoreDocURL != null and activityScoreDocURL != ''">
-                #{activityScoreDocURL}
+            <if test="activityProve != null and activityProve != ''">
+                #{activityProve},
+            </if>
+            <if test="departmentID != null">
+                #{departmentID},
+            </if>
+            <if test="sectionID != null">
+                #{sectionID},
             </if>
         </trim>
     </insert>
@@ -68,14 +83,20 @@
             <if test="time != null and time != ''">
                 time = #{time,javaType=java.time.LocalTime, jdbcType=DATE},
             </if>
-            <if test="materialURL != null and materialURL != ''">
-                material_url = #{materialURL},
+            <if test="material != null and material != ''">
+                material = #{material},
             </if>
-            <if test="volunTimeDocURL != null and volunTimeDocURL != ''">
-                volun_time_doc_url = #{volunTimeDocURL},
+            <if test="volunteerTime != null and volunteerTime != ''">
+                volunteer_time = #{volunteerTime},
             </if>
-            <if test="activityScoreDocURL != null and activityScoreDocURL != ''">
-                activity_score_doc_url = #{activityScoreDocURL}
+            <if test="activityProve != null and activityProve != ''">
+                activity_prove = #{activityProve},
+            </if>
+            <if test="departmentID != null">
+                department_id = #{departmentID},
+            </if>
+            <if test="sectionID != null">
+                section_id = #{sectionID},
             </if>
         </set>
         WHERE id = #{id}
@@ -104,9 +125,38 @@
               typeHandler=com.Dream.typeHandler.LocalDateTypeHandler }, '%Y-%m-%d') ]]>
             </if>
             <if test="endDate != null and endDate != ''">
-              and <![CDATA[ DATE_FORMAT(time, '%Y-%m-%d') <= DATE_FORMAT(#{endDate,
+                and <![CDATA[ DATE_FORMAT(time, '%Y-%m-%d') <= DATE_FORMAT(#{endDate,
               typeHandler=com.Dream.typeHandler.LocalDateTypeHandler }, '%Y-%m-%d') ]]>
             </if>
         </where>
     </select>
+
+    <select id="selectByRegisterID" resultMap="activityMap">
+        <include refid="activitySelect"/>
+        where
+        department_id = #{departmentID}
+        <if test="sectionID != null">
+            and section_id = sectionID
+        </if>
+    </select>
+
+    <select id="selectByRegisterIDForRowBounds" resultMap="activityMap">
+        <include refid="activitySelect"/>
+        where
+        department_id = #{departmentID}
+        <if test="sectionID != null">
+            and section_id = sectionID
+        </if>
+    </select>
+
+    <select id="count" resultType="int">
+        select count(id)
+        from activity
+        where
+        department_id = #{departmentID}
+        <if test="sectionID != null">
+            and section_id = sectionID
+        </if>
+    </select>
+
 </mapper>

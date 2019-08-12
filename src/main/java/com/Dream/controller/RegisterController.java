@@ -9,12 +9,9 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
-
-import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -205,6 +202,7 @@ public class RegisterController {
     /**
      * 判断邮箱是否输入正确
      */
+    @RequestMapping("/department/checkEmail")
     @ResponseBody
     public Map<String,Object> checkEmail(@RequestParam("email") String email){
         Map<String,Object> resultMap=new HashMap<>();
@@ -226,6 +224,7 @@ public class RegisterController {
     /**
      * 查看组织是否存在
      */
+    @RequestMapping("/department/checkSection")
     @ResponseBody
     public Map<String,Object> checkSection(@RequestParam("deptName") String deptName,@RequestParam("college") String college){
        Map<String,Object> resultMap=new HashMap<>();

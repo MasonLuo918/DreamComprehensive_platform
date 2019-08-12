@@ -5,17 +5,17 @@ public class ActivityProve {
 
     private Integer activityID;
 
+    // 当type为0时，这个属性为null
     private Double volunTimeNum;
 
-    private Double activityScore;
+    // 1 代表志愿时，0代表活动分
+    private Integer type;
 
     private String stuNum;
 
     private String stuClass;
 
     private String stuName;
-
-    private Activity activity;
 
     public Integer getId() {
         return id;
@@ -49,9 +49,6 @@ public class ActivityProve {
         this.stuName = stuName;
     }
 
-    public Activity getActivity() {
-        return activity;
-    }
 
     public Double getVolunTimeNum() {
         return volunTimeNum;
@@ -59,18 +56,6 @@ public class ActivityProve {
 
     public void setVolunTimeNum(Double volunTimeNum) {
         this.volunTimeNum = volunTimeNum;
-    }
-
-    public Double getActivityScore() {
-        return activityScore;
-    }
-
-    public void setActivityScore(Double activityScore) {
-        this.activityScore = activityScore;
-    }
-
-    public void setActivity(Activity activity) {
-        this.activity = activity;
     }
 
     public Integer getActivityID() {
@@ -87,5 +72,13 @@ public class ActivityProve {
 
     public void setStuNum(String stuNum) {
         this.stuNum = stuNum;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
     }
 }
