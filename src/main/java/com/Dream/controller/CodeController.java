@@ -39,6 +39,7 @@ public class CodeController {
             resultMap.put("message","验证失败，请重新输入验证码");
             return resultMap;
         }
+        //忽略大小写之后两个字符串是否相等
         if(!code.equalsIgnoreCase(vCode)){
             resultMap.put("status", 1);
             resultMap.put("message","验证失败，请重新输入验证码");

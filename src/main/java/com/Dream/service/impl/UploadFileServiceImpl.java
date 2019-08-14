@@ -7,6 +7,7 @@ import com.Dream.service.ActivityProveParser;
 import com.Dream.service.UploadFileService;
 import com.Dream.util.UUIDUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.ContextLoader;
 import org.springframework.web.context.WebApplicationContext;

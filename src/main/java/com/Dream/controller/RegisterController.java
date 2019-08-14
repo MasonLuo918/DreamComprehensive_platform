@@ -3,6 +3,7 @@ package com.Dream.controller;
 import com.Dream.entity.Department;
 import com.Dream.mail.SendEmail;
 import com.Dream.service.DepartmentService;
+import com.Dream.service.SectionService;
 import com.Dream.util.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -23,7 +24,11 @@ public class RegisterController {
     private DepartmentService departmentService;
 
     @Autowired
+    private SectionService sectionService;
+
+    @Autowired
     private RedisTemplate redisTemplate;
+
 
 
     /**
@@ -81,6 +86,7 @@ public class RegisterController {
             responseMap.put("info", "所需参数有丢失");
             return responseMap;
         }
+        //判断验证码和用户输入的验证码是否一致，是否为空
         if (StringUtils.isEmpty(validateCode) || StringUtils.isEmpty(registerCode) || !registerCode.equals(validateCode)) {
             responseMap.put("status", "001");
             responseMap.put("message", "验证码错误或者已失效");
@@ -93,12 +99,14 @@ public class RegisterController {
         if (queryDepartment != null) {
             if (queryDepartment.getStatus() == 0) {
                 String oldCode = (String) redisTemplate.opsForValue().get(registerEmail);
+                //激活码未过期
                 if (oldCode != null) {
                     responseMap.put("status", "003");
                     responseMap.put("message", "fail");
                     responseMap.put("info", " 激活码未过期");
                     return responseMap;
                 }else{
+                    //激活码已经过期，不在redis内了
                     //重新生成激活码
                     String activateCode = MD5Util.getMD5(registerEmail + registerPassword + System.currentTimeMillis());
                     redisTemplate.opsForValue().set(registerEmail, activateCode);
