@@ -56,7 +56,7 @@ public class ActivityController {
                                               @RequestParam(value = "material", required = false) MultipartFile material,
                                               @RequestParam(value = "volun_doc", required = false) MultipartFile volunDoc,
                                               @RequestParam(value = "act_doc", required = false) MultipartFile actDoc) throws IOException {
-        // 返回jason数据
+        // 返回json数据
         Map<String, Object> resultMap = new HashMap<>();
         if(ParamUtil.hasNull(actDoc, time)){
             resultMap.put("status","002");

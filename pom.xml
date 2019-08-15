@@ -159,6 +159,20 @@
       <version>${spring.version}</version>
     </dependency>
 
+
+    <!-- QRCode 二维码生成工具-->
+    <dependency>
+      <groupId>com.google.zxing</groupId>
+      <artifactId>core</artifactId>
+      <version>3.4.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.zxing</groupId>
+      <artifactId>javase</artifactId>
+      <version>3.4.0</version>
+    </dependency>
+
+
     <!-- https://mvnrepository.com/artifact/org.apache.xbean/xbean-spring -->
     <dependency>
       <groupId>org.apache.xbean</groupId>

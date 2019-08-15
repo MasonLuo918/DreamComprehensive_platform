@@ -2,8 +2,11 @@ package com.Dream.controller;
 
 import com.Dream.entity.Department;
 import com.Dream.commons.mail.SendEmail;
+import com.Dream.entity.Section;
 import com.Dream.service.DepartmentService;
+import com.Dream.service.SectionService;
 import com.Dream.util.MD5Util;
+import com.Dream.util.ParamUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
@@ -23,7 +26,11 @@ public class RegisterController {
     private DepartmentService departmentService;
 
     @Autowired
+    private SectionService sectionService;
+
+    @Autowired
     private RedisTemplate redisTemplate;
+
 
 
     /**
@@ -36,7 +43,7 @@ public class RegisterController {
      * "code":"djfkasd"
      * }
      * <p>
-     * 然后后台进行验证，是否可以注册，然后返回一个jason字符串,如下：
+     * 然后后台进行验证，是否可以注册，然后返回一个json字符串,如下：
      * {
      * "status":400,
      * "message":"success",
@@ -81,6 +88,7 @@ public class RegisterController {
             responseMap.put("info", "所需参数有丢失");
             return responseMap;
         }
+        //判断验证码和用户输入的验证码是否一致，是否为空
         if (StringUtils.isEmpty(validateCode) || StringUtils.isEmpty(registerCode) || !registerCode.equals(validateCode)) {
             responseMap.put("status", "001");
             responseMap.put("message", "验证码错误或者已失效");
@@ -93,12 +101,14 @@ public class RegisterController {
         if (queryDepartment != null) {
             if (queryDepartment.getStatus() == 0) {
                 String oldCode = (String) redisTemplate.opsForValue().get(registerEmail);
+                //激活码未过期
                 if (oldCode != null) {
                     responseMap.put("status", "003");
                     responseMap.put("message", "fail");
                     responseMap.put("info", " 激活码未过期");
                     return responseMap;
                 }else{
+                    //激活码已经过期，不在redis内了
                     //重新生成激活码
                     String activateCode = MD5Util.getMD5(registerEmail + registerPassword + System.currentTimeMillis());
                     redisTemplate.opsForValue().set(registerEmail, activateCode);
@@ -154,15 +164,119 @@ public class RegisterController {
         }
     }
 
+
+
+    /**
+     * 前端注册的时候，传来一个section的信息，使用json字符串，如下:
+     * {
+     * "account":"1066812978@eamil.com",
+     * "password":"password",
+     * "name":"秘书部",
+     * "departmentId":"1",
+     * "code":"dskfdkl"
+     * }
+     * @param map
+     * @param validateCode
+     * @return
+     */
+    @RequestMapping(value="/section/doRegister",method=RequestMethod.POST)
+    @ResponseBody
+    public Map<String,Object> registerForSection(@RequestBody Map<String,String> map,@SessionAttribute(value="validateCode") String validateCode) throws Exception{
+        Map<String,Object> responseMap=new HashMap<>();
+        String registerAccount=map.get("account");
+        String registerPassword=map.get("password");
+        String registerName=map.get("name");
+        String registerDepartmentId=map.get("departmentId");
+        String registerCode=map.get("code");
+        //验证参数是否传递过来
+        if(ParamUtil.hasNull(registerAccount,registerPassword,registerName,registerDepartmentId,registerCode)){
+            responseMap.put("status","002");
+            responseMap.put("message","注册失败，请检查注册信息");
+            responseMap.put("info","所需参数丢失");
+            return responseMap;
+        }
+        //验证用户输入的验证码是否为空，是否输入准确
+        if(StringUtils.isEmpty(validateCode)||StringUtils.isEmpty(registerCode)||!registerCode.equals(validateCode)){
+            responseMap.put("status","001");
+            responseMap.put("message","验证码错误或者已失效");
+            return responseMap;
+        }
+        //判断该email是否已经注册，如果已经注册，则重新发送验证信息
+        //否则，新建一条记录
+        Section querySection=sectionService.findByAccount(registerAccount);
+        Section resultSection=null;
+        if(querySection!=null){
+            if(querySection.getStatus()==0){
+                String oldCode=(String)redisTemplate.opsForValue().get(registerAccount);
+                if(oldCode!=null){
+                    responseMap.put("status","003");
+                    responseMap.put("message","fail");
+                    responseMap.put("info","激活码未过期");
+                    return responseMap;
+                }else{
+                    String activateCode= MD5Util.getMD5(registerAccount+registerPassword+System.currentTimeMillis());
+                    redisTemplate.opsForValue().set(registerAccount,activateCode);
+                    //发送邮件
+                    SendEmail.sendMail(registerAccount,activateCode,registerName);
+                    responseMap.put("status","004");
+                    responseMap.put("message","success");
+                    responseMap.put("info","注册成功，请前往邮箱激活");
+                    //将密码清空
+                    querySection.setPassword(null);
+                    responseMap.put("section",querySection);
+                    return responseMap;
+                }
+            }else{
+                responseMap.put("status","003");
+                responseMap.put("message","fail");
+                responseMap.put("info","邮箱已注册");
+                return responseMap;
+            }
+        }
+        //判断该组织该部门是否已经注册过
+        Integer departmentId=Integer.parseInt(registerDepartmentId);
+        querySection=sectionService.findByDepartmentIdAndName(departmentId,registerName);
+        if(querySection!=null){
+            responseMap.put("status","003");
+            responseMap.put("message","fail");
+            responseMap.put("info","该组织的这个部门已经注册");
+            return responseMap;
+        }else{
+            resultSection=new Section();
+            resultSection.setAccount(registerAccount);
+            resultSection.setName(registerName);
+            resultSection.setPassword(MD5Util.getMD5(registerPassword));
+            resultSection.setCreateTime(LocalDate.now());
+            resultSection.setStatus(0);
+            resultSection.setDepartmentID(departmentId);
+            //生成激活验证码
+            String activateCode=MD5Util.getMD5(registerAccount+registerPassword+System.currentTimeMillis());
+            int i=sectionService.register(resultSection,activateCode);
+            if(i!=0){
+                responseMap.put("status","004");
+                responseMap.put("message","success");
+                responseMap.put("info","注册成功，请前往邮箱激活");
+                resultSection.setPassword(null);
+                responseMap.put("section",resultSection);
+                return responseMap;
+            }else{
+                responseMap.put("status","000");
+                responseMap.put("message","fail");
+                responseMap.put("info","注册失败，请重新注册");
+                return responseMap;
+            }
+        }
+
+
+    }
+
     /**
      * 用户点击激活链接,进入到这个控制器
      * 点击时有如下几种情况：
-     * 1、激活成功，将数据库status设为0
+     * 1、激活成功，将数据库status设为200
      * {
      * "status":"200",
      * "message":"success"
-     * }
-     * <p>
      * }
      * 2、激活失败，激活码不符或者已经超时
      * {
@@ -205,6 +319,35 @@ public class RegisterController {
         resultMap.put("message", "激活成功");
         return resultMap;
     }
+
+
+    @RequestMapping("/section/activate")
+    @ResponseBody
+    public Map<String,Object> activateForSection(@RequestParam("account") String account,@RequestParam("validateCode") String validateCode){
+        Map<String,Object> resultMap=new HashMap<>();
+        Section section=sectionService.findByAccount(account);
+        if(section==null){
+            resultMap.put("status","201");
+            resultMap.put("message","该组织尚未注册");
+            return resultMap;
+        }
+        String redisCode=(String)redisTemplate.opsForValue().get(account);
+        if(redisCode==null||!redisCode.equals(validateCode)){
+            resultMap.put("status","201");
+            resultMap.put("message","激活码错误或者已经超时，请重新注册");
+            return resultMap;
+        }
+        Section updateSection=new Section();
+        updateSection.setId(section.getId());
+        updateSection.setStatus(1);
+        sectionService.update(updateSection);
+        resultMap.put("status","200");
+        resultMap.put("message","激活成功");
+        return resultMap;
+    }
+
+
+
     /**
      * 判断邮箱是否输入正确
      */

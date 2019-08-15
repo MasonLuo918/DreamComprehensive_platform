@@ -1,8 +1,10 @@
 package com.Dream.controller;
 
 import com.Dream.entity.Department;
+import com.Dream.entity.Section;
 import com.Dream.entity.type.UserType;
 import com.Dream.service.DepartmentService;
+import com.Dream.service.SectionService;
 import com.Dream.util.ParamUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +20,9 @@ import java.util.Map;
 public class LoginController {
     @Autowired
     private DepartmentService departmentService;
+
+    @Autowired
+    private SectionService sectionService;
 
     /**
      * 前端传送的数据例子:
@@ -133,7 +138,20 @@ public class LoginController {
     }
 
     private Map<String, Object> doSectionLogin(String account, String password){
-        return null;
+        Map<String,Object> resultMap=new HashMap<>();
+        resultMap.put("userType",UserType.SECTION);
+        Section result=sectionService.login(account,password);
+        if(result!=null&&result.getStatus()==1){
+            resultMap.put("status",1);
+            resultMap.put("user",result);
+            return resultMap;
+        }else if(result==null){
+            resultMap.put("status",0);
+            return resultMap;
+        }else{
+            resultMap.put("status",2);
+            return resultMap;
+        }
     }
 
 
