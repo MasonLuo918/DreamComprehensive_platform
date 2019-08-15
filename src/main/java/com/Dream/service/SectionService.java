@@ -24,6 +24,10 @@ public interface SectionService {
 
     Section findByAccount(String account);
 
+    Section findByDepartmentIdAndName(Integer departmentId,String name);
+
+
+
     /**
      * 根据邮箱密码登陆
      * @param account

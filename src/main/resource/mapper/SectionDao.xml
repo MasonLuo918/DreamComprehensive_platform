@@ -112,7 +112,7 @@
             <if test="account != null and account != ''">
                 and account = #{account}
             </if>
-            <if test="name != null and account != ''">
+            <if test="name != null and name != ''">
                 and name = #{name}
             </if>
             <if test="password != null and password != ''">

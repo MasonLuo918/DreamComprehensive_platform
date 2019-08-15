@@ -35,6 +35,14 @@ public class SectionServiceImpl implements SectionService {
     public Section findByAccount(String account){ return sectionDao.selectByAccount(account);}
 
     @Override
+    public Section findByDepartmentIdAndName(Integer departmentId,String name){
+        Section section=new Section();
+        section.setDepartmentID(departmentId);
+        section.setName(name);
+       return sectionDao.selectOne(section);
+    }
+
+    @Override
     public Section login(String account,String password){
         Section section=new Section();
         section.setAccount(account);
