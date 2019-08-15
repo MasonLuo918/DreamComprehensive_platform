@@ -53,7 +53,7 @@ public class ActivityController {
     public Map<String, Object> uploadMaterial(HttpServletRequest request,
                                               @RequestParam("activity_name") String activityName,
                                               @RequestParam("time") String time,
-                                              @RequestParam("material") MultipartFile material,
+                                              @RequestParam(value = "material", required = false) MultipartFile material,
                                               @RequestParam(value = "volun_doc", required = false) MultipartFile volunDoc,
                                               @RequestParam(value = "act_doc", required = false) MultipartFile actDoc) throws IOException {
         // 返回jason数据

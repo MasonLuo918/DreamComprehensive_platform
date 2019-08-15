@@ -42,7 +42,7 @@ public class LoginController {
      */
     @RequestMapping(value = "/login")
     @ResponseBody
-    public Map<String, Object> login(HttpServletRequest request, @RequestBody Map<String, Object> map, @SessionAttribute(value = "validateCode", required = true) String validateCode) {
+    public Map<String, Object> login(HttpServletRequest request, @RequestBody Map<String, Object> map, @SessionAttribute(value = "validateCode", required = false) String validateCode) {
         // 获取所有信息
         Map<String, Object> resultMap = new HashMap<>();
         HttpSession session = request.getSession();
@@ -59,10 +59,10 @@ public class LoginController {
             return resultMap;
         }
         //确认验证码信息
-        if(!code.equals(validateCode)){
-            resultMap.put("status", "001");
-            return resultMap;
-        }
+//        if(!code.equals(validateCode)){
+//            resultMap.put("status", "001");
+//            return resultMap;
+//        }
         // 判断是否已经登录
         Object user = session.getAttribute("user");
         if (user != null) {
@@ -135,6 +135,7 @@ public class LoginController {
     private Map<String, Object> doSectionLogin(String account, String password){
         return null;
     }
+
 
     @RequestMapping("/test")
     @ResponseBody

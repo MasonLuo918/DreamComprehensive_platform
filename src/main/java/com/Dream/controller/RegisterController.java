@@ -1,7 +1,7 @@
 package com.Dream.controller;
 
 import com.Dream.entity.Department;
-import com.Dream.mail.SendEmail;
+import com.Dream.commons.mail.SendEmail;
 import com.Dream.service.DepartmentService;
 import com.Dream.util.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,7 +70,7 @@ public class RegisterController {
         //获取前端传来的校验信息
         String registerEmail = map.get("email");
         String registerPassword = map.get("password");
-        String registerDeptName = map.get("deptName");
+        String registerDeptName = map.get("dept_name");
         String registerCode = map.get("code");
         String registerCollege = map.get("college");
         //判断验证码是否正确,以及所需要参数是否已经传来
@@ -159,35 +159,41 @@ public class RegisterController {
      * 点击时有如下几种情况：
      * 1、激活成功，将数据库status设为0
      * {
-     * "status":0,
+     * "status":"200",
      * "message":"success"
      * }
      * <p>
      * }
      * 2、激活失败，激活码不符或者已经超时
      * {
-     * "status":1,
+     * "status":"201",
      * "message":"激活码错误或者已经超时，请重新注册" ("该邮箱尚未注册")
      * }
      *
-     * @param email        个人邮箱
-     * @param validateCode 链接中的注册码
      * @return
      */
     @RequestMapping("/department/activate")
     @ResponseBody
-    public Map<String, Object> activate(@RequestParam("email") String email, @RequestParam("validateCode") String validateCode) {
+    public Map<String, Object> activate(@RequestBody Map<String, Object> requestMap) {
+
         Map<String, Object> resultMap = new HashMap<>();
+        String email = (String) requestMap.get("email");
+        String validateCode = (String) requestMap.get("validate_Code");
+        if(email == null || validateCode == null){
+            resultMap.put("status","002");
+            resultMap.put("message","请求参数缺失");
+            return resultMap;
+        }
         Department department = departmentService.findByEmail(email);
         if (department == null) {
-            resultMap.put("status", 1);
+            resultMap.put("status", "201");
             resultMap.put("message", "该邮箱尚未注册");
             return resultMap;
         }
 
         String redisCode = (String) redisTemplate.opsForValue().get(email);
         if (redisCode == null || !redisCode.equals(validateCode)) {
-            resultMap.put("status", 1);
+            resultMap.put("status", "201");
             resultMap.put("message", "激活码错误或者已经超时，请重新注册");
             return resultMap;
         }
@@ -195,7 +201,7 @@ public class RegisterController {
         updateDepartment.setId(department.getId());
         updateDepartment.setStatus(1);
         departmentService.update(updateDepartment);
-        resultMap.put("status", 0);
+        resultMap.put("status", "200");
         resultMap.put("message", "激活成功");
         return resultMap;
     }
@@ -204,7 +210,8 @@ public class RegisterController {
      */
     @RequestMapping("/department/checkEmail")
     @ResponseBody
-    public Map<String,Object> checkEmail(@RequestParam("email") String email){
+    public Map<String,Object> checkEmail(@RequestBody Map<String, Object> map){
+        String email = (String) map.get("email");
         Map<String,Object> resultMap=new HashMap<>();
         String string ="^([a-z0-9A-Z]+[-|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$";
         Pattern p;

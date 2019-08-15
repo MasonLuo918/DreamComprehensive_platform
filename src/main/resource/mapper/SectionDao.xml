@@ -9,7 +9,7 @@
         <result column="account" property="account"/>
         <result column="password" property="password"/>
         <result column="name" property="name"/>
-        <result column="create_time" property="createTime" typeHandler="com.Dream.typeHandler.LocalDateTypeHandler"/>
+        <result column="create_time" property="createTime" typeHandler="com.Dream.commons.typeHandler.LocalDateTypeHandler"/>
         <association property="department" select="com.Dream.dao.DepartmentDao.selectOne" column="{id=department_id}"/>
     </resultMap>
     <sql id="sectionSelect">

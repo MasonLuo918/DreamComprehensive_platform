@@ -6,7 +6,7 @@
     <resultMap id="activityMap" type="activity">
         <id property="id" column="id"/>
         <result property="name" column="name"/>
-        <result property="time" column="time" typeHandler="com.Dream.typeHandler.LocalDateTypeHandler"/>
+        <result property="time" column="time" typeHandler="com.Dream.commons.typeHandler.LocalDateTypeHandler"/>
         <result property="material" column="material"/>
         <result property="volunteerTime" column="volunteer_time"/>
         <result property="activityProve" column="activity_prove"/>

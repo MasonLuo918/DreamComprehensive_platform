@@ -1,4 +1,4 @@
-package com.Dream.mail;
+package com.Dream.commons.mail;
 
 import javax.mail.PasswordAuthentication;
 

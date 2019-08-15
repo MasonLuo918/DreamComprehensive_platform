@@ -1,4 +1,4 @@
-package com.Dream.mail;
+package com.Dream.commons.mail;
 
 import org.apache.log4j.Logger;
 
@@ -59,17 +59,15 @@ public class SendEmail {
     private static MimeMessage createMimeMessage(Session session, String sendEmail, String receiveEmail, String code, String personal) throws Exception{
         //创建一封邮件
         MimeMessage message = new MimeMessage(session);
-
         //From：发件人
         message.setFrom(new InternetAddress(sendEmail, "易班综测平台","UTF-8"));
         //To: 收件人
         message.setRecipient(MimeMessage.RecipientType.TO, new InternetAddress(receiveEmail, personal, "UTF-8"));
         //主题
         message.setSubject("易班综测平台激活链接", "UTF-8");
-        message.setContent( "<a href=\"http://localhost:8080/register/activate?email="+receiveEmail+"&validateCode="+ code+"\" target=\"_blank\">请于24小时内点击激活</a>","text/html;charset=gb2312");
+        message.setContent( "<a href=\"http://localhost:8080/activate?email="+receiveEmail+"&validateCode="+ code+"\" target=\"_blank\">请于24小时内点击激活</a>","text/html;charset=gb2312");
         message.setSentDate(new Date());
         message.saveChanges();
         return message;
     }
-
 }

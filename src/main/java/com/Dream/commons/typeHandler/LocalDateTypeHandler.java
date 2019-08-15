@@ -1,4 +1,4 @@
-package com.Dream.typeHandler;
+package com.Dream.commons.typeHandler;
 
 import org.apache.ibatis.type.JdbcType;
 import org.apache.ibatis.type.MappedJdbcTypes;
