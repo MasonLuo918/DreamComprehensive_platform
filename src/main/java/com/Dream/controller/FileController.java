@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.io.FileNotFoundException;
 import java.util.*;
 
 @Controller
@@ -53,7 +54,7 @@ public class FileController {
      */
     @RequestMapping("/getZipContent") // 可以利用aop检查一下是否请求的文件uuid是该会话用户的，还有文档类型
     @ResponseBody
-    public Map<String, Object> getZipFileContent(@RequestBody Map<String, Object> requestMap) {
+    public Map<String, Object> getZipFileContent(@RequestBody Map<String, Object> requestMap) throws FileNotFoundException {
         String uuid = (String) requestMap.get("uuid");
         Map<String, Object> resultMap = new HashMap<>();
         if (uuid == null) {

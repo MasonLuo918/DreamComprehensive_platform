@@ -3,6 +3,7 @@ package com.Dream.util;
 import com.Dream.bean.Image;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +15,7 @@ public class GetFileList {
         base64FileList = new ArrayList<>();
     }
 
-    private void parse(File file){
+    private void parse(File file) throws FileNotFoundException {
         if(file != null && file.exists()){
             if(file.isFile()){
                 Image image = new Image(Base64.getImageStr(file),getContentType(file));
@@ -28,7 +29,7 @@ public class GetFileList {
         }
     }
 
-    public List<Image> parseFile(File file){
+    public List<Image> parseFile(File file) throws FileNotFoundException {
         base64FileList.clear();
         parse(file);
         return base64FileList;
@@ -43,7 +44,7 @@ public class GetFileList {
         return name;
     }
 
-    public List<Image> parseFile(String path){
+    public List<Image> parseFile(String path) throws FileNotFoundException {
        return parseFile(new File(path));
     }
 }

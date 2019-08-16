@@ -1,13 +1,11 @@
-package com.Dream.commons;
+package com.Dream.commons.cache;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.*;
 /**
- * @Author: lixk
- * @Date: 2018/5/9 15:03
  * @Description: 简单的内存缓存工具类
  */
-public class Cache {
+public class Cache{
     //键值对集合
     private final static Map<String, Entity> map = new HashMap<>();
     //定时器线程池，用于清除过期缓存
@@ -23,7 +21,6 @@ public class Cache {
     }
     /**
      * 添加缓存
-     *
      * @param key 键
      * @param data 值
      * @param expire 过期时间，单位：毫秒， 0表示无限长
@@ -60,7 +57,6 @@ public class Cache {
     }
     /**
      * 读取缓存
-     *
      * @param key 键
      * * @param clazz 值类型
      * @return
@@ -90,34 +86,5 @@ public class Cache {
      */
     public synchronized static int size() {
         return map.size();
-    }
-    /**
-     * 缓存实体类
-     */
-    private static class Entity {
-        //键值对的value
-        private Object value;
-        //定时器Future
-        private Future future;
-        public Entity(Object value, Future future) {
-            this.value = value;
-            this.future = future;
-        }
-        /**
-         * 获取值
-         *
-         * @return
-         */
-        public Object getValue() {
-            return value;
-        }
-        /**
-         * 获取Future对象
-         *
-         * @return
-         */
-        public Future getFuture() {
-            return future;
-        }
     }
 }

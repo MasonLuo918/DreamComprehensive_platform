@@ -51,7 +51,7 @@ public class Base64 {
         }
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws FileNotFoundException {
         String str = getImageStr("/Users/belle/Desktop/material/u407.jpg");
         System.out.println(str.length());
     }

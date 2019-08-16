@@ -73,7 +73,6 @@ public class RegisterController {
                                         @SessionAttribute(value = "validateCode") String validateCode) throws Exception {
 
         Map<String, Object> responseMap = new HashMap<>();
-
         //获取前端传来的校验信息
         String registerEmail = map.get("email");
         String registerPassword = map.get("password");
