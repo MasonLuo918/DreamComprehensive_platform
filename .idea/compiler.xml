@@ -7,7 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Dream.Comprehensive_platform" />
+        <module name="DreamComprehensive_platform" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Dream.Comprehensive_platform" target="8" />
+      <module name="DreamComprehensive_platform" target="8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
