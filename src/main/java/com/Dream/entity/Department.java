@@ -1,7 +1,6 @@
 package com.Dream.entity;
 
 import java.time.LocalDate;
-import java.util.List;
 
 public class Department {
     private Integer id;

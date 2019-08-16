@@ -1,10 +1,14 @@
 package com.Dream.commons.cache;
+import org.springframework.stereotype.Component;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.*;
 /**
  * @Description: 简单的内存缓存工具类
  */
+
+@Component
 public class Cache{
     //键值对集合
     private final static Map<String, Entity> map = new HashMap<>();
