@@ -58,7 +58,6 @@ public class QRCode {
             HashMap hints=new HashMap();
             hints.put(EncodeHintType.CHARACTER_SET,"UTF-8");
             Result result=formatReader.decode(binaryBitmap,hints);
-
             System.out.println("解析结果："+result.toString());
             System.out.println("解析格式："+result.getBarcodeFormat());
             System.out.println("解析内容："+result.getText());
