@@ -8,6 +8,134 @@
         <result property="stuId" column="stu_id"/>
         <result property="stuName" column="stu_name"/>
         <result property="stuProfessionAndClass" column="stu_profession_class"/>
-        <result property=""
+        <result property="activityId" column="activity_id"/>
+        <result property="note" column="note"/>
+        <result property="createTime" column="create_time"/>
     </resultMap>
+
+    <sql id="signInSelect">
+        SELECT `id`,`stu_id`,`stu_name`,`stu_profession_class`,`activity_id`,`note`,`create_time`
+        FROM `sign_in`
+    </sql>
+
+    <insert id="insert" parameterType="signIn" keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO sign_in
+        <trim prefix="(" suffixOverrides="," suffix=")">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="stuId != null">
+                stu_id,
+            </if>
+            <if test="stuName != null and stuName != ''">
+                stu_name,
+            </if>
+            <if test="stuProfessionAndClass != null and stuProfessionAndClass != ''">
+                stu_profession_Class,
+            </if>
+            <if test="activityId != null">
+                activity_id,
+            </if>
+            <if test="note != null and note != ''">
+                note,
+            </if>
+            <if test="createTime != null and createTime != ''">
+                create_time,
+            </if>
+        </trim>
+        <trim prefix="VALUES(" suffixOverrides="," suffix=")">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="stuId != null">
+                #{stuId},
+            </if>
+            <if test="stuName != null and stuName != ''">
+                #{stuName},
+            </if>
+            <if test="stuProfessionAndClass != null and stuProfessionAndClass != ''">
+                #{stuProfessionAndClass},
+            </if>
+            <if test="activityId != null">
+                #{activityId},
+            </if>
+            <if test="note != null and note != ''">
+                #{note},
+            </if>
+            <if test="createTime != null and createTime != ''">
+                #{createTime,typeHandler=com.Dream.typeHandler.LocalDateTypeHandler},
+            </if>
+        </trim>
+    </insert>
+
+
+    <update id="update" parameterType="signIn">
+        UPDATE sign_in
+        <set>
+            <if test="=stuId != null">
+                stu_id=#{stuId},
+            </if>
+            <if test="stuName != null and stuName != ''">
+                stu_name=#{stuName},
+            </if>
+            <if test="stuProfessionAndClass != null and stuProfessionAndClass != ''">
+                stu_profession_class=#{stuProfessionAndClass},
+            </if>
+            <if test="activityId != null">
+                activityId=#{activity_id},
+            </if>
+            <if test="note != null and note != ''">
+                note=#{note},
+            </if>
+            <if test="createTime != null and createTime != ''">
+                create_time=#{createTime,typeHandler=com.Dream.typeHandler.LocalDateTypeHandler},
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+
+    <delete id="delete" parameterType="int">
+        DELETE FROM sign_in
+        WHERE id=#{id}
+    </delete>
+
+    <delete id="deleteByActivityId" parameterType="int">
+        DELETE FROM sign_in
+        WHERE activity_id=#{activityId}
+    </delete>
+
+    <select id="selectOne" parameterType="signIn" resultMap="signInMap">
+        <include refid="signInSelect"/>
+        <where>
+            <if test="id != null">
+                and id=#{id}
+            </if>
+            <if test="stuId != null">
+                and stu_id=#{stuId}
+            </if>
+            <if test="stuName != null and stuName != ''">
+                and stu_name=#{stuName}
+            </if>
+            <if test="stuProfessionAndClass != null and stuProfessionAndClass != ''">
+                and stu_profession_class=#{stuProfessionAndClass}
+            </if>
+            <if test="activityId !=null">
+                and activity_id=#{activityId}
+            </if>
+            <if test="note != null and note != ''">
+                and note=#{note}
+            </if>
+        </where>
+        LIMIT 1
+    </select>
+
+    <select id="selectByActivityId" parameterType="int">
+        <include refid="signInSelect"/>
+        where activity_id=#{activityId}
+    </select>
+
+    <select id="selectByStuId" parameterType="int">
+        <include refid="signInSelect"/>
+        where stu_id=#{stuId}
+    </select>
 </mapper>

@@ -18,7 +18,7 @@ public interface SignInDao extends BaseDao<SignIn>{
      * @param stuId
      * @return
      */
-    List<SignIn> selectBySignIn(Integer stuId);
+    List<SignIn> selectByStuId(Integer stuId);
 
     /**
      * 根据活动Id删除签到表
