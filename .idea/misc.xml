@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-<<<<<<< HEAD
-  <component name="FrameworkDetectionExcludesConfiguration">
-    <file type="web" url="file://$PROJECT_DIR$" />
-  </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="1.8.0_201" project-jdk-type="JavaSDK">
-=======
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$" />
@@ -18,7 +12,6 @@
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8.0_201" project-jdk-type="JavaSDK">
->>>>>>> adc0b8bbe5c42c1dfdf02fb05eef42029cdcd650
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
