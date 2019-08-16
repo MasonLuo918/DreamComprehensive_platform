@@ -9,8 +9,5 @@
         <module name="Dream.Comprehensive_platform" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Dream.Comprehensive_platform" target="8" />
-    </bytecodeTargetLevel>
   </component>
 </project>
