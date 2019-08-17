@@ -62,7 +62,7 @@
                 #{status},
             </if>
             <if test="createTime != null and createTime != ''">
-                #{createTime, typeHandler= com.Dream.typeHandler.LocalDateTypeHandler},
+                #{createTime, typeHandler= com.Dream.commons.typeHandler.LocalDateTypeHandler},
             </if>
         </trim>
     </insert>
@@ -86,7 +86,7 @@
                 status = #{status},
             </if>
             <if test="createTime != null and createTime != ''">
-                create_time = #{createTime, typeHandler= com.Dream.typeHandler.LocalDateTypeHandler},
+                create_time = #{createTime, typeHandler= com.Dream.commons.typeHandler.LocalDateTypeHandler},
             </if>
         </set>
         where id = #{id}

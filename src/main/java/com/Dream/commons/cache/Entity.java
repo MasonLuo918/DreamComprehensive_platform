@@ -11,6 +11,11 @@ public class Entity<T>{
     private T value;
     //定时器Future
     private Future future;
+
+    public Entity(T value){
+        this(value, null);
+    }
+
     public Entity(T value, Future future) {
         this.value = value;
         this.future = future;
@@ -30,5 +35,13 @@ public class Entity<T>{
      */
     public Future getFuture() {
         return future;
+    }
+
+    public void setValue(T value) {
+        this.value = value;
+    }
+
+    public void setFuture(Future future) {
+        this.future = future;
     }
 }

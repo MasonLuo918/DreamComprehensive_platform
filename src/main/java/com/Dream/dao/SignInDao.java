@@ -1,9 +1,11 @@
 package com.Dream.dao;
 
 import com.Dream.entity.SignIn;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface SignInDao extends BaseDao<SignIn>{
 
     /**

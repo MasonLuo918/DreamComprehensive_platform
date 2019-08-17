@@ -1,5 +1,3 @@
-package java;
-
 import com.Dream.dao.ActivityDao;
 import com.Dream.dao.DepartmentDao;
 import com.Dream.dao.SectionDao;

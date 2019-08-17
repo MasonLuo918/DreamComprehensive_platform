@@ -1,4 +1,3 @@
-package java;
 import com.Dream.service.ActivityProveParser;
 import com.Dream.entity.UploadFile;
 import org.junit.Test;

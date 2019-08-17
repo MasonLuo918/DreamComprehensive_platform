@@ -64,7 +64,7 @@
                 #{email},
             </if>
             <if test="createTime != null and createTime != ''">
-                #{createTime,typeHandler=com.Dream.typeHandler.LocalDateTypeHandler}
+                #{createTime,typeHandler=com.Dream.commons.typeHandler.LocalDateTypeHandler}
             </if>
         </trim>
     </insert>
@@ -98,7 +98,7 @@
                 college = #{college},
             </if>
             <if test="createTime != null and createTime != ''">
-                create_time = #{createTime, typeHandler=com.Dream.typeHandler.LocalDateTypeHandler}
+                create_time = #{createTime, typeHandler=com.Dream.commons.typeHandler.LocalDateTypeHandler}
             </if>
         </set>
         WHERE id = #{id}
@@ -127,7 +127,7 @@
                 and status = #{status}
             </if>
             <if test="createTime != null and createTime != ''">
-                and create_time = #{createTime, typeHandler=com.Dream.typeHandler.LocalDateTypeHandler}
+                and create_time = #{createTime, typeHandler=com.Dream.commons.typeHandler.LocalDateTypeHandler}
             </if>
         </where>
         LIMIT 1

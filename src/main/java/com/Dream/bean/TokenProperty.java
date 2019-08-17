@@ -3,15 +3,27 @@ package com.Dream.bean;
 import java.io.Serializable;
 
 public class TokenProperty implements Serializable {
-    private int id;
 
+    // 活动id
+    private Integer id;
+
+    // 活动名称
     private String name;
 
-    public int getId() {
+    // 生成的token
+    private String token;
+
+    // 前端中间处理url
+    private String url;
+
+    // 有效期,单位为秒
+    private Integer validity;
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -21,5 +33,29 @@ public class TokenProperty implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public Integer getValidity() {
+        return validity;
+    }
+
+    public void setValidity(Integer validity) {
+        this.validity = validity;
     }
 }

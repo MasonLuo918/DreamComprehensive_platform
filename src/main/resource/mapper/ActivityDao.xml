@@ -122,11 +122,11 @@
         <where>
             <if test="startDate != null and startDate != ''">
                 <![CDATA[ DATE_FORMAT(time, '%Y-%m-%d') >= DATE_FORMAT(#{startDate,
-              typeHandler=com.Dream.typeHandler.LocalDateTypeHandler }, '%Y-%m-%d') ]]>
+              typeHandler=com.Dream.commons.typeHandler.LocalDateTypeHandler }, '%Y-%m-%d') ]]>
             </if>
             <if test="endDate != null and endDate != ''">
                 and <![CDATA[ DATE_FORMAT(time, '%Y-%m-%d') <= DATE_FORMAT(#{endDate,
-              typeHandler=com.Dream.typeHandler.LocalDateTypeHandler }, '%Y-%m-%d') ]]>
+              typeHandler=com.Dream.commons.typeHandler.LocalDateTypeHandler }, '%Y-%m-%d') ]]>
             </if>
         </where>
     </select>

@@ -154,7 +154,6 @@ public class LoginController {
         }
     }
 
-
     @RequestMapping("/test")
     @ResponseBody
     public Map test(){

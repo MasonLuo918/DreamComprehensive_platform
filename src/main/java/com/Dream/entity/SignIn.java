@@ -6,13 +6,13 @@ import java.time.LocalDate;
 public class SignIn implements Serializable {
     private Integer id;
 
-    private Integer stuId;
+    private String stuID;
 
     private String stuName;
 
     private String stuProfessionAndClass;
 
-    private Integer avtivityId;
+    private Integer activityID;
 
     private String note;
 
@@ -23,9 +23,6 @@ public class SignIn implements Serializable {
 
     public void setId(Integer id) { this.id = id; }
 
-    public Integer getStuId() { return stuId; }
-
-    public void setStuId(Integer stuId) { this.stuId = stuId; }
 
     public String getStuName() { return stuName; }
 
@@ -35,10 +32,6 @@ public class SignIn implements Serializable {
 
     public void setStuProfessionAndClass(String stuProfessionAndClass) { this.stuProfessionAndClass = stuProfessionAndClass; }
 
-    public Integer getAvtivityId() { return avtivityId; }
-
-    public void setAvtivityId(Integer avtivityId) { this.avtivityId = avtivityId; }
-
     public String getNote() { return note; }
 
     public void setNote(String note) { this.note = note; }
@@ -46,4 +39,20 @@ public class SignIn implements Serializable {
     public LocalDate getCreateTime() { return createTime; }
 
     public void setCreateTime(LocalDate createTime) { this.createTime = createTime; }
+
+    public String getStuID() {
+        return stuID;
+    }
+
+    public void setStuID(String stuID) {
+        this.stuID = stuID;
+    }
+
+    public Integer getActivityID() {
+        return activityID;
+    }
+
+    public void setActivityID(Integer activityID) {
+        this.activityID = activityID;
+    }
 }
