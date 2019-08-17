@@ -112,8 +112,6 @@ public class ActivityController {
      * 使用Restful api 请求格式，向一个url发送请求：
      * /admin/activity/getAllActivity/1/10
      * 其中，上面的1代表第几页，size代表每一页的条数
-     * @param page 第几页
-     * @param size 每一页的条数
      * @return
      * {
      *     "status":"200",
@@ -141,9 +139,9 @@ public class ActivityController {
      *     "message:"用户未登录"
      * }
      */
-    @RequestMapping("getAllActivity/{page}/{size}")
+    @RequestMapping("getAllActivity")
     @ResponseBody
-    public Map<String, Object> getAllActivity(HttpSession session, @PathVariable("page") int page, @PathVariable(value = "size") int size){
+    public Map<String, Object> getAllActivity(HttpSession session){
         Map<String, Object> resultMap = new HashMap<>();
         Integer departmentID = null;
         Integer sectionID = null;
@@ -157,18 +155,9 @@ public class ActivityController {
             sectionID = section.getId();
         }
         int activityCount = activityService.activityCount(departmentID, sectionID);
-        List<Activity> list = activityService.findByRegisterID(departmentID, sectionID, page, size);
+        List<Activity> list = activityService.findByRegisterID(departmentID, sectionID);
         resultMap.put("status","200");
         resultMap.put("activities",list);
-        resultMap.put("page",page);
-        resultMap.put("size",size);
-        boolean hasNextPage = false;
-        if(activityCount > (page - 1) * size + list.size()){
-            hasNextPage = true;
-        }else{
-            hasNextPage = false;
-        }
-        resultMap.put("has_next_page",hasNextPage);
         return resultMap;
     }
 
