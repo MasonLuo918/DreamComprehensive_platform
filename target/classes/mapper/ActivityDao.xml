@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.Dream.dao.ActivityDao">
+    <resultMap id="activityMap" type="activity">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="time" column="time" typeHandler="com.Dream.typeHandler.LocalDateTypeHandler"/>
+        <result property="material" column="material"/>
+        <result property="volunteerTime" column="volunteer_time"/>
+        <result property="activityProve" column="activity_prove"/>
+        <result property="departmentID" column="department_id"/>
+        <result property="sectionID" column="section_id"/>
+        <association property="department" column="{id=department_id}" select="com.Dream.dao.DepartmentDao.selectOne"/>
+    </resultMap>
+    <sql id="activitySelect">
+        SELECT id, name, time, material,volunteer_time, activity_prove,section_id,department_id
+        FROM activity
+    </sql>
+    <insert id="insert" parameterType="activity" keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO activity
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="name != null and name != ''">
+                name,
+            </if>
+            <if test="time != null and time != ''">
+                time,
+            </if>
+            <if test="material != null and material != ''">
+                material,
+            </if>
+            <if test="volunteerTime != null and volunteerTime != ''">
+                volunteer_time,
+            </if>
+            <if test="activityProve != null and activityProve != ''">
+                activity_prove,
+            </if>
+            <if test="departmentID != null">
+                department_id,
+            </if>
+            <if test="sectionID != null">
+                section_id,
+            </if>
+        </trim>
+        <trim prefix=" values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="name != null and name != ''">
+                #{name},
+            </if>
+            <if test="time != null and time != ''">
+                #{time,javaType=java.time.LocalTime, jdbcType=DATE},
+            </if>
+            <if test="material != null and material != ''">
+                #{material},
+            </if>
+            <if test="volunteerTime != null and volunteerTime != ''">
+                #{volunteerTime},
+            </if>
+            <if test="activityProve != null and activityProve != ''">
+                #{activityProve},
+            </if>
+            <if test="departmentID != null">
+                #{departmentID},
+            </if>
+            <if test="sectionID != null">
+                #{sectionID},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="update" parameterType="activity">
+        UPDATE activity
+        <set>
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="time != null and time != ''">
+                time = #{time,javaType=java.time.LocalTime, jdbcType=DATE},
+            </if>
+            <if test="material != null and material != ''">
+                material = #{material},
+            </if>
+            <if test="volunteerTime != null and volunteerTime != ''">
+                volunteer_time = #{volunteerTime},
+            </if>
+            <if test="activityProve != null and activityProve != ''">
+                activity_prove = #{activityProve},
+            </if>
+            <if test="departmentID != null">
+                department_id = #{departmentID},
+            </if>
+            <if test="sectionID != null">
+                section_id = #{sectionID},
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="int">
+        DELETE FROM activity
+        WHERE id = #{id}
+    </delete>
+
+    <select id="selectOne" parameterType="activity" resultMap="activityMap">
+        <include refid="activitySelect"/>
+        WHERE id = #{id}
+    </select>
+
+    <select id="selectByName" parameterType="string" resultMap="activityMap">
+        <include refid="activitySelect"/>
+        WHERE name like concat('%',#{name},'%')
+    </select>
+
+    <select id="selectByDate" parameterType="java.time.LocalDate" resultMap="activityMap">
+        <include refid="activitySelect"/>
+        <where>
+            <if test="startDate != null and startDate != ''">
+                <![CDATA[ DATE_FORMAT(time, '%Y-%m-%d') >= DATE_FORMAT(#{startDate,
+              typeHandler=com.Dream.typeHandler.LocalDateTypeHandler }, '%Y-%m-%d') ]]>
+            </if>
+            <if test="endDate != null and endDate != ''">
+                and <![CDATA[ DATE_FORMAT(time, '%Y-%m-%d') <= DATE_FORMAT(#{endDate,
+              typeHandler=com.Dream.typeHandler.LocalDateTypeHandler }, '%Y-%m-%d') ]]>
+            </if>
+        </where>
+    </select>
+
+    <select id="selectByRegisterID" resultMap="activityMap">
+        <include refid="activitySelect"/>
+        where
+        department_id = #{departmentID}
+        <if test="sectionID != null">
+            and section_id = sectionID
+        </if>
+    </select>
+
+    <select id="selectByRegisterIDForRowBounds" resultMap="activityMap">
+        <include refid="activitySelect"/>
+        where
+        department_id = #{departmentID}
+        <if test="sectionID != null">
+            and section_id = sectionID
+        </if>
+    </select>
+
+    <select id="count" resultType="int">
+        select count(id)
+        from activity
+        where
+        department_id = #{departmentID}
+        <if test="sectionID != null">
+            and section_id = sectionID
+        </if>
+    </select>
+
+</mapper>

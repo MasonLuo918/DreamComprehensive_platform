@@ -11,7 +11,6 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Dream.Comprehensive_platform" target="8" />
       <module name="DreamComprehensive_platform" target="8" />
     </bytecodeTargetLevel>
   </component>
