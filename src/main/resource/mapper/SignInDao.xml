@@ -129,12 +129,12 @@
         LIMIT 1
     </select>
 
-    <select id="selectByActivityId" parameterType="int">
+    <select id="selectByActivityId" parameterType="int" resultMap="signInMap">
         <include refid="signInSelect"/>
-        where activity_id=#{activityID}
+        where activity_id=#{activity}
     </select>
 
-    <select id="selectByStuId" parameterType="string">
+    <select id="selectByStuId" parameterType="string" resultMap="signInMap">
         <include refid="signInSelect"/>
         where stu_id=#{stuID}
     </select>

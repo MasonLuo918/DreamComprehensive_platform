@@ -1,6 +1,6 @@
 package com.Dream.util;
 
-import com.Dream.bean.Image;
+import com.Dream.commons.bean.Image;
 
 import java.io.File;
 import java.io.FileNotFoundException;

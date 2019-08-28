@@ -1,6 +1,5 @@
-import com.Dream.bean.TokenProperty;
+import com.Dream.commons.bean.TokenProperty;
 import com.Dream.commons.cache.Cache;
-import com.Dream.service.SignedInService;
 import com.Dream.service.impl.SignedInServiceImpl;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;

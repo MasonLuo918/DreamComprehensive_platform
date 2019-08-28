@@ -1,7 +1,7 @@
 package com.Dream.service;
 
-import com.Dream.bean.SignedTokenProperty;
-import com.Dream.bean.TokenProperty;
+import com.Dream.commons.bean.SignedTokenProperty;
+import com.Dream.commons.bean.TokenProperty;
 import com.Dream.commons.cache.Entity;
 import com.Dream.entity.SignIn;
 

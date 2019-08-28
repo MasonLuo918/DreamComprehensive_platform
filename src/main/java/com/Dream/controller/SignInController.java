@@ -1,20 +1,25 @@
 package com.Dream.controller;
 
-import com.Dream.bean.SignedTokenProperty;
-import com.Dream.bean.TokenProperty;
+import com.Dream.commons.bean.SignedTokenProperty;
+import com.Dream.commons.bean.TokenProperty;
 import com.Dream.commons.cache.Entity;
+import com.Dream.entity.Activity;
 import com.Dream.entity.SignIn;
+import com.Dream.service.ActivityService;
 import com.Dream.service.SignedInService;
+import com.Dream.util.ExportWordUtil;
 import com.Dream.util.ParamUtil;
+import org.apache.ibatis.type.JdbcType;
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import redis.clients.jedis.params.Params;
+import org.springframework.web.bind.annotation.*;
 
-import javax.faces.annotation.RequestMap;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,8 +28,13 @@ import java.util.Map;
 @RequestMapping("/admin/signed/")
 public class SignInController {
 
+    // TODO 如果已经签到，则不允许签到了
+
     @Autowired
     private SignedInService singedInService;
+
+    @Autowired
+    private ActivityService activityService;
 
     /**
      * 返回一个活动签到器的令牌，每次申请二维码需要将这个令牌发送至后台
@@ -45,19 +55,19 @@ public class SignInController {
         String token = singedInService.start(tokenProperty);
         resultMap.put("status","200");
         resultMap.put("token",token);
+        System.out.println(token);
         resultMap.put("validity",tokenProperty.getValidity());
         return resultMap;
     }
 
     /**
      * 返回一个图片的base64串
-     * @param requestMap
+     * @param token
      * @return
      */
     @RequestMapping(value = "/getQRCode", method = RequestMethod.GET)
     @ResponseBody
-    public Map<String, Object> getQRCode(@RequestBody Map<String, Object> requestMap){
-        String token = (String)requestMap.get("token");
+    public Map<String, Object> getQRCode(@RequestParam("token") String token){
         Map<String, Object> resultMap = new HashMap<>();
         if(token == null){
             resultMap.put("status","002");
@@ -72,14 +82,13 @@ public class SignInController {
         }
         resultMap.put("status","200");
         resultMap.put("qr_code",entity.getValue().getImgBase64());
-        System.out.println(resultMap.get("qr_code"));
         resultMap.put("validity",entity.getValue().getValidity());
         return resultMap;
     }
 
     /**
      * 需要二维码附带的token，该token用来判断验证码是否过期
-     * @param requestMap
+     * @param token
      * @return
      * {
      *     "status":"302",
@@ -91,8 +100,7 @@ public class SignInController {
      */
     @RequestMapping(value = "/redirect", method = RequestMethod.GET)
     @ResponseBody
-    public Map<String, Object> redirect(@RequestBody Map<String, Object> requestMap){
-        String token = (String) requestMap.get("token");
+    public Map<String, Object> redirect(@RequestParam("token") String token){
         Map<String, Object> resultMap = new HashMap<>();
         if(token == null){
             resultMap.put("status","002");
@@ -158,5 +166,17 @@ public class SignInController {
         return resultMap;
     }
 
-
+    @RequestMapping("/export")
+    public void exportWord(HttpServletResponse response, @RequestParam("activity_id") Integer activityID) throws IOException {
+//        Integer activityID = (Integer) requestMap.get("activity_id");
+        List<SignIn> list = singedInService.getSignInList(activityID);
+        Activity activity = activityService.findByID(activityID);
+        XWPFDocument doc = ExportWordUtil.export(list);
+        OutputStream outputStream = response.getOutputStream();
+        response.reset();
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("multipart/form-data");
+        response.setHeader("Content-Disposition", "attachment;fileName="+URLEncoder.encode(activity.getName() + ".docx", "UTF-8"));
+        doc.write(outputStream);
+    }
 }

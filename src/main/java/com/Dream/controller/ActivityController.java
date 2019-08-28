@@ -1,5 +1,6 @@
 package com.Dream.controller;
 
+import com.Dream.commons.bean.ActivityResult;
 import com.Dream.entity.*;
 import com.Dream.entity.type.FileType;
 import com.Dream.service.*;
@@ -156,8 +157,19 @@ public class ActivityController {
         }
         int activityCount = activityService.activityCount(departmentID, sectionID);
         List<Activity> list = activityService.findByRegisterID(departmentID, sectionID);
+        List<ActivityResult> returnList = new ArrayList<>();
+        for(Activity activity:list){
+            ActivityResult result = new ActivityResult();
+            result.setId(activity.getId());
+            result.setName(activity.getName());
+            result.setMaterial(activity.getMaterial());
+            result.setVolunteer_time(activity.getVolunteerTime());
+            result.setActivity_prove(activity.getActivityProve());
+            result.setTime(activity.getTime().format(formatter));
+            returnList.add(result);
+        }
         resultMap.put("status","200");
-        resultMap.put("activities",list);
+        resultMap.put("activities",returnList);
         return resultMap;
     }
 

@@ -11,5 +11,6 @@
     </typeAliases>
     <typeHandlers>
         <typeHandler handler="com.Dream.commons.typeHandler.LocalDateTypeHandler"/>
+        <typeHandler handler="com.Dream.commons.typeHandler.OauthTypeHandler"/>
     </typeHandlers>
 </configuration>

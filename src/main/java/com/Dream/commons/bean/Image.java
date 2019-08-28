@@ -1,4 +1,4 @@
-package com.Dream.bean;
+package com.Dream.commons.bean;
 
 public class Image {
     private String contentType;

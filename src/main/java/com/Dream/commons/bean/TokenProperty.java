@@ -1,4 +1,4 @@
-package com.Dream.bean;
+package com.Dream.commons.bean;
 
 import java.io.Serializable;
 

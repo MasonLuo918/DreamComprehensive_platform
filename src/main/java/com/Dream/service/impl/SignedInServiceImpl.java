@@ -1,7 +1,7 @@
 package com.Dream.service.impl;
 
-import com.Dream.bean.SignedTokenProperty;
-import com.Dream.bean.TokenProperty;
+import com.Dream.commons.bean.SignedTokenProperty;
+import com.Dream.commons.bean.TokenProperty;
 import com.Dream.commons.cache.Cache;
 import com.Dream.commons.cache.Entity;
 import com.Dream.dao.ActivityDao;
@@ -79,6 +79,7 @@ public class SignedInServiceImpl implements SignedInService {
         TokenProperty tokenProperty = codeTokenEntity.getValue();
         // 生成签到token，也就是二维码的有效期令牌
         String signedToken = String.valueOf(tokenProperty.getId()) + System.currentTimeMillis();
+        signedToken = MD5Util.getMD5(signedToken);
         SignedTokenProperty property = new SignedTokenProperty();
         // 设置中转url
         property.setUrl(tokenProperty.getUrl());
@@ -90,6 +91,7 @@ public class SignedInServiceImpl implements SignedInService {
         // 参数
         Map<String, String> param = new HashMap<>();
         param.put("token",signedToken);
+        System.out.println(signedToken);
         String imgBase64 = Base64.getImageStr(QRCode.createQRCode(property.getUrl(),param));
         property.setImgBase64(imgBase64);
         // 生成放入缓存的实体
@@ -123,7 +125,7 @@ public class SignedInServiceImpl implements SignedInService {
     }
 
     public void dealWithTokenExpire(String token) {
-        Set<SignIn> members = redisTemplate.opsForSet().members(token);
+          Set<SignIn> members = redisTemplate.opsForSet().members(token);
         if(members.size() != 0){
             for(SignIn record:members){
                 // 将记录都插入表中
