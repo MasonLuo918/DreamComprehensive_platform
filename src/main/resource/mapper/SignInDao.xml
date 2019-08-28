@@ -24,7 +24,7 @@
             <if test="id != null">
                 id,
             </if>
-            <if test="stuId != null">
+            <if test="stuId != null and stuId != ''">
                 stu_id,
             </if>
             <if test="stuName != null and stuName != ''">
@@ -47,7 +47,7 @@
             <if test="id != null">
                 #{id},
             </if>
-            <if test="stuId != null">
+            <if test="stuId != null and stuId != ''">
                 #{stuId},
             </if>
             <if test="stuName != null and stuName != ''">
@@ -72,7 +72,7 @@
     <update id="update" parameterType="signIn">
         UPDATE sign_in
         <set>
-            <if test="=stuId != null">
+            <if test="=stuId != null and stuId != ''">
                 stu_id=#{stuId},
             </if>
             <if test="stuName != null and stuName != ''">
@@ -134,7 +134,7 @@
         where activity_id=#{activityId}
     </select>
 
-    <select id="selectByStuId" parameterType="int">
+    <select id="selectByStuId" parameterType="String">
         <include refid="signInSelect"/>
         where stu_id=#{stuId}
     </select>

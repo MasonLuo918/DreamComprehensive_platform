@@ -45,6 +45,7 @@
             <bean class="com.Dream.interceptor.FileUploadInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
+    <!-- 跨域请求-->
     <mvc:cors>
         <mvc:mapping path="/**/"/>
     </mvc:cors>

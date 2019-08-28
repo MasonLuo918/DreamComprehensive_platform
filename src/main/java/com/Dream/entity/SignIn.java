@@ -6,7 +6,7 @@ import java.time.LocalDate;
 public class SignIn implements Serializable {
     private Integer id;
 
-    private Integer stuId;
+    private String stuId;
 
     private String stuName;
 
@@ -23,9 +23,9 @@ public class SignIn implements Serializable {
 
     public void setId(Integer id) { this.id = id; }
 
-    public Integer getStuId() { return stuId; }
+    public String getStuId() { return stuId; }
 
-    public void setStuId(Integer stuId) { this.stuId = stuId; }
+    public void setStuId(String stuId) { this.stuId = stuId; }
 
     public String getStuName() { return stuName; }
 

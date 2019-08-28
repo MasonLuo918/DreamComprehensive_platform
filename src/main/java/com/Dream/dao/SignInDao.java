@@ -1,9 +1,11 @@
 package com.Dream.dao;
 
 import com.Dream.entity.SignIn;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface SignInDao extends BaseDao<SignIn>{
 
     /**
@@ -18,13 +20,13 @@ public interface SignInDao extends BaseDao<SignIn>{
      * @param stuId
      * @return
      */
-    List<SignIn> selectByStuId(Integer stuId);
+    List<SignIn> selectByStuId(String stuId);
 
     /**
      * 根据活动Id删除签到表
-     * @param activity
+     * @param activityId
      * @return
      */
-    int deleteByActivityId(Integer activity);
+    int deleteByActivityId(Integer activityId);
 
 }
