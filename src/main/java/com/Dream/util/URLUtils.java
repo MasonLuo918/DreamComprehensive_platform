@@ -1,8 +1,11 @@
 package com.Dream.util;
 
 
+import com.Dream.Enum.OauthAccountEnum;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.PostMethod;
+import org.apache.cxf.message.StringMap;
 
 import java.io.*;
 import java.net.URL;
@@ -72,7 +75,7 @@ public class URLUtils {
      * @param params
      * @return
      */
-    private static String getURL(String url, Map<String, String> params) {
+    public static String getURL(String url, Map<String, String> params) {
         if (params == null || params.isEmpty()) {
             return url;
         }
@@ -89,11 +92,33 @@ public class URLUtils {
         return stringBuilder.toString();
     }
 
-    public static void main(String[] args) {
-        String url = "http://localhost:8090/oauth/yiban";
-        Map<String, String > map = new HashMap<>();
-        map.put("user","user");
-        map.put("userName","userName");
-        post(url, map);
+    /**
+     * @param url 请求url
+     * @param params 请求参数
+     * @param requestMethod 请求方法,GET 或者 POST
+     * @return
+     */
+    public static Map<String, String> doRequest(String url, Map<String, String > params, String requestMethod) throws IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        String result = "";
+        if(requestMethod.equals("GET")){
+            result = get(url, params);
+        }else if(requestMethod.equals("POST")){
+            result = post(url, params);
+        }
+        return objectMapper.readValue(result,Map.class);
+    }
+
+    public static void main(String[] args) throws IOException {
+        String code = "fbdba28d7ceb51b86d7f103b21c004fc5662ff1f";
+        String client_id = OauthAccountEnum.YIBAN.getAppID();
+        String client_secret = OauthAccountEnum.YIBAN.getAppSecret();
+        String redirect_uri = OauthAccountEnum.YIBAN.getRedirectURL();
+        Map<String, String> params = new HashMap<>();
+        params.put("code",code);
+        params.put("client_id",client_id);
+        params.put("client_secret",client_secret);
+        params.put("redirect_uri",redirect_uri);
+        System.out.println(post("https://openapi.yiban.cn/oauth/access_token", params));
     }
 }

@@ -1,5 +1,7 @@
 package com.Dream.controller;
 
+import com.Dream.commons.result.Result;
+import com.Dream.commons.result.ResultCodeEnum;
 import com.Dream.entity.Department;
 import com.Dream.entity.Section;
 import com.Dream.entity.type.UserType;

@@ -17,7 +17,7 @@
         FROM oauth
     </sql>
 
-    <select id="select" resultMap="OauthMap">
+    <select id="selectOne" resultMap="OauthMap">
         <include refid="OauthSelect"/>
         <where>
             <if test="id != null">
