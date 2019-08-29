@@ -5,12 +5,12 @@
 <mapper namespace="com.Dream.dao.SignInDao">
     <resultMap id="signInMap" type="signIn">
         <id column="id" property="id"/>
-        <result property="stuId" column="stu_id"/>
+        <result property="stuID" column="stu_id"/>
         <result property="stuName" column="stu_name"/>
         <result property="stuProfessionAndClass" column="stu_profession_class"/>
-        <result property="activityId" column="activity_id"/>
+        <result property="activityID" column="activity_id"/>
         <result property="note" column="note"/>
-        <result property="createTime" column="create_time"/>
+        <result property="createTime" column="create_time" typeHandler="com.Dream.commons.typeHandler.LocalDateTypeHandler"/>
     </resultMap>
 
     <sql id="signInSelect">
@@ -24,7 +24,7 @@
             <if test="id != null">
                 id,
             </if>
-            <if test="stuId != null and stuId != ''">
+            <if test="stuID != null">
                 stu_id,
             </if>
             <if test="stuName != null and stuName != ''">
@@ -33,7 +33,7 @@
             <if test="stuProfessionAndClass != null and stuProfessionAndClass != ''">
                 stu_profession_Class,
             </if>
-            <if test="activityId != null">
+            <if test="activityID != null">
                 activity_id,
             </if>
             <if test="note != null and note != ''">
@@ -47,8 +47,8 @@
             <if test="id != null">
                 #{id},
             </if>
-            <if test="stuId != null and stuId != ''">
-                #{stuId},
+            <if test="stuID != null">
+                #{stuID},
             </if>
             <if test="stuName != null and stuName != ''">
                 #{stuName},
@@ -56,14 +56,14 @@
             <if test="stuProfessionAndClass != null and stuProfessionAndClass != ''">
                 #{stuProfessionAndClass},
             </if>
-            <if test="activityId != null">
-                #{activityId},
+            <if test="activityID != null">
+                #{activityID},
             </if>
             <if test="note != null and note != ''">
                 #{note},
             </if>
             <if test="createTime != null and createTime != ''">
-                #{createTime,typeHandler=com.Dream.typeHandler.LocalDateTypeHandler},
+                #{createTime,typeHandler=com.Dream.commons.typeHandler.LocalDateTypeHandler},
             </if>
         </trim>
     </insert>
@@ -72,8 +72,8 @@
     <update id="update" parameterType="signIn">
         UPDATE sign_in
         <set>
-            <if test="=stuId != null and stuId != ''">
-                stu_id=#{stuId},
+            <if test="=stuID != null">
+                stu_id=#{stuID},
             </if>
             <if test="stuName != null and stuName != ''">
                 stu_name=#{stuName},
@@ -81,14 +81,14 @@
             <if test="stuProfessionAndClass != null and stuProfessionAndClass != ''">
                 stu_profession_class=#{stuProfessionAndClass},
             </if>
-            <if test="activityId != null">
-                activityId=#{activity_id},
+            <if test="activityID != null">
+                activityID=#{activity_id},
             </if>
             <if test="note != null and note != ''">
                 note=#{note},
             </if>
             <if test="createTime != null and createTime != ''">
-                create_time=#{createTime,typeHandler=com.Dream.typeHandler.LocalDateTypeHandler},
+                create_time=#{createTime,typeHandler=com.Dream.commons.typeHandler.LocalDateTypeHandler},
             </if>
         </set>
         where id=#{id}
@@ -101,7 +101,7 @@
 
     <delete id="deleteByActivityId" parameterType="int">
         DELETE FROM sign_in
-        WHERE activity_id=#{activityId}
+        WHERE activity_id=#{activityID}
     </delete>
 
     <select id="selectOne" parameterType="signIn" resultMap="signInMap">
@@ -110,8 +110,8 @@
             <if test="id != null">
                 and id=#{id}
             </if>
-            <if test="stuId != null">
-                and stu_id=#{stuId}
+            <if test="stuID != null">
+                and stu_id=#{stuID}
             </if>
             <if test="stuName != null and stuName != ''">
                 and stu_name=#{stuName}
@@ -120,7 +120,7 @@
                 and stu_profession_class=#{stuProfessionAndClass}
             </if>
             <if test="activityId !=null">
-                and activity_id=#{activityId}
+                and activity_id=#{activityID}
             </if>
             <if test="note != null and note != ''">
                 and note=#{note}
@@ -129,13 +129,13 @@
         LIMIT 1
     </select>
 
-    <select id="selectByActivityId" parameterType="int">
+    <select id="selectByActivityId" parameterType="int" resultMap="signInMap">
         <include refid="signInSelect"/>
-        where activity_id=#{activityId}
+        where activity_id=#{activity}
     </select>
 
-    <select id="selectByStuId" parameterType="String">
+    <select id="selectByStuId" parameterType="string" resultMap="signInMap">
         <include refid="signInSelect"/>
-        where stu_id=#{stuId}
+        where stu_id=#{stuID}
     </select>
 </mapper>

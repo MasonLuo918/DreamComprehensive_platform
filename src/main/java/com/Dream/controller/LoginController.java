@@ -18,8 +18,12 @@ import java.util.Map;
 @Controller
 @RequestMapping("/admin")
 public class LoginController {
+    // TODO 判断是否登录接口
+    // TODO 退出登录接口
+
     @Autowired
     private DepartmentService departmentService;
+
 
     @Autowired
     private SectionService sectionService;
@@ -47,11 +51,11 @@ public class LoginController {
      */
     @RequestMapping(value = "/login")
     @ResponseBody
-    public Map<String, Object> login(HttpServletRequest request, @RequestBody Map<String, Object> map, @SessionAttribute(value = "validateCode", required = true) String validateCode) {
+    public Map<String, Object> login(HttpServletRequest request, @RequestBody Map<String, Object> map, @SessionAttribute(value = "validateCode", required = false) String validateCode) {
         // 获取所有信息
         Map<String, Object> resultMap = new HashMap<>();
         HttpSession session = request.getSession();
-        String userName = (String) map.get("userName");
+        String userName = (String) map.get("username");
         String password = (String) map.get("password");
         String code = (String) map.get("code");
         int type = (int) map.get("type");
@@ -64,14 +68,14 @@ public class LoginController {
             return resultMap;
         }
         //确认验证码信息
-        if(!code.equals(validateCode)){
-            resultMap.put("status", "001");
-            return resultMap;
-        }
+//        if(!code.equals(validateCode)){
+//            resultMap.put("status", "001");
+//            return resultMap;
+//        }
         // 判断是否已经登录
         Object user = session.getAttribute("user");
         if (user != null) {
-            resultMap.put("status", "103");
+            resultMap.put("status", "101");
             resultMap.put("user", user);
             resultMap.put("userType", ParamUtil.getUserType(user));
             return resultMap;
@@ -152,13 +156,5 @@ public class LoginController {
             resultMap.put("status",2);
             return resultMap;
         }
-    }
-
-    @RequestMapping("/test")
-    @ResponseBody
-    public Map test(){
-        Map map = new HashMap();
-        map.put("test","success");
-        return map;
     }
 }

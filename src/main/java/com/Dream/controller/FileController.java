@@ -1,22 +1,21 @@
 package com.Dream.controller;
 
 
-import com.Dream.bean.Image;
+import com.Dream.commons.bean.Image;
 import com.Dream.entity.*;
-import com.Dream.entity.type.FileType;
 import com.Dream.service.ActivityProveService;
 import com.Dream.service.ActivityService;
 import com.Dream.service.UploadFileService;
 import com.Dream.util.GetFileList;
 import com.Dream.util.ParamUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpSession;
+import java.io.FileNotFoundException;
 import java.util.*;
 
 @Controller
@@ -53,7 +52,7 @@ public class FileController {
      */
     @RequestMapping("/getZipContent") // 可以利用aop检查一下是否请求的文件uuid是该会话用户的，还有文档类型
     @ResponseBody
-    public Map<String, Object> getZipFileContent(@RequestBody Map<String, Object> requestMap) {
+    public Map<String, Object> getZipFileContent(@RequestBody Map<String, Object> requestMap) throws FileNotFoundException {
         String uuid = (String) requestMap.get("uuid");
         Map<String, Object> resultMap = new HashMap<>();
         if (uuid == null) {
@@ -193,5 +192,12 @@ public class FileController {
         map.put("status", "002");
         map.put("message", "请求参数丢失");
         return map;
+    }
+
+    @RequestMapping(value = "/file/get")
+    @ResponseBody
+    public UploadFile getFileDetail(@RequestBody Map<String, String> map){
+        String uuid = (String) map.get("uuid");
+        return uploadFileService.findByUuid(uuid);
     }
 }

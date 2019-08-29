@@ -11,7 +11,7 @@
  Target Server Version : 50725
  File Encoding         : utf-8
 
- Date: 08/09/2019 11:27:34 AM
+ Date: 08/21/2019 11:03:07 AM
 */
 
 SET NAMES utf8;
@@ -63,7 +63,7 @@ CREATE TABLE `department` (
   `status` int(11) NOT NULL DEFAULT '0',
   `create_time` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Table structure for `section`
@@ -82,6 +82,21 @@ CREATE TABLE `section` (
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='各大组织下属部门的数据表';
 
 -- ----------------------------
+--  Table structure for `sign_in`
+-- ----------------------------
+DROP TABLE IF EXISTS `sign_in`;
+CREATE TABLE `sign_in` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `stu_id` varchar(12) NOT NULL COMMENT '学生学号',
+  `stu_name` varchar(255) NOT NULL COMMENT '学生姓名',
+  `stu_profession_class` varchar(255) NOT NULL COMMENT '专业和班级',
+  `activity_id` int(11) NOT NULL COMMENT '活动id',
+  `note` varchar(255) DEFAULT NULL COMMENT '备注',
+  `create_time` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='学生签到数据表';
+
+-- ----------------------------
 --  Table structure for `upload_file`
 -- ----------------------------
 DROP TABLE IF EXISTS `upload_file`;
@@ -92,21 +107,4 @@ CREATE TABLE `upload_file` (
   PRIMARY KEY (`uuid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- -----------------------------
--- Table structure for 'sign_in'
--- -----------------------------
-DROP TABLE IF EXISTS `sign_in`;
-CREATE TABLE `sign_in`(
-   `id` int(12) NOT NULL AUTO_INCREMENT ,
-   `stu_id` int(12) NOT NULL COMMENT '学生学号',
-   `stu_name` varchar(255) NOT NULL COMMENT '学生姓名',
-   `stu_profession_class` varchar(255) NOT NULL COMMENT '专业和班级',
-   `activity_id` int(11) NOT NULL COMMENT '活动id',
-   `note` varchar(255) DEFAULT NULL COMMENT '备注',
-   `create_time` date NOT NULL,
-   PRIMARY KEY(`id`)
-) ENGINE=InnODB DEFAULT CHARSET=utf8 COMMENT='学生签到数据表';
-
 SET FOREIGN_KEY_CHECKS = 1;
-
-

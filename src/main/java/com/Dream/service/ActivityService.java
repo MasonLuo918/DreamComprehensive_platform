@@ -27,7 +27,6 @@ public interface ActivityService {
     List<Activity> findByRegisterID(Integer departmentID, Integer sectionID, int page);
     List<Activity> findByRegisterID(Integer departmentID, Integer sectionID);
 
-
     /**
      * 查找这个部门活动的条数
      * @param departmentID

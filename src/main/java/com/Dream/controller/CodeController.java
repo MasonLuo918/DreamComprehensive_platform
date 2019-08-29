@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+@CrossOrigin
 @Controller
 public class CodeController {
 
@@ -27,13 +28,13 @@ public class CodeController {
      *     "message":"验证失败,请重新输入验证码"
      * }
      * @param vCode
-     * @param code
      * @return
      */
     @RequestMapping("/checkCode")
     @ResponseBody
-    public Map<String, Object> checkCode(@SessionAttribute(value = "validateCode", required = false) String vCode, @RequestParam(value = "code") String code){
+    public Map<String, Object> checkCode(@SessionAttribute(value = "validateCode", required = false) String vCode, @RequestBody Map<String, Object> requestMap){
         Map<String, Object> resultMap = new HashMap<>();
+        String code = (String) requestMap.get("code");
         if(vCode == null || code == null || StringUtils.isEmpty(code) || StringUtils.isEmpty(vCode)){
             resultMap.put("status", 1);
             resultMap.put("message","验证失败，请重新输入验证码");
@@ -54,7 +55,8 @@ public class CodeController {
     @RequestMapping("/validateCode")
     public void getCode(HttpServletRequest httpRequest, HttpServletResponse response){
         try {
-            String code = ValidateCode.generateCode(100, 40, "jpeg", response.getOutputStream());
+            httpRequest.getSession();
+            String code = ValidateCode.generateCode(100, 50, "jpeg", response.getOutputStream());
             httpRequest.getSession().setAttribute("validateCode",code);
             System.out.println(code);
         } catch (IOException e) {

@@ -1,20 +1,23 @@
 package com.Dream.util;
 
+import jdk.internal.util.xml.impl.Input;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
 import java.io.*;
 
 public class Base64 {
-    public static String getImageStr(String imgFile){
+    public static String getImageStr(String imgFile) throws FileNotFoundException {
         return getImageStr(new File(imgFile));
     }
 
-    public static String getImageStr(File imgFile){
-        InputStream inputStream = null;
+    public static String getImageStr(File imgFile) throws FileNotFoundException {
+        return getImageStr(new FileInputStream(imgFile));
+    }
+
+    public static String getImageStr(InputStream inputStream){
         byte[] data = null;
         try{
-            inputStream = new FileInputStream(imgFile);
             data = new byte[inputStream.available()];
             inputStream.read(data);
             inputStream.close();
@@ -48,7 +51,7 @@ public class Base64 {
         }
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws FileNotFoundException {
         String str = getImageStr("/Users/belle/Desktop/material/u407.jpg");
         System.out.println(str.length());
     }

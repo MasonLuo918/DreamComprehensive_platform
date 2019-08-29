@@ -62,6 +62,7 @@ public class QRCode {
         hints.put("message","success");
         BitMatrix bitMatrix=null;
         InputStream input=null;
+//        File file = new File("/Users/belle/Desktop/1.jpg");
         try{
             bitMatrix=new MultiFormatWriter().encode(content, BarcodeFormat.QR_CODE,width,height,hints);
             BufferedImage image=MatrixToImageWriter.toBufferedImage(bitMatrix);
@@ -69,7 +70,16 @@ public class QRCode {
             //输出二维码图片流
             try{
                 ImageIO.write(image,format,os);
+//                FileOutputStream fileOutputStream = new FileOutputStream(file);
                 input=new ByteArrayInputStream(os.toByteArray());
+//                int count = 0;
+//                byte[] buffer = new byte[1024];
+//                while((count = input.read(buffer,0,1024)) != -1){
+//                    fileOutputStream.write(buffer, 0, count);
+//                }
+//                fileOutputStream.flush();
+//                fileOutputStream.close();
+//                input.close();
             }catch(IOException e){
                 e.printStackTrace();
             }
@@ -97,7 +107,6 @@ public class QRCode {
             HashMap hints=new HashMap();
             hints.put(EncodeHintType.CHARACTER_SET,"UTF-8");
             Result result=formatReader.decode(binaryBitmap,hints);
-
             System.out.println("解析结果："+result.toString());
             System.out.println("解析格式："+result.getBarcodeFormat());
             System.out.println("解析内容："+result.getText());

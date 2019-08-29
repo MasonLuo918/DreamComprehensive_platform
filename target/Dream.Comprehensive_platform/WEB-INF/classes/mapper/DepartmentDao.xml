@@ -11,7 +11,7 @@
         <result property="deptName" column="dept_name"/>
         <result property="college" column="college"/>
         <result property="status" column="status"/>
-        <result property="createTime" column="create_time" typeHandler="com.Dream.typeHandler.LocalDateTypeHandler"/>
+        <result property="createTime" column="create_time" typeHandler="com.Dream.commons.typeHandler.LocalDateTypeHandler"/>
     </resultMap>
 
     <sql id="fields">
@@ -64,7 +64,7 @@
                 #{email},
             </if>
             <if test="createTime != null and createTime != ''">
-                #{createTime,typeHandler=com.Dream.typeHandler.LocalDateTypeHandler}
+                #{createTime,typeHandler=com.Dream.commons.typeHandler.LocalDateTypeHandler}
             </if>
         </trim>
     </insert>
@@ -98,7 +98,7 @@
                 college = #{college},
             </if>
             <if test="createTime != null and createTime != ''">
-                create_time = #{createTime, typeHandler=com.Dream.typeHandler.LocalDateTypeHandler}
+                create_time = #{createTime, typeHandler=com.Dream.commons.typeHandler.LocalDateTypeHandler}
             </if>
         </set>
         WHERE id = #{id}
@@ -127,7 +127,7 @@
                 and status = #{status}
             </if>
             <if test="createTime != null and createTime != ''">
-                and create_time = #{createTime, typeHandler=com.Dream.typeHandler.LocalDateTypeHandler}
+                and create_time = #{createTime, typeHandler=com.Dream.commons.typeHandler.LocalDateTypeHandler}
             </if>
         </where>
         LIMIT 1

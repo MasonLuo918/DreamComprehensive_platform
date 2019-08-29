@@ -77,7 +77,7 @@
     <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
         <property name="connectionFactory" ref="connectFactory"/>
         <property name="keySerializer" ref="stringSerializationRedisSerializer"/>
-        <property name="valueSerializer" ref="stringSerializationRedisSerializer"/>
+        <property name="valueSerializer" ref="jdkSerializationRedisSerializer"/>
         <property name="hashKeySerializer" ref="stringSerializationRedisSerializer"/>
         <property name="hashValueSerializer" ref="jdkSerializationRedisSerializer"/>
     </bean>

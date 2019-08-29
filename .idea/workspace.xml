@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+q<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
@@ -7,16 +7,128 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0dd0f1de-9748-4b94-9b66-f90f2858aab7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Dream/Anntation/JsonFilterResponseBodyAdvice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Dream/Anntation/SerializeField.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Dream/Converter/JsonFilterConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Dream/Enum/OauthTypeEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Dream/commons/bean/ActivityResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Dream/commons/bean/SignedTokenProperty.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Dream/commons/bean/TokenProperty.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Dream/commons/cache/Cache.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Dream/commons/cache/Entity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Dream/commons/typeHandler/OauthTypeHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Dream/configuration/FastJsonConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Dream/controller/OauthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Dream/controller/SignInController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Dream/dao/OauthDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Dream/entity/JsonFilterObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Dream/entity/Oauth.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Dream/filiter/SimpleSerializeFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Dream/service/OauthService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Dream/service/SignedInService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Dream/service/abstract_class/AbstractOauth.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Dream/service/impl/SignedInServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Dream/util/ExportWordUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Dream/util/IPUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Dream/util/URLUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resource/mapper/OauthDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/test/java/TestSignedService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dream.Comprehensive_platform.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Dream.Comprehensive_platform.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Dream/dao/SignInDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Dream/dao/SignInDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/run.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/run.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Dream/bean/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Dream/commons/bean/Image.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Dream/controller/ActivityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Dream/controller/ActivityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Dream/controller/CodeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Dream/controller/CodeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Dream/controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Dream/controller/FileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Dream/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Dream/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Dream/controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Dream/controller/RegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Dream/dao/RoleMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Dream/dao/UploadFileDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Dream/dao/UploadFileDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Dream/entity/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Dream/entity/Department.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/Dream/entity/SignIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Dream/entity/SignIn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Dream/mail/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Dream/commons/mail/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Dream/mail/MyAuthenticator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Dream/commons/mail/MyAuthenticator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Dream/mail/SendEmail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Dream/commons/mail/SendEmail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Dream/service/ActivityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Dream/service/ActivityService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Dream/service/impl/DepartmentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Dream/service/impl/DepartmentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Dream/service/impl/SectionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Dream/service/impl/SectionServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Dream/typeHandler/LocalDateTypeHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Dream/commons/typeHandler/LocalDateTypeHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Dream/util/Base64.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Dream/util/Base64.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Dream/util/GetFileList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Dream/util/GetFileList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Dream/util/QRCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Dream/util/QRCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resource/Comprehensive_survey_platform.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resource/Comprehensive_survey_platform.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resource/mapper/ActivityDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resource/mapper/ActivityDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resource/mapper/DepartmentDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resource/mapper/DepartmentDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resource/mapper/RoleMapper..xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resource/mapper/SectionDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resource/mapper/SectionDao.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resource/mapper/SignInDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resource/mapper/SignInDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resource/mapper/UploadFileDao..xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resource/mapper/UploadFileDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resource/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resource/mybatis-config.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resource/spring-mvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resource/spring-mvc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/test/java/TestActivityProveParse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/java/TestActivityProveParse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/test/java/TestDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/java/TestDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/test/java/TestQCode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resource/spring-mybatis.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resource/spring-mybatis.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/Comprehensive_survey_platform.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/Comprehensive_survey_platform.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/com/Dream/bean/Image.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/com/Dream/controller/ActivityController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/com/Dream/controller/ActivityController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/com/Dream/controller/CodeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/com/Dream/controller/CodeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/com/Dream/controller/FileController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/com/Dream/controller/FileController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/com/Dream/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/com/Dream/controller/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/com/Dream/controller/RegisterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/com/Dream/controller/RegisterController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/com/Dream/dao/RoleMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/com/Dream/dao/SignInDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/com/Dream/dao/SignInDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/com/Dream/entity/Department.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/com/Dream/entity/Department.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/com/Dream/entity/SignIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/com/Dream/entity/SignIn.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/com/Dream/mail/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/com/Dream/mail/MyAuthenticator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/com/Dream/mail/SendEmail.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/com/Dream/service/impl/DepartmentServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/com/Dream/service/impl/DepartmentServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/com/Dream/service/impl/SectionServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/com/Dream/service/impl/SectionServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/com/Dream/typeHandler/LocalDateTypeHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/com/Dream/util/Base64.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/com/Dream/util/Base64.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/com/Dream/util/GetFileList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/com/Dream/util/GetFileList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/com/Dream/util/QRCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/com/Dream/util/QRCode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/mapper/ActivityDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/mapper/ActivityDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/mapper/DepartmentDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/mapper/DepartmentDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/mapper/RoleMapper..xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/mapper/SectionDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/mapper/SectionDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/mapper/SignInDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/mapper/SignInDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/mapper/UploadFileDao..xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/mybatis-config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/spring-mvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/spring-mvc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/spring-mybatis.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Dream.Comprehensive_platform/WEB-INF/classes/spring-mybatis.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Comprehensive_survey_platform.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Comprehensive_survey_platform.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Dream/bean/Image.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Dream/controller/ActivityController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Dream/controller/ActivityController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Dream/controller/CodeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Dream/controller/CodeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Dream/controller/FileController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Dream/controller/FileController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Dream/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Dream/controller/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Dream/controller/RegisterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Dream/controller/RegisterController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Dream/dao/RoleMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Dream/entity/Department.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Dream/entity/Department.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Dream/entity/SignIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Dream/entity/SignIn.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Dream/mail/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Dream/mail/MyAuthenticator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Dream/mail/SendEmail.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Dream/service/impl/DepartmentServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Dream/service/impl/DepartmentServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Dream/service/impl/SectionServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Dream/service/impl/SectionServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Dream/typeHandler/LocalDateTypeHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Dream/util/Base64.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Dream/util/Base64.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Dream/util/GetFileList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Dream/util/GetFileList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Dream/util/QRCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Dream/util/QRCode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/ActivityDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/ActivityDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/DepartmentDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/DepartmentDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/RoleMapper..xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/SectionDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/SectionDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/SignInDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/SignInDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/UploadFileDao..xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis-config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/spring-mvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/spring-mvc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/spring-mybatis.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/spring-mybatis.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/javawyn/TestActivityProveParse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/javawyn/TestDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/javawyn/TestSignInDao.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -37,107 +149,70 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="mysql_demo@localhost" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="mysql_demo@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="mysql_demo@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="mysql_demo: schema" type="76f4a085:MysqlImplModel$Schema" />
-      </path>
-    </expand>
+    <expand />
     <select />
   </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="DreamComprehensive_platform" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/dao/SignInDao.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
+            <state relative-caret-position="195">
+              <caret line="18" selection-start-line="18" selection-end-line="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/Anntation/JsonFilterResponseBodyAdvice.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/entity/JsonFilterObject.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/Converter/JsonFilterConverter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-119">
+              <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/configuration/FastJsonConfiguration.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/test/java/TestSignInDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="676">
-              <caret line="47" column="52" selection-start-line="47" selection-start-column="52" selection-end-line="47" selection-end-column="52" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resource/spring-mvc.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/controller/RegisterController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/controller/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3765">
-              <caret line="251" column="21" selection-start-line="251" selection-start-column="21" selection-end-line="251" selection-end-column="21" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resource/spring-mybatis.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="810">
-              <caret line="54" selection-start-line="54" selection-end-line="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/controller/FileController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/controller/ActivityController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="41" column="35" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
+            <state relative-caret-position="60">
+              <caret line="17" column="11" lean-forward="true" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -162,16 +237,15 @@
         <option value="$PROJECT_DIR$/src/main/test/java/TestQCode.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/Dream/util/QRCode.java" />
         <option value="$PROJECT_DIR$/src/main/resource/Comprehensive_survey_platform.sql" />
-        <option value="$PROJECT_DIR$/src/main/java/com/Dream/entity/Section.java" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/073be3cd-802e-45aa-9ac9-0d50772970d2/console.sql" />
-        <option value="$PROJECT_DIR$/src/main/test/java/TestSignIn.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/Dream/entity/SignIn.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/Dream/dao/SignInDao.java" />
         <option value="$PROJECT_DIR$/src/main/resource/mapper/SignInDao.xml" />
-        <option value="$PROJECT_DIR$/src/main/test/java/TestSignInDao.java" />
-        <option value="$PROJECT_DIR$/src/main/test/javawyn/TestDao.java" />
-        <option value="$PROJECT_DIR$/src/main/resource/spring-mybatis.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/entity/Section.java" />
+        <option value="$PROJECT_DIR$/src/main/java/main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/Anntation/JsonFilterResponseBodyAdvice.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/entity/JsonFilterObject.java" />
         <option value="$PROJECT_DIR$/src/main/resource/spring-mvc.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/configuration/FastJsonConfiguration.java" />
       </list>
     </option>
   </component>
@@ -200,9 +274,9 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
-    <option name="width" value="1366" />
+    <option name="width" value="1301" />
     <option name="height" value="745" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -220,126 +294,6 @@
               <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
               <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Dream" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Dream" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Dream" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Dream" type="462c0819:PsiDirectoryNode" />
-              <item name="typeHandler" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resource" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.mybatis:mybatis-spring:1.2.2" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.mybatis:mybatis-spring:1.2.2" type="70bed36:NamedLibraryElementNode" />
-              <item name="mybatis-spring-1.2.2.jar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.mybatis:mybatis-spring:1.2.2" type="70bed36:NamedLibraryElementNode" />
-              <item name="mybatis-spring-1.2.2.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="spring" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.mybatis:mybatis-spring:1.2.2" type="70bed36:NamedLibraryElementNode" />
-              <item name="mybatis-spring-1.2.2.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="spring" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -347,13 +301,14 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="database.console.LAST_STATE" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -367,75 +322,38 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TestDao.testDepartmentDaoUpdate">
-    <configuration name="QRCode" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.Dream.util.QRCode" />
-      <module name="Dream.Comprehensive_platform" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.Dream.util.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+  <component name="RunManager" selected="Tomcat Server.tomcat85">
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestQCode" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="java.TestQCode" />
+    <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main" />
       <module name="Dream.Comprehensive_platform" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="java.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestDao" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Dream.Comprehensive_platform" />
-      <option name="PACKAGE_NAME" value="java" />
-      <option name="MAIN_CLASS_NAME" value="TestDao" />
+    <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestDao.testDepartmentDaoUpdate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Dream.Comprehensive_platform" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="java.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="java" />
-      <option name="MAIN_CLASS_NAME" value="java.TestDao" />
-      <option name="METHOD_NAME" value="testDepartmentDaoUpdate" />
-      <option name="TEST_OBJECT" value="method" />
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestSignInDao.testSignInDaoInsert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Dream.Comprehensive_platform" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="java.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="java" />
-      <option name="MAIN_CLASS_NAME" value="java.TestSignInDao" />
-      <option name="METHOD_NAME" value="testSignInDaoInsert" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="tomcat85" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.38" ALTERNATIVE_JRE_ENABLED="false">
+    <configuration name="tomcat85" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.381" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8000/Dream_Comprehensive_platform_war_exploded/" />
       <deployment>
         <artifact name="Dream.Comprehensive_platform:war exploded">
@@ -445,7 +363,7 @@
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="Unnamed_Dream_Comprehensive_platform" />
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_DreamComprehensive_platform" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -453,7 +371,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="49263" />
+        <option name="DEBUG_PORT" value="61029" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -508,20 +426,12 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.TestQCode" />
-      <item itemvalue="Application.QRCode" />
-      <item itemvalue="JUnit.TestDao" />
-      <item itemvalue="JUnit.TestSignInDao.testSignInDaoInsert" />
-      <item itemvalue="JUnit.TestDao.testDepartmentDaoUpdate" />
+      <item itemvalue="Application.main" />
       <item itemvalue="Tomcat Server.tomcat85" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestDao.testDepartmentDaoUpdate" />
-        <item itemvalue="JUnit.TestSignInDao.testSignInDaoInsert" />
-        <item itemvalue="JUnit.TestDao" />
-        <item itemvalue="Application.QRCode" />
-        <item itemvalue="Application.TestQCode" />
+        <item itemvalue="Application.main" />
       </list>
     </recent_temporary>
   </component>
@@ -537,42 +447,17 @@
       <updated>1564760023846</updated>
       <workItem from="1564760025176" duration="1324000" />
       <workItem from="1564830526750" duration="5752000" />
-      <workItem from="1566048403924" duration="397000" />
-      <workItem from="1566108557289" duration="1664000" />
-      <workItem from="1566180646128" duration="4341000" />
-      <workItem from="1566282712735" duration="2898000" />
-      <workItem from="1566616719479" duration="3410000" />
-      <workItem from="1566699269364" duration="3026000" />
-      <workItem from="1566807171213" duration="3612000" />
-      <workItem from="1566872949664" duration="906000" />
-      <workItem from="1566957712845" duration="1441000" />
+      <workItem from="1567059403705" duration="2179000" />
     </task>
     <servers />
   </component>
-  <component name="TestHistory">
-    <history-entry file="TestDao - 2019.08.16 at 18h 07m 43s.xml">
-      <configuration name="TestDao" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TestSignInDao_testSignInDaoInsert - 2019.08.19 at 14h 16m 37s.xml">
-      <configuration name="TestSignInDao.testSignInDaoInsert" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TestSignInDao_testSignInDaoInsert - 2019.08.19 at 14h 19m 50s.xml">
-      <configuration name="TestSignInDao.testSignInDaoInsert" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TestSignInDao_testSignInDaoInsert - 2019.08.20 at 14h 32m 44s.xml">
-      <configuration name="TestSignInDao.testSignInDaoInsert" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TestDao_testDepartmentDaoUpdate - 2019.08.20 at 15h 42m 47s.xml">
-      <configuration name="TestDao.testDepartmentDaoUpdate" configurationId="JUnit" />
-    </history-entry>
-  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53326000" />
+    <option name="totallyTimeSpent" value="27765000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1366" height="745" extended-state="0" />
+    <frame x="0" y="23" width="1366" height="745" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24924472" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2545317" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -580,23 +465,22 @@
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Web" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Application Servers" order="0" weight="0.32063493" />
+      <window_info anchor="bottom" id="Messages" weight="0.32857144" />
+      <window_info anchor="bottom" id="Application Servers" order="0" weight="0.32857144" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.16507937" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.54126984" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.42038217" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" />
       <window_info anchor="bottom" id="Spring" order="8" weight="0.2462845" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.34444445" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.30952382" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" />
-      <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="13" />
       <window_info anchor="bottom" id="Version Control" order="14" weight="0.32908705" />
-      <window_info anchor="bottom" id="Database Console" order="15" weight="0.32908705" />
-      <window_info anchor="bottom" id="Messages" order="16" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -604,10 +488,10 @@
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="right" id="JSF" order="6" />
-      <window_info anchor="right" id="Database" order="7" weight="0.27567977" />
+      <window_info anchor="right" id="Database" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Theme Preview" order="9" />
-      <window_info anchor="right" id="CDI" order="10" weight="0.32930514" />
+      <window_info anchor="right" id="CDI" order="10" />
       <window_info anchor="right" id="Bean Validation" order="11" />
     </layout>
   </component>
@@ -615,6 +499,92 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/service/SectionService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/dao/ActivityDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/service/DepartmentService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/service/ActivityProveService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/controller/CodeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/interceptor/LoginInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logs/run.log">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/controller/ActivityController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/service/impl/DepartmentServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="21" column="40" lean-forward="true" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/service/ActivityService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/test/java/TestActivityProveParse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/src.zip!/java/awt/image/WritableRenderedImage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="68" column="53" selection-start-line="68" selection-start-column="53" selection-end-line="68" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/src.zip!/java/awt/image/RenderedImage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -699,10 +669,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/test/java/TestQCode.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/controller/RegisterController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2715">
+          <caret line="181" column="64" selection-start-line="181" selection-start-column="64" selection-end-line="181" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/util/QRCode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="2" lean-forward="true" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/entity/Department.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -720,238 +708,125 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/dao/RoleMapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/dao/RoleMapper.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/entity/Activity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
-          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resource/mapper/UploadFileDao..xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="51" selection-start-line="11" selection-start-column="51" selection-end-line="11" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/entity/Department.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/entity/Activity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="34" lean-forward="true" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resource/mapper/ActivityDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/dao/BaseDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/entity/Section.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="885">
-          <caret line="95" column="33" selection-start-line="95" selection-start-column="33" selection-end-line="95" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resource/mybatis-config.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/resource/mapper/SectionDao.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/073be3cd-802e-45aa-9ac9-0d50772970d2/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/dao/ActivityDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="23" column="38" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resource/mapper/UploadFileDao..xml" />
     <entry file="file://$PROJECT_DIR$/src/main/resource/Comprehensive_survey_platform.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="30" lean-forward="true" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resource/mapper/SectionDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="131" selection-start-line="131" selection-end-line="131" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/test/java/TestQCode.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/test/java/TestActivityProveParse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/dao/SectionDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="1320">
+          <caret line="88" column="31" selection-start-line="88" selection-start-column="31" selection-end-line="88" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/entity/SignIn.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
+        <state relative-caret-position="75">
+          <caret line="5" column="43" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://073be3cd-802e-45aa-9ac9-0d50772970d2/schema/mysql_demo/table/sign_in" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.6.RELEASE/spring-webmvc-5.1.6.RELEASE.jar!/org/springframework/web/servlet/DispatcherServlet.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7334">
-          <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis-spring/1.2.2/mybatis-spring-1.2.2.jar!/org/mybatis/spring/SqlSessionFactoryBean.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/typeHandler/LocalDateTypeHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resource/mapper/SignInDao.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="138" column="22" selection-start-line="138" selection-start-column="22" selection-end-line="138" selection-end-column="22" />
+        <state relative-caret-position="150">
+          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/service/impl/DepartmentServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/dao/SectionDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/interceptor/LoginInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/2b62144e-6142-46e2-8b92-9a7c9b140033/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/test/java/TestDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/controller/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="17" column="11" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
+        <state relative-caret-position="75">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/dao/SignInDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
+        <state relative-caret-position="300">
+          <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/test/java/TestSignInDao.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/entity/Section.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="542">
+          <caret line="95" column="33" selection-start-line="95" selection-start-column="33" selection-end-line="95" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/controller/FileController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="18" selection-start-line="18" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/Anntation/SerializeField.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/Anntation/JsonFilterResponseBodyAdvice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/entity/JsonFilterObject.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/controller/ActivityController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="41" column="35" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resource/spring-mybatis.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="54" selection-start-line="54" selection-end-line="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="676">
-          <caret line="47" column="52" selection-start-line="47" selection-start-column="52" selection-end-line="47" selection-end-column="52" />
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resource/spring-mvc.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+        <state relative-caret-position="315">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/controller/RegisterController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/Converter/JsonFilterConverter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3765">
-          <caret line="251" column="21" selection-start-line="251" selection-start-column="21" selection-end-line="251" selection-end-column="21" />
+        <state relative-caret-position="-119">
+          <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/configuration/FastJsonConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="17" column="11" lean-forward="true" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
         </state>
       </provider>
     </entry>

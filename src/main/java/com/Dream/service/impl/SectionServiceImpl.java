@@ -1,8 +1,8 @@
 package com.Dream.service.impl;
 
+import com.Dream.commons.mail.SendEmail;
 import com.Dream.dao.SectionDao;
 import com.Dream.entity.Section;
-import com.Dream.mail.SendEmail;
 import com.Dream.service.SectionService;
 import com.Dream.util.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;

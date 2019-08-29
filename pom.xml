@@ -10,7 +10,6 @@
   <packaging>war</packaging>
 
   <name>Dream.Comprehensive_platform Maven Webapp</name>
-  <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
   <properties>
@@ -342,6 +341,30 @@
       <artifactId>junrar</artifactId>
       <version>4.0.0</version>
     </dependency>
+
+    <dependency>
+      <groupId>commons-httpclient</groupId>
+      <artifactId>commons-httpclient</artifactId>
+      <version>3.0</version>
+    </dependency>
+
+    <!--fastjson-->
+    <dependency>
+      <groupId>org.ligboy.retrofit2</groupId>
+      <artifactId>converter-fastjson</artifactId>
+      <version>2.1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
+      <version>1.2.59</version>
+    </dependency>
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-autoconfigure</artifactId>
+          <version>2.1.0.RELEASE</version>
+      </dependency>
+
 
   </dependencies>
 

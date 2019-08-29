@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.Dream.dao.OauthDao">
+    <resultMap id="OauthMap" type="oauth">
+        <id property="id" column="id"/>
+        <result column="user_id" property="userID"/>
+        <result column="open_id" property="openID"/>
+        <result column="access_token" property="accessToken"/>
+        <result column="open_type" property="openType" javaType="com.Dream.Enum.OauthTypeEnum" jdbcType="INTEGER" typeHandler="com.Dream.commons.typeHandler.OauthTypeHandler"/>
+        <result column="expired_time" property="expiredTime"/>
+    </resultMap>
+
+    <sql id="OauthSelect">
+        SELECT id, user_id, open_id, access_token, open_type, expired_time
+        FROM oauth
+    </sql>
+
+    <select id="select" resultMap="OauthMap">
+        <include refid="OauthSelect"/>
+        <where>
+            <if test="id != null">
+                id = #{id}
+            </if>
+            <if test="userID != null and userID != '' ">
+                and user_id = #{userID}
+            </if>
+            <if test="openID != null and openID != '' ">
+                and open_id = #{openID}
+            </if>
+            <if test="accessToken != null and accessToken != ''">
+                and access_token = #{accessToken}
+            </if>
+            <if test="openType != null">
+                and open_type = #{openType.id}
+            </if>
+        </where>
+    </select>
+
+    <update id="update" parameterType="oauth">
+        UPDATE oauth
+        <set>
+            <if test="userID != null and userID != ''">
+                user_id = #{userID},
+            </if>
+            <if test="openID != null and openID != '' ">
+                 open_id = #{openID},
+            </if>
+            <if test="accessToken != null and accessToken != ''">
+                 access_token = #{accessToken},
+            </if>
+            <if test="openType != null">
+                  open_type = #{openType.id},
+            </if>
+            <if test="expiredTime != null">
+                expired_time = #{expiredTime}
+            </if>
+        </set>
+    </update>
+
+    <insert id="insert" parameterType="oauth" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO oauth
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userID != null">
+                user_id,
+            </if>
+            <if test="openID != null">
+                open_id,
+            </if>
+            <if test="accessToken != null">
+                access_token,
+            </if>
+            <if test="openType != null">
+                open_type,
+            </if>
+            <if test="expiredTime != null">
+                expired_time,
+            </if>
+        </trim>
+        <trim prefix="values(" suffix=")" suffixOverrides=",">
+            <if test="userID != null">
+                #{userID},
+            </if>
+            <if test="openID != null">
+                #{openID},
+            </if>
+            <if test="accessToken != null">
+                #{accessToken},
+            </if>
+            <if test="openType != null">
+                #{openType},
+            </if>
+            <if test="expiredTime != null">
+                #{expiredTime},
+            </if>
+        </trim>
+    </insert>
+
+    <delete id="delete">
+        DELETE FROM oauth
+        WHERE id = #{id}
+    </delete>
+</mapper>

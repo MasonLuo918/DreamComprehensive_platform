@@ -1,5 +1,6 @@
 package com.Dream.controller;
 
+import com.Dream.commons.bean.ActivityResult;
 import com.Dream.entity.*;
 import com.Dream.entity.type.FileType;
 import com.Dream.service.*;
@@ -53,7 +54,7 @@ public class ActivityController {
     public Map<String, Object> uploadMaterial(HttpServletRequest request,
                                               @RequestParam("activity_name") String activityName,
                                               @RequestParam("time") String time,
-                                              @RequestParam("material") MultipartFile material,
+                                              @RequestParam(value = "material", required = false) MultipartFile material,
                                               @RequestParam(value = "volun_doc", required = false) MultipartFile volunDoc,
                                               @RequestParam(value = "act_doc", required = false) MultipartFile actDoc) throws IOException {
         // 返回json数据
@@ -112,8 +113,6 @@ public class ActivityController {
      * 使用Restful api 请求格式，向一个url发送请求：
      * /admin/activity/getAllActivity/1/10
      * 其中，上面的1代表第几页，size代表每一页的条数
-     * @param page 第几页
-     * @param size 每一页的条数
      * @return
      * {
      *     "status":"200",
@@ -141,9 +140,9 @@ public class ActivityController {
      *     "message:"用户未登录"
      * }
      */
-    @RequestMapping("getAllActivity/{page}/{size}")
+    @RequestMapping("getAllActivity")
     @ResponseBody
-    public Map<String, Object> getAllActivity(HttpSession session, @PathVariable("page") int page, @PathVariable(value = "size") int size){
+    public Map<String, Object> getAllActivity(HttpSession session){
         Map<String, Object> resultMap = new HashMap<>();
         Integer departmentID = null;
         Integer sectionID = null;
@@ -157,18 +156,20 @@ public class ActivityController {
             sectionID = section.getId();
         }
         int activityCount = activityService.activityCount(departmentID, sectionID);
-        List<Activity> list = activityService.findByRegisterID(departmentID, sectionID, page, size);
-        resultMap.put("status","200");
-        resultMap.put("activities",list);
-        resultMap.put("page",page);
-        resultMap.put("size",size);
-        boolean hasNextPage = false;
-        if(activityCount > (page - 1) * size + list.size()){
-            hasNextPage = true;
-        }else{
-            hasNextPage = false;
+        List<Activity> list = activityService.findByRegisterID(departmentID, sectionID);
+        List<ActivityResult> returnList = new ArrayList<>();
+        for(Activity activity:list){
+            ActivityResult result = new ActivityResult();
+            result.setId(activity.getId());
+            result.setName(activity.getName());
+            result.setMaterial(activity.getMaterial());
+            result.setVolunteer_time(activity.getVolunteerTime());
+            result.setActivity_prove(activity.getActivityProve());
+            result.setTime(activity.getTime().format(formatter));
+            returnList.add(result);
         }
-        resultMap.put("has_next_page",hasNextPage);
+        resultMap.put("status","200");
+        resultMap.put("activities",returnList);
         return resultMap;
     }
 
