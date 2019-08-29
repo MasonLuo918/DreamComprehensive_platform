@@ -1,8 +1,11 @@
+import com.Dream.Enum.OauthTypeEnum;
 import com.Dream.dao.ActivityDao;
 import com.Dream.dao.DepartmentDao;
+import com.Dream.dao.OauthDao;
 import com.Dream.dao.SectionDao;
 import com.Dream.entity.Activity;
 import com.Dream.entity.Department;
+import com.Dream.entity.Oauth;
 import com.Dream.entity.Section;
 import org.apache.ibatis.session.RowBounds;
 import org.junit.Test;
@@ -25,6 +28,9 @@ public class TestDao extends AbstractJUnit4SpringContextTests {
 
     @Autowired
     private ActivityDao activityDao;
+
+    @Autowired
+    private OauthDao oauthDao;
 
     @Test
     public void testDepartmentDaoUpdate(){
@@ -69,6 +75,14 @@ public class TestDao extends AbstractJUnit4SpringContextTests {
         System.out.println();
     }
 
+    @Test
+    public void testOauth(){
+        Oauth oauth = new Oauth();
+        oauth.setOpenType(OauthTypeEnum.YIBAN);
+        oauth = oauthDao.selectOne(oauth);
+        System.out.println();
+    }
+
     public Department getTestDepartment(int i){
         Department temp = new Department();
         temp.setEmail("testEmail" + i);
@@ -79,8 +93,6 @@ public class TestDao extends AbstractJUnit4SpringContextTests {
         temp.setDeptName("testDeptName" + i);
         return temp;
     }
-
-
 }
 
 

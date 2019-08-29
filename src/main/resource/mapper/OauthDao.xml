@@ -33,7 +33,7 @@
                 and access_token = #{accessToken}
             </if>
             <if test="openType != null">
-                and open_type = #{openType.id}
+                and open_type = #{openType, typeHandler=com.Dream.commons.typeHandler.OauthTypeHandler}
             </if>
         </where>
     </select>
@@ -51,7 +51,7 @@
                  access_token = #{accessToken},
             </if>
             <if test="openType != null">
-                  open_type = #{openType.id},
+                  open_type = #{openType, typeHandler=com.Dream.commons.typeHandler.OauthTypeHandler},
             </if>
             <if test="expiredTime != null">
                 expired_time = #{expiredTime}
@@ -89,7 +89,7 @@
                 #{accessToken},
             </if>
             <if test="openType != null">
-                #{openType},
+                #{openType, typeHandler=com.Dream.commons.typeHandler.OauthTypeHandler},
             </if>
             <if test="expiredTime != null">
                 #{expiredTime},

@@ -5,7 +5,6 @@ import com.Dream.entity.*;
 import com.Dream.entity.type.FileType;
 import com.Dream.service.*;
 import com.Dream.util.ParamUtil;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;

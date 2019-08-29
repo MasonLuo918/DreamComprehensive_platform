@@ -106,7 +106,10 @@ public class URLUtils {
         }else if(requestMethod.equals("POST")){
             result = post(url, params);
         }
-        return objectMapper.readValue(result,Map.class);
+        if(result != null){
+            return objectMapper.readValue(result,Map.class);
+        }
+        return null;
     }
 
     public static void main(String[] args) throws IOException {

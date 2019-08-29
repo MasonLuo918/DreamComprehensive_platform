@@ -1,26 +1,27 @@
 package com.Dream.controller;
 
 import com.Dream.Enum.OauthAccountEnum;
+import com.Dream.Enum.OauthTypeEnum;
 import com.Dream.commons.result.Result;
 import com.Dream.commons.result.ResultCodeEnum;
 import com.Dream.commons.result.ResultMap;
 import com.Dream.entity.Department;
+import com.Dream.entity.Oauth;
+import com.Dream.entity.type.UserType;
 import com.Dream.service.DepartmentService;
 import com.Dream.service.abstract_class.AbstractOauth;
+import com.Dream.util.MD5Util;
 import com.Dream.util.URLUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 
-@Controller
+@RestController
 @RequestMapping("/oauth/yiban")
 public class YiBanOauthController {
 
@@ -50,7 +51,6 @@ public class YiBanOauthController {
      * @return
      */
     @RequestMapping("/getLoginURL")
-    @ResponseBody
     public Result<Map> getLoginURL() {
         Map<String, String> params = new HashMap<>();
         params.put("client_id", accountEnum.getAppID());
@@ -71,9 +71,7 @@ public class YiBanOauthController {
      * @return
      */
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    @ResponseBody
     public Result login(HttpSession session, @RequestParam("code") String code) {
-
         Map<String, Object> loginResult = oauthService.login(code, session);
         int status = (int) loginResult.get("status");
         ResultMap result = null;
@@ -103,8 +101,7 @@ public class YiBanOauthController {
      * @param account 要查询的account
      * @return 返回查询的结果
      */
-    @RequestMapping("/getAccount")
-    @ResponseBody
+    @RequestMapping(value = "/getAccount", method = RequestMethod.GET)
     public Result<Department> getAccount(@RequestParam("account") String account){
         Department department = departmentService.findByEmail(account);
         if(department == null){
@@ -115,8 +112,74 @@ public class YiBanOauthController {
         return new Result<Department>(ResultCodeEnum.SUCCESS, department);
     }
 
+    /**
+     * 所需参数:(如果account已经存在的话)
+     * {
+     *     "open_id":"1234",
+     *     "account":"masonluo918@gmail.com"
+     * }
+     * 所需参数:(如果account不存在的话)
+     * {
+     *     "open_id":"123",
+     *     "account":"masonluo918@gmail.com",
+     *     "password":"xxx",
+     *     "dept_name":"学生党务",
+     *     "college":"学院"
+     * }
+     * @param requestMap
+     * @return
+     */
+    @RequestMapping("/bind")
+    public Result bind(HttpSession session, @RequestBody Map<String, Object> requestMap){
+        String account = (String) requestMap.get("account");
+        String openID = (String) requestMap.get("open_id");
+        if(account == null || openID == null){
+            return new Result(ResultCodeEnum.PARAMS_LOST);
+        }
+        // 绑定在一起
+        Oauth oauth = new Oauth();
+        oauth.setOpenID(openID);
+        oauth.setUserID(account);
+        oauth.setOpenType(OauthTypeEnum.YIBAN);
+
+        Department department = departmentService.findByEmail(account);
+        // 如果是已有账户的情况
+        if(department != null){
+            if(oauthService.bind(openID, account)){
+                // 保存入会话，进行登录
+                session.setAttribute("user",department);
+                session.setAttribute("userType", UserType.DEPARTMENT);
+                // 返回之后，跳转回主页
+                return new Result<Oauth>(ResultCodeEnum.SUCCESS, oauth);
+            }else{
+                return new Result(ResultCodeEnum.FAIL);
+            }
+        }
+        // 如果没有账户，则新建一个账户
+        String college = (String) requestMap.get("college");
+        String dept_Name = (String) requestMap.get("dept_name");
+        String password = (String) requestMap.get("password");
+        // 加密
+        password = MD5Util.getMD5(password);
+        department = new Department();
+        // 设置成已激活状态，暂不验证邮箱
+        department.setStatus(1);
+        department.setEmail(account);
+        department.setCreateTime(LocalDate.now());
+        department.setPassword(password);
+        department.setDeptName(dept_Name);
+        department.setCollege(college);
+        int count = departmentService.insertDepartment(department);
+        if(count == 0){
+            return new Result(ResultCodeEnum.FAIL);
+        }
+        if(oauthService.bind(openID, account)){
+            return new Result<Oauth>(ResultCodeEnum.SUCCESS, oauth);
+        }
+        return new Result(ResultCodeEnum.FAIL);
+    }
+
     @RequestMapping("/redirect")
-    @ResponseBody
     public Result test() {
         ResultMap result = new ResultMap(ResultCodeEnum.SUCCESS);
         result.put("key", "value");

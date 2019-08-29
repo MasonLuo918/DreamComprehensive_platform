@@ -112,7 +112,7 @@ public class YiBanOauthServiceImpl extends AbstractOauth {
         Map<String, String> queryResult = getAccessToken(code);
         Map<String, Object> responseMap = new HashMap<>();
         // 如果成功是没有status的
-        if(queryResult.get("status") != null && queryResult.get("status").equals("error")){
+        if(queryResult == null || (queryResult.get("status") != null && queryResult.get("status").equals("error"))){
             responseMap.put("status", 2);
             responseMap.put("message","无效code或code已经失效");
             return responseMap;
@@ -132,7 +132,9 @@ public class YiBanOauthServiceImpl extends AbstractOauth {
         }
         String account = oauth.getUserID();
         // 这里还需要判断是部门组织或者是啥，这里不作判断
-        // TODO 成功之后更新access_token
+        oauth.setAccessToken(accessToken);
+        oauth.setExpiredTime((Long.valueOf(queryResult.get("expires"))));
+        oauthDao.update(oauth);
         Department department = departmentDao.selectByEmail(account);
         session.setAttribute("user", department);
         session.setAttribute("userType",UserType.DEPARTMENT);
