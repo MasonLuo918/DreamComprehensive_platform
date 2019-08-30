@@ -1,4 +1,4 @@
-package com.Dream.Converter;
+package com.Dream.converter;
 
 import com.Dream.entity.JsonFilterObject;
 import com.Dream.filiter.SimpleSerializeFilter;
@@ -13,9 +13,14 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.charset.Charset;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
 
 import static com.alibaba.fastjson.util.IOUtils.UTF8;
 
+/**
+ * FastJson转换器
+ */
 public class JsonFilterConverter extends FastJsonHttpMessageConverter {
 
     private Charset charset;
@@ -35,16 +40,38 @@ public class JsonFilterConverter extends FastJsonHttpMessageConverter {
     @Override
     protected void writeInternal(Object obj, HttpOutputMessage outputMessage) throws IOException, HttpMessageNotWritableException {
         if (obj instanceof JsonFilterObject) {
+            /**
+             * 声明了@SerializeField注解
+             */
             JsonFilterObject jsonFilterObject = (JsonFilterObject) obj;
             OutputStream out = outputMessage.getBody();
-            SimpleSerializeFilter simpleSerializeFilter = new SimpleSerializeFilter(jsonFilterObject.getIncludes(), jsonFilterObject.getExcludes());
+            //SimpleSerializeFilter simpleSerializeFilter = new SimpleSerializeFilter(jsonFilterObject.getIncludes(), jsonFilterObject.getExcludes());
             /**
              * JSON序列化接口toJSONString
              * String toJSONString(Object, SerializeFilter, SerializerFeature...)
              */
-            String text = JSON.toJSONString(jsonFilterObject.getObject(), simpleSerializeFilter, features);
-            byte[] bytes = text.getBytes(this.charset);
-            out.write(bytes);
+            HashMap<Class, HashSet<String>> map=new HashMap<>();
+            if(jsonFilterObject.getHashSetForIncludes().size()!=0){
+                /**
+                 * 声明了includes
+                 */
+                map.put(jsonFilterObject.getObject().getClass(),jsonFilterObject.getHashSetForIncludes());
+                SimpleSerializeFilter simpleSerializeFilter=new SimpleSerializeFilter(map,null);
+                String text = JSON.toJSONString(jsonFilterObject.getObject(), simpleSerializeFilter);
+                //System.out.println(text);
+                byte[] bytes = text.getBytes(this.charset);
+                out.write(bytes);
+            }else if(jsonFilterObject.getHashSetForExcludes().size()!=0){
+                /**
+                 * 声明了excludes
+                 */
+                map.put(jsonFilterObject.getObject().getClass(),jsonFilterObject.getHashSetForExcludes());
+                SimpleSerializeFilter simpleSerializeFilter=new SimpleSerializeFilter(null,map);
+                String text=JSON.toJSONString(jsonFilterObject.getObject(),simpleSerializeFilter);
+                //System.out.println(text);
+                byte[] bytes=text.getBytes(this.charset);
+                out.write(bytes);
+            }
         } else {
             /**
              * 未声明@SerializeField注解
@@ -52,8 +79,17 @@ public class JsonFilterConverter extends FastJsonHttpMessageConverter {
             OutputStream out = outputMessage.getBody();
             String text = JSON.toJSONString(obj, this.features);
             byte[] bytes = text.getBytes(this.charset);
+            System.out.println(text);
             out.write(bytes);
         }
     }
+    @Override
+    public void setCharset(Charset charset) {
+        this.charset = charset;
+    }
 
+    @Override
+    public void setFeatures(SerializerFeature... features) {
+        this.features = features;
+    }
 }

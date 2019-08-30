@@ -7,6 +7,9 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * 过滤器
+ */
 public class SimpleSerializeFilter extends SimplePropertyPreFilter {
 
     private Map<Class, HashSet<String>> includes;
@@ -19,6 +22,7 @@ public class SimpleSerializeFilter extends SimplePropertyPreFilter {
 
     @Override
     public boolean apply(JSONSerializer serializer, Object source, String name) {
+
         if(!isEmpty(includes)){
             for (Map.Entry<Class, HashSet<String>> include : includes.entrySet()){
                 Class objClass = include.getKey();

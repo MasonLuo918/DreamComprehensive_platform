@@ -14,7 +14,15 @@ public class JsonFilterObject {
 
     private Map<Class, HashSet<String>> includes=new HashMap<>();
 
+    private HashSet<String> hashSetForIncludes=new HashSet<>();
+
     private Map<Class, HashSet<String>> excludes=new HashMap<>();
+
+    private HashSet<String> hashSetForExcludes=new HashSet<>();
+
+    public HashSet<String> getHashSetForIncludes() {return hashSetForIncludes;}
+
+    public HashSet<String> getHashSetForExcludes() {return hashSetForExcludes;}
 
     public void setObject(Object object){
         this.object=object;
