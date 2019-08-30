@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * 过滤器,过滤掉一些属性
+ * 过滤器,过滤掉json中一些属性
  */
 public class SimpleSerializeFilter extends SimplePropertyPreFilter {
 
