@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * 过滤器
+ * 过滤器,过滤掉一些属性
  */
 public class SimpleSerializeFilter extends SimplePropertyPreFilter {
 
@@ -19,6 +19,8 @@ public class SimpleSerializeFilter extends SimplePropertyPreFilter {
         this.includes = includes;
         this.excludes = excludes;
     }
+
+
 
     @Override
     public boolean apply(JSONSerializer serializer, Object source, String name) {
