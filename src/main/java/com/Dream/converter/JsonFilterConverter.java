@@ -55,8 +55,9 @@ public class JsonFilterConverter extends FastJsonHttpMessageConverter {
                 /**
                  * 声明了includes
                  */
-                map.put(jsonFilterObject.getObject().getClass(),jsonFilterObject.getHashSetForIncludes());
-                SimpleSerializeFilter simpleSerializeFilter=new SimpleSerializeFilter(map,null);
+                //map.put(jsonFilterObject.getObject().getClass(),jsonFilterObject.getHashSetForIncludes());
+                //SimpleSerializeFilter simpleSerializeFilter=new SimpleSerializeFilter(map,null);
+                SimpleSerializeFilter simpleSerializeFilter=new SimpleSerializeFilter(jsonFilterObject.getIncludes(),null);
                 String text = JSON.toJSONString(jsonFilterObject.getObject(), simpleSerializeFilter);
                 //System.out.println(text);
                 byte[] bytes = text.getBytes(this.charset);
@@ -65,8 +66,9 @@ public class JsonFilterConverter extends FastJsonHttpMessageConverter {
                 /**
                  * 声明了excludes
                  */
-                map.put(jsonFilterObject.getObject().getClass(),jsonFilterObject.getHashSetForExcludes());
-                SimpleSerializeFilter simpleSerializeFilter=new SimpleSerializeFilter(null,map);
+                //map.put(jsonFilterObject.getObject().getClass(),jsonFilterObject.getHashSetForExcludes());
+                //SimpleSerializeFilter simpleSerializeFilter=new SimpleSerializeFilter(null,map);
+                SimpleSerializeFilter simpleSerializeFilter=new SimpleSerializeFilter(null,jsonFilterObject.getExcludes());
                 String text=JSON.toJSONString(jsonFilterObject.getObject(),simpleSerializeFilter);
                 //System.out.println(text);
                 byte[] bytes=text.getBytes(this.charset);

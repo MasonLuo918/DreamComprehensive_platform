@@ -30,7 +30,7 @@ public class JsonFilterResponseBodyAdvice implements ResponseBodyAdvice {
             return o;
         }
         //没有SerializeField注解
-        if(!methodParameter.getMethod().isAnnotationPresent(SerializeField.class)){
+        if((!methodParameter.getMethod().isAnnotationPresent(SerializeField.class))&&(!methodParameter.getMethod().isAnnotationPresent(SecSerializeField.class))){
             return o;
             //return JSONObject.toJSONString(o);
         }
@@ -38,6 +38,10 @@ public class JsonFilterResponseBodyAdvice implements ResponseBodyAdvice {
         if(methodParameter.getMethod().isAnnotationPresent(SerializeField.class)){
             Object object=methodParameter.getMethod().getAnnotation(SerializeField.class);
             handleAnnotation(SerializeField.class,object,jsonFilterObject);
+        }
+        if(methodParameter.getMethod().isAnnotationPresent(SecSerializeField.class)){
+            Object object=methodParameter.getMethod().getAnnotation(SecSerializeField.class);
+            handleAnnotation(SecSerializeField.class,object,jsonFilterObject);
         }
 //        HashMap<Class,HashSet<String>> map=new HashMap<>();
 //        map.put(o.getClass(),jsonFilterObject.getHashSet());
@@ -64,6 +68,12 @@ public class JsonFilterResponseBodyAdvice implements ResponseBodyAdvice {
             includes=serializeField.includes();
             excludes=serializeField.excludes();
             objClass=serializeField.clazz();
+        }
+        if(clazz.equals(SecSerializeField.class)){
+            SecSerializeField secSerializeField=(SecSerializeField)object;
+            includes=secSerializeField.includes();
+            excludes=secSerializeField.excludes();
+            objClass=secSerializeField.clazz();
         }
 
         if(includes.length>0){
