@@ -2,19 +2,21 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="Dream.Comprehensive_platform:war exploded" />
+      <artifact name="platform" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0dd0f1de-9748-4b94-9b66-f90f2858aab7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dream.Comprehensive_platform.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Dream.Comprehensive_platform.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Dream/dao/SignInDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Dream/dao/SignInDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/run.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/run.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resource/spring-mvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resource/spring-mvc.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,30 +43,21 @@
     <favorites_list name="DreamComprehensive_platform" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resource/Comprehensive_survey_platform.sql">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/controller/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="88" column="31" lean-forward="true" selection-start-line="88" selection-start-column="31" selection-end-line="88" selection-end-column="31" />
+            <state relative-caret-position="105">
+              <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/entity/Section.java">
+      <file leaf-file-name="YiBanOauthController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/controller/YiBanOauthController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="508">
-              <caret line="95" column="33" lean-forward="true" selection-start-line="95" selection-start-column="33" selection-end-line="95" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/entity/SignIn.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="43" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
+            <state relative-caret-position="148">
+              <caret line="130" column="10" selection-start-line="130" selection-start-column="10" selection-end-line="130" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -72,11 +65,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/dao/SignInDao.java">
+      <file leaf-file-name="TestDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/test/java/TestDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="27" lean-forward="true" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
+            <state relative-caret-position="45">
+              <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SignInController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/controller/SignInController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="148">
+              <caret line="65" column="10" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -84,29 +86,55 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/dao/SectionDao.java">
+      <file leaf-file-name="RegisterController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/controller/RegisterController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+            <state relative-caret-position="396">
+              <caret line="153" column="37" selection-start-line="153" selection-start-column="37" selection-end-line="153" selection-end-column="37" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resource/mapper/SignInDao.xml">
+      <file leaf-file-name="ActivityController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/controller/ActivityController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+            <state relative-caret-position="148">
+              <caret line="25" column="7" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resource/mapper/UploadFileDao..xml">
+      <file leaf-file-name="FileController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/controller/FileController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="51" lean-forward="true" selection-start-line="11" selection-start-column="51" selection-end-line="11" selection-end-column="51" />
+            <state relative-caret-position="148">
+              <caret line="51" column="10" selection-start-line="51" selection-start-column="10" selection-end-line="51" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestActivityProveParse.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/test/java/TestActivityProveParse.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="spring-mybatis.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resource/spring-mybatis.xml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="spring-mvc.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resource/spring-mvc.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
             </state>
           </provider>
         </entry>
@@ -116,10 +144,49 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
+        <option value="Kotlin File" />
+        <option value="AnnotationType" />
+        <option value="mapper" />
         <option value="Interface" />
+        <option value="Enum" />
+        <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>resultMap</find>
+      <find>remove</find>
+      <find>ret</find>
+      <find>activityId</find>
+      <find>activityID</find>
+      <find>s</find>
+      <find>stuID</find>
+      <find>getAll</find>
+      <find>Activity</find>
+      <find>300</find>
+      <find>redire</find>
+      <find>upload</find>
+      <find>GET</find>
+      <find>cell</find>
+      <find>RequestMethod.GET</find>
+      <find>serializeAsField</find>
+      <find>delete</find>
+      <find>checkE</find>
+      <find>che</find>
+      <find>TODO</find>
+      <find>bind</find>
+      <find>session-time</find>
+      <find>time</find>
+      <find>do</find>
+      <find>Cache</find>
+      <find>getAllA</find>
+      <find>login</find>
+      <find>getZ</find>
+      <find>GBK</find>
+      <find>decom</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -127,16 +194,65 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/Dream/controller/RegisterController.java" />
-        <option value="$PROJECT_DIR$/src/main/test/java/TestQCode.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/Dream/util/QRCode.java" />
-        <option value="$PROJECT_DIR$/src/main/resource/Comprehensive_survey_platform.sql" />
-        <option value="$PROJECT_DIR$/src/main/java/com/Dream/entity/SignIn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/Dream/dao/SignInDao.java" />
+        <option value="$PROJECT_DIR$/src/main/resource/spring-mybatis.xml" />
+        <option value="$PROJECT_DIR$/src/main/test/java/TestSignedService.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/service/impl/ActivityServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/service/ActivityService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/commons/bean/ActivityResult.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/controller/FileNameController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/util/ExportWordUtil.java" />
         <option value="$PROJECT_DIR$/src/main/resource/mapper/SignInDao.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/Dream/entity/Section.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/annotation/Json.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/annotation/JSONS.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/interceptor/CustomerJsonSerializer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/annotation/JSON.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/interceptor/JacksonJsonFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/interceptor/JsonReturnHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/entity/Oauth.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/Enum/OauthTypeEnum.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/commons/typeHandler/OauthTypeHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/resource/mybatis-config.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/dao/OauthDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/service/abstract_class/AbstractOauth.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/controller/OauthController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/Enum/OauthAccount.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/Enum/OauthAccountEnun.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/Enum/OauthAccountEnum.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/commons/result/Result.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/commons/result/ResultMap.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/commons/oauth/AbstractOauth.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/service/OauthService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/commons/result/ResultCodeEnum.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/controller/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/service/impl/YiBanOauthServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/util/URLUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/resource/mapper/OauthDao.xml" />
+        <option value="$PROJECT_DIR$/src/main/test/java/TestDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/controller/YiBanOauthController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/service/SignedInService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/service/impl/SignedInServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/controller/SignInController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/interceptor/LoginInterceptor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/util/GetFileList.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/controller/ActivityController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/util/Base64.java" />
+        <option value="$PROJECT_DIR$/src/main/test/java/ZipUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/test/java/ZipUtils.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/util/compress/ZipUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/service/ActivityProveParser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Dream/controller/FileController.java" />
+        <option value="$PROJECT_DIR$/src/main/resource/spring-mvc.xml" />
       </list>
     </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -159,30 +275,328 @@
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
           <item name="Dream.Comprehensive_platform Maven Webapp" type="9519ce18:MavenProjectsStructure$ProjectNode" />
         </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="Dream.Comprehensive_platform Maven Webapp" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
+        </path>
       </expand>
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="786" />
-    <option name="y" value="23" />
-    <option name="width" value="1134" />
-    <option name="height" value="1057" />
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="Dream.Comprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
               <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="Dream" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="Dream" type="462c0819:PsiDirectoryNode" />
+              <item name="commons" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="Dream" type="462c0819:PsiDirectoryNode" />
+              <item name="commons" type="462c0819:PsiDirectoryNode" />
+              <item name="mail" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="Dream" type="462c0819:PsiDirectoryNode" />
+              <item name="commons" type="462c0819:PsiDirectoryNode" />
+              <item name="result" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="Dream" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="Dream" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="Dream" type="462c0819:PsiDirectoryNode" />
+              <item name="Enum" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="Dream" type="462c0819:PsiDirectoryNode" />
+              <item name="interceptor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="Dream" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="Dream" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="Dream" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="Dream" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+              <item name="compress" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resource" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resource" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="Dream.Comprehensive_platform" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="Dream.Comprehensive_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="upload" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="Dream.Comprehensive_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="upload" type="462c0819:PsiDirectoryNode" />
+              <item name="海洋学院" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="Dream.Comprehensive_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="upload" type="462c0819:PsiDirectoryNode" />
+              <item name="海洋学院" type="462c0819:PsiDirectoryNode" />
+              <item name="第一" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="Dream.Comprehensive_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="upload" type="462c0819:PsiDirectoryNode" />
+              <item name="海洋学院" type="462c0819:PsiDirectoryNode" />
+              <item name="第一" type="462c0819:PsiDirectoryNode" />
+              <item name="2019" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="Dream.Comprehensive_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="upload" type="462c0819:PsiDirectoryNode" />
+              <item name="海洋学院" type="462c0819:PsiDirectoryNode" />
+              <item name="第一" type="462c0819:PsiDirectoryNode" />
+              <item name="2019" type="462c0819:PsiDirectoryNode" />
+              <item name="08" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="Dream.Comprehensive_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="upload" type="462c0819:PsiDirectoryNode" />
+              <item name="海洋学院" type="462c0819:PsiDirectoryNode" />
+              <item name="第一" type="462c0819:PsiDirectoryNode" />
+              <item name="2019" type="462c0819:PsiDirectoryNode" />
+              <item name="08" type="462c0819:PsiDirectoryNode" />
+              <item name="07" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="Dream.Comprehensive_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="upload" type="462c0819:PsiDirectoryNode" />
+              <item name="海洋学院" type="462c0819:PsiDirectoryNode" />
+              <item name="第一" type="462c0819:PsiDirectoryNode" />
+              <item name="2019" type="462c0819:PsiDirectoryNode" />
+              <item name="08" type="462c0819:PsiDirectoryNode" />
+              <item name="07" type="462c0819:PsiDirectoryNode" />
+              <item name="material" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="Dream.Comprehensive_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="upload" type="462c0819:PsiDirectoryNode" />
+              <item name="海洋学院" type="462c0819:PsiDirectoryNode" />
+              <item name="第一" type="462c0819:PsiDirectoryNode" />
+              <item name="2019" type="462c0819:PsiDirectoryNode" />
+              <item name="08" type="462c0819:PsiDirectoryNode" />
+              <item name="07" type="462c0819:PsiDirectoryNode" />
+              <item name="material" type="462c0819:PsiDirectoryNode" />
+              <item name="331b75d1520d4aecaceb6905406d67ff" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DreamComprehensive_platform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DreamComprehensive_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="Dream.Comprehensive_platform" type="462c0819:PsiDirectoryNode" />
+              <item name="upload" type="462c0819:PsiDirectoryNode" />
+              <item name="海洋学院" type="462c0819:PsiDirectoryNode" />
+              <item name="第一" type="462c0819:PsiDirectoryNode" />
+              <item name="2019" type="462c0819:PsiDirectoryNode" />
+              <item name="08" type="462c0819:PsiDirectoryNode" />
+              <item name="07" type="462c0819:PsiDirectoryNode" />
+              <item name="material" type="462c0819:PsiDirectoryNode" />
+              <item name="331b75d1520d4aecaceb6905406d67ff" type="462c0819:PsiDirectoryNode" />
+              <item name="关于参加2019.7.6打扫宿舍志愿时公示" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -192,13 +606,20 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SearchEverywhereHistoryKey" value="uploadFileDao.xml&#9;FILE&#9;file:///Users/belle/Documents/MasonLuo/Idea/DreamComprehensive_platform/src/main/resource/mapper/UploadFileDao.xml" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/target/Dream.Comprehensive_platform/upload/海洋学院/第一/2019/08/07/material/0dcce6dbfb664bcdab22c3f9f8ab840d/材料" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -212,9 +633,58 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Tomcat Server.Tomcat8.5">
+    <configuration name="Base64" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.Dream.util.Base64" />
+      <module name="DreamComprehensive_platform" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.Dream.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
+    <configuration name="ZipUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ZipUtil" />
+      <module name="DreamComprehensive_platform" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="ZipUtils (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ZipUtils" />
+      <module name="DreamComprehensive_platform" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="ZipUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.Dream.util.compress.ZipUtils" />
+      <module name="DreamComprehensive_platform" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.Dream.util.compress.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="TestDao.testOauth" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="DreamComprehensive_platform" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestDao" />
+      <option name="METHOD_NAME" value="testOauth" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -254,6 +724,114 @@
       <properties />
       <listeners />
     </configuration>
+    <configuration name="Tomcat8.5" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.38" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER" value="false" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="DreamComprehensive_platform:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_DreamComprehensive_platform_3" />
+        <option name="HTTP_PORT" value="8090" />
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="51945" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="JProfiler">
+        <option name="jreHome" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="JProfiler">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method>
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="DreamComprehensive_platform:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Tomcat Server.Tomcat8.5" />
+      <item itemvalue="JUnit.TestDao.testOauth" />
+      <item itemvalue="Application.Base64" />
+      <item itemvalue="Application.ZipUtils" />
+      <item itemvalue="Application.ZipUtil" />
+      <item itemvalue="Application.ZipUtils (1)" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ZipUtils" />
+        <item itemvalue="Application.ZipUtils (1)" />
+        <item itemvalue="Application.ZipUtil" />
+        <item itemvalue="Application.Base64" />
+        <item itemvalue="JUnit.TestDao.testOauth" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -266,135 +844,426 @@
       <option name="presentableId" value="Default" />
       <updated>1564760023846</updated>
       <workItem from="1564760025176" duration="1324000" />
-      <workItem from="1564830526750" duration="5752000" />
+      <workItem from="1564830526750" duration="5435000" />
+      <workItem from="1565977721196" duration="10410000" />
+      <workItem from="1566002431486" duration="9024000" />
+      <workItem from="1566031228069" duration="11428000" />
+      <workItem from="1566355333845" duration="1802000" />
+      <workItem from="1566441591539" duration="18820000" />
+      <workItem from="1566540523827" duration="15791000" />
+      <workItem from="1566972804015" duration="28499000" />
+      <workItem from="1567084273526" duration="12723000" />
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="TestSignedService_testStartActivity - 2019.08.17 at 03h 21m 20s.xml">
+      <configuration name="TestSignedService.testStartActivity" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestSignedService_testStartActivity - 2019.08.17 at 03h 22m 18s.xml">
+      <configuration name="TestSignedService.testStartActivity" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestSignedService_testStartActivity - 2019.08.17 at 03h 26m 27s.xml">
+      <configuration name="TestSignedService.testStartActivity" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestSignedService_testInsert - 2019.08.17 at 10h 39m 54s.xml">
+      <configuration name="TestSignedService.testInsert" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestSignedService_testInsert - 2019.08.17 at 10h 40m 50s.xml">
+      <configuration name="TestSignedService.testInsert" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestSignedService_testInsert - 2019.08.17 at 10h 42m 07s.xml">
+      <configuration name="TestSignedService.testInsert" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestDao_testOauth - 2019.08.29 at 00h 53m 24s.xml">
+      <configuration name="TestDao.testOauth" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestDao_testOauth - 2019.08.29 at 00h 55m 04s.xml">
+      <configuration name="TestDao.testOauth" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestDao_testOauth - 2019.08.29 at 00h 55m 27s.xml">
+      <configuration name="TestDao.testOauth" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestDao_testOauth - 2019.08.29 at 00h 55m 32s.xml">
+      <configuration name="TestDao.testOauth" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25586000" />
+    <option name="totallyTimeSpent" value="116884000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1920" height="1057" extended-state="0" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24973376" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Image Layers" order="3" />
+      <window_info anchor="right" id="Palette" order="5" />
+      <window_info anchor="bottom" id="Event Log" order="15" side_tool="true" />
+      <window_info anchor="bottom" id="Application Servers" order="0" weight="0.32848486" />
+      <window_info anchor="right" id="Maven Projects" order="0" weight="0.3297568" />
+      <window_info anchor="right" id="CDI" order="11" />
+      <window_info anchor="bottom" id="Database Changes" order="14" />
       <window_info id="Capture Tool" order="4" />
+      <window_info id="Designer" order="2" />
+      <window_info anchor="right" id="Database" order="8" weight="0.3297568" />
+      <window_info anchor="right" id="JSF" order="7" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info id="UI Designer" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="5" weight="0.33939394" />
+      <window_info anchor="bottom" id="TODO" order="8" visible="true" weight="0.40121213" />
+      <window_info anchor="bottom" id="Messages" order="4" sideWeight="0.49928468" weight="0.32848486" />
+      <window_info anchor="right" id="Palette&#9;" order="9" />
+      <window_info id="Image Layers" order="3" />
+      <window_info anchor="bottom" id="Java Enterprise" order="13" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="16" weight="0.32969698" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.2" />
+      <window_info anchor="bottom" id="Spring" order="10" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.22666667" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23748212" />
+      <window_info anchor="right" id="Bean Validation" order="12" weight="0.3297568" />
       <window_info id="Web" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Application Servers" order="0" weight="0.32908705" />
-      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="JProfiler" order="9" />
       <window_info anchor="bottom" id="Find" order="2" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.23673037" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.42038217" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="7" />
-      <window_info anchor="bottom" id="Spring" order="8" weight="0.2462845" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.28025478" />
-      <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Java Enterprise" order="12" />
-      <window_info anchor="bottom" id="Database Changes" order="13" />
-      <window_info anchor="bottom" id="Version Control" order="14" weight="0.32908705" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" weight="0.32960597" />
-      <window_info anchor="right" id="Palette" order="4" />
-      <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="JSF" order="6" />
-      <window_info anchor="right" id="Database" order="7" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info anchor="right" id="Theme Preview" order="9" />
-      <window_info anchor="right" id="CDI" order="10" />
-      <window_info anchor="right" id="Bean Validation" order="11" />
+      <window_info anchor="right" id="Theme Preview" order="10" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
+      <window_info anchor="right" id="Maven" order="4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Message" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/Dream/controller/RegisterController.java</url>
+          <line>191</line>
+          <properties />
+          <option name="timeStamp" value="166" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/test/java/TestDao.java</url>
+          <line>82</line>
+          <properties />
+          <option name="timeStamp" value="179" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="207" />
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/service/SectionService.java">
+    <entry file="file://$PROJECT_DIR$/target/Dream.Comprehensive_platform/upload/海洋学院/第一/2019/08/07/material/0dcce6dbfb664bcdab22c3f9f8ab840d/材料/u407 2的副本.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/Dream.Comprehensive_platform/upload/海洋学院/第一/2019/08/07/material/0dcce6dbfb664bcdab22c3f9f8ab840d/材料/u407 2的副本 2.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/Dream.Comprehensive_platform/upload/海洋学院/第一/2019/08/07/material/0dcce6dbfb664bcdab22c3f9f8ab840d/材料/new.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/Dream.Comprehensive_platform/upload/海洋学院/第一/2019/08/07/material/0dcce6dbfb664bcdab22c3f9f8ab840d/材料/new1.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/Dream.Comprehensive_platform/upload/海洋学院/第一/2019/08/07/material/0dcce6dbfb664bcdab22c3f9f8ab840d/材料/u407.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/Dream.Comprehensive_platform/upload/海洋学院/第一/2019/08/07/material/0dcce6dbfb664bcdab22c3f9f8ab840d/材料/LOGO.jpeg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/Dream.Comprehensive_platform/upload/海洋学院/第一/2019/08/07/material/0dcce6dbfb664bcdab22c3f9f8ab840d/材料/u407 222.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/Dream.Comprehensive_platform/upload/海洋学院/第一/2019/08/09/material/c2e38dee9b9e4a7780e659c31f3940bf/图片/51563545892_.pic 5.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/Dream.Comprehensive_platform/upload/海洋学院/第一/2019/08/09/material/c2e38dee9b9e4a7780e659c31f3940bf/图片/51563545892_.pic.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/Dream.Comprehensive_platform/upload/海洋学院/第一/2019/08/09/material/c2e38dee9b9e4a7780e659c31f3940bf/图片/51563545892_.pic 2.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/Dream.Comprehensive_platform/upload/海洋学院/第一/2019/08/09/material/c2e38dee9b9e4a7780e659c31f3940bf/图片/51563545892_.pic 3.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/Dream.Comprehensive_platform/upload/海洋学院/第一/2019/08/09/material/c2e38dee9b9e4a7780e659c31f3940bf/图片/51563545892_.pic 4.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/Dream.Comprehensive_platform/upload/海洋学院/第一/2019/08/09/material/c2e38dee9b9e4a7780e659c31f3940bf/图片/51563545892_.pic 6.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/Dream.Comprehensive_platform/upload/海洋学院/第一/2019/08/09/material/c2e38dee9b9e4a7780e659c31f3940bf/图片/51563545892_.pic 7.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resource/redis.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/util/GetFileList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        <state relative-caret-position="450">
+          <caret line="35" column="19" lean-forward="true" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
+          <folding>
+            <element signature="e#268#269#0" expanded="true" />
+            <element signature="e#318#319#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/dao/ActivityDao.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/commons/mail/MyAuthenticator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        <state relative-caret-position="120">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/service/DepartmentService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/service/ActivityProveService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/commons/result/Result.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/controller/CodeController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/commons/result/ResultMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/commons/result/ResultCodeEnum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/service/impl/UploadFileListServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/controller/LoginController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/util/parse/FileUpload.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        <state relative-caret-position="60">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/interceptor/LoginInterceptor.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/util/parse/PhotoToList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/util/parse/GetResultTxt.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/logs/run.log">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/controller/ActivityController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/util/parse/Parse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        <state relative-caret-position="75">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/service/impl/DepartmentServiceImpl.java">
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/src.zip!/java/util/zip/ZipInputStream.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="21" column="40" lean-forward="true" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
+        <state relative-caret-position="258">
+          <caret line="96" column="11" selection-start-line="96" selection-start-column="11" selection-end-line="96" selection-end-column="11" />
+          <folding>
+            <element signature="e#1733#1734#0" expanded="true" />
+            <element signature="e#1781#1782#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/service/ActivityService.java">
+    <entry file="file://$PROJECT_DIR$/target/Dream.Comprehensive_platform/upload/海洋学院/第一/2019/08/07/material/0b2164a278464cddb50a074132e74257/鏉愭枡/u407 2.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/service/impl/UploadFileServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        <state relative-caret-position="525">
+          <caret line="72" selection-start-line="72" selection-end-line="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/util/Base64.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/util/ValidateCode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/test/java/ZipUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1050">
+          <caret line="70" column="44" selection-start-line="70" selection-start-column="44" selection-end-line="70" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/src/main/test/java/ZipUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="33" column="49" selection-start-line="33" selection-start-column="49" selection-end-line="33" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/util/compress/ZipUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="269" column="94" selection-start-line="269" selection-start-column="94" selection-end-line="269" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/Dream.Comprehensive_platform/upload/海洋学院/第一/2019/08/07/material/331b75d1520d4aecaceb6905406d67ff/关于参加2019.7.6打扫宿舍志愿时公示/关于参加2019.7.6打扫宿舍志愿时公示.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/service/ActivityProveParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="945">
+          <caret line="79" column="32" selection-start-line="79" selection-start-column="32" selection-end-line="79" selection-end-column="32" />
+          <folding>
+            <element signature="e#2607#2608#0" expanded="true" />
+            <element signature="e#2651#2652#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/service/SignedInService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/interceptor/FileUploadInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/interceptor/GetZipContentInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/service/ActivityProveListService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/controller/CodeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/controller/RegisterController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="153" column="37" selection-start-line="153" selection-start-column="37" selection-end-line="153" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/test/java/TestDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/controller/ActivityController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="25" column="7" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/controller/YiBanOauthController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="130" column="10" selection-start-line="130" selection-start-column="10" selection-end-line="130" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/controller/SignInController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="65" column="10" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/controller/FileController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="51" column="10" selection-start-line="51" selection-start-column="10" selection-end-line="51" selection-end-column="10" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/test/java/TestActivityProveParse.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -403,223 +1272,96 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/src.zip!/java/awt/image/WritableRenderedImage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="68" column="53" selection-start-line="68" selection-start-column="53" selection-end-line="68" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/src.zip!/java/awt/image/RenderedImage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="47" column="17" selection-start-line="47" selection-start-column="17" selection-end-line="47" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/src.zip!/java/awt/Transparency.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="33" column="17" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/google/zxing/core/3.4.0/core-3.4.0.jar!/com/google/zxing/Result.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="29" column="31" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/google/zxing/core/3.4.0/core-3.4.0.jar!/com/google/zxing/Writer.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="13" column="14" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/google/zxing/core/3.4.0/core-3.4.0.jar!/com/google/zxing/MultiFormatWriter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="77" column="33" lean-forward="true" selection-start-line="77" selection-start-column="33" selection-end-line="77" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/google/zxing/core/3.4.0/core-3.4.0.jar!/com/google/zxing/EncodeHintType.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/google/zxing/core/3.4.0/core-3.4.0.jar!/com/google/zxing/MultiFormatReader.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/util/Base64.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="15" column="12" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/util/ValidateCode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-241">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/util/VerifyCodeServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/util/UUIDUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/src.zip!/java/awt/image/BufferedImage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="68" column="65" selection-start-line="68" selection-start-column="65" selection-end-line="68" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/test/java/TestQCode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/controller/RegisterController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2715">
-          <caret line="181" column="64" selection-start-line="181" selection-start-column="64" selection-end-line="181" selection-end-column="64" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/util/QRCode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="2" lean-forward="true" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/entity/Department.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/entity/ActivityProve.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/dao/UploadFileDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/dao/RoleMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/dao/SignInDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="27" lean-forward="true" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/entity/Activity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resource/mapper/SectionDao.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/resource/spring-mybatis.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resource/mapper/UploadFileDao..xml">
+    <entry file="file://$PROJECT_DIR$/src/main/resource/spring-mvc.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="51" lean-forward="true" selection-start-line="11" selection-start-column="51" selection-end-line="11" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/entity/SignIn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="43" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resource/Comprehensive_survey_platform.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="88" column="31" lean-forward="true" selection-start-line="88" selection-start-column="31" selection-end-line="88" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/dao/SectionDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resource/mapper/SignInDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Dream/entity/Section.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="508">
-          <caret line="95" column="33" lean-forward="true" selection-start-line="95" selection-start-column="33" selection-end-line="95" selection-end-column="33" />
+        <state relative-caret-position="405">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
         </state>
       </provider>
     </entry>
   </component>
   <component name="masterDetails">
     <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>platform</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>DreamComprehensive_platform</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>1.8.0_201</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: cglib:cglib:3.2.12</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
