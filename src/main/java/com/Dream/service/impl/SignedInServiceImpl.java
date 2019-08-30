@@ -115,8 +115,14 @@ public class SignedInServiceImpl implements SignedInService {
         record.setCreateTime(LocalDate.now());
         // 设置签到学生参加的活动id
         record.setActivityID(entity.getValue().getId());
+        // 判断是否有这个key，没有则新建,有则加入
         redisTemplate.opsForSet().add(token, record);
         return record;
+    }
+
+    @Override
+    public Set<SignIn> getRecords(String token) {
+        return redisTemplate.opsForSet().members(token);
     }
 
     @Override

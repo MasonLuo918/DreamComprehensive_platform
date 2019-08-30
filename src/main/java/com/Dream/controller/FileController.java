@@ -49,7 +49,7 @@ public class FileController {
      *
      * @param requestMap
      * @return
-     */
+     */ //TODO 限制只能解析jpg或者jpeg或者png
     @RequestMapping("/getZipContent") // 可以利用aop检查一下是否请求的文件uuid是该会话用户的，还有文档类型
     @ResponseBody
     public Map<String, Object> getZipFileContent(@RequestBody Map<String, Object> requestMap) throws FileNotFoundException {

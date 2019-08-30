@@ -128,7 +128,7 @@ public class YiBanOauthController {
      * }
      * @param requestMap
      * @return
-     */
+     */ //TODO 如果open_id已经存在就不允许注册
     @RequestMapping("/bind")
     public Result bind(HttpSession session, @RequestBody Map<String, Object> requestMap){
         String account = (String) requestMap.get("account");

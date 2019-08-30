@@ -18,7 +18,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         ObjectMapper mapper = new ObjectMapper();
         HttpSession session = request.getSession();
         String url = request.getRequestURI();
-        if(!(url.contains("login") || url.contains("Login"))){
+        if(!(url.contains("login") || url.contains("Login") || url.contains("doSignedIn"))){
             // 不是登录请求，请求进入后台;
             Object user = session.getAttribute("user");
             if(user != null){

@@ -3,6 +3,7 @@ package com.Dream.util.compress;
 import org.apache.tools.zip.ZipUtil;
 
 import java.io.*;
+import java.nio.charset.Charset;
 import java.util.zip.*;
 
 public class ZipUtils {
@@ -17,10 +18,11 @@ public class ZipUtils {
     /**
      * 将文件进行压缩
      * 压缩后的文件放在同级目录下
+     *
      * @param srcFile
      * @throws Exception
      */
-    public static void compress(File srcFile) throws Exception{
+    public static void compress(File srcFile) throws Exception {
         String name = srcFile.getName();
         String basePath = srcFile.getParent();
         String destPath = basePath + File.separator + name + EXT;
@@ -29,11 +31,12 @@ public class ZipUtils {
 
     /**
      * 将压缩文件添加到destFile文件中
+     *
      * @param srcFile
      * @param destFile
      * @throws Exception
      */
-    public static void compress(File srcFile, File destFile) throws Exception{
+    public static void compress(File srcFile, File destFile) throws Exception {
         FileOutputStream fos = new FileOutputStream(destFile);
         // Zip的输出流
         ZipOutputStream zos = new ZipOutputStream(fos);
@@ -45,37 +48,40 @@ public class ZipUtils {
 
     /**
      * 将文件输出到制定destPath文件中(带有.zip)
+     *
      * @param srcFile
      * @param destPath
      * @throws Exception
      */
-    public static void compress(File srcFile, String destPath) throws Exception{
+    public static void compress(File srcFile, String destPath) throws Exception {
         compress(srcFile, new File(destPath));
     }
 
     /**
      * 进行文件压缩，并且判断是文件还是文件夹，根据不同的类型进行压缩
      * 并且利用其进行操作
+     *
      * @param srcFile
      * @param zos
      * @param basePath
      * @throws Exception
      */
     private static void compress(File srcFile, ZipOutputStream zos,
-                                 String basePath) throws Exception{
-        if(srcFile.isDirectory()){
-            compressDir(srcFile,zos,basePath);
-        }else{
-            compressFile(srcFile,zos,basePath);
+                                 String basePath) throws Exception {
+        if (srcFile.isDirectory()) {
+            compressDir(srcFile, zos, basePath);
+        } else {
+            compressFile(srcFile, zos, basePath);
         }
     }
 
     /**
      * 对源文件路径的文件进行压缩
+     *
      * @param srcPath
      * @throws Exception
      */
-    public static void compress(String srcPath) throws Exception{
+    public static void compress(String srcPath) throws Exception {
         File srcFile = new File(srcPath);
 
         compress(srcFile);
@@ -90,22 +96,23 @@ public class ZipUtils {
 
     /**
      * 对文件夹里面的内容进行压缩，并且递归压缩该文件夹
+     *
      * @param dir
      * @param zos
      * @param basePath
      * @throws Exception
      */
     private static void compressDir(File dir, ZipOutputStream zos,
-                                    String basePath) throws Exception{
+                                    String basePath) throws Exception {
         File[] files = dir.listFiles();
 
         // 构建空目录
-        if(files.length < 1){
+        if (files.length < 1) {
             ZipEntry entry = new ZipEntry(basePath + dir.getName() + PATH);
             zos.putNextEntry(entry);
             zos.closeEntry();
         }
-        for(File file: files){
+        for (File file : files) {
             //递归压缩
             compress(file, zos, basePath + dir.getName() + PATH);
         }
@@ -113,13 +120,14 @@ public class ZipUtils {
 
     /**
      * 压缩一个文件
+     *
      * @param file
      * @param zos
-     * @param dir 文件的上层目录
+     * @param dir  文件的上层目录
      * @throws Exception
      */
     private static void compressFile(File file, ZipOutputStream zos,
-                                     String dir) throws Exception{
+                                     String dir) throws Exception {
 
         /**
          * 压缩包内文件名定义
@@ -134,7 +142,7 @@ public class ZipUtils {
         BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file));
         int count = 0;
         byte data[] = new byte[BUFFER];
-        while((count = bis.read(data, 0, BUFFER)) != -1){
+        while ((count = bis.read(data, 0, BUFFER)) != -1) {
             zos.write(data, 0, count);
         }
         bis.close();
@@ -144,36 +152,45 @@ public class ZipUtils {
     /**
      * 将一个路径的文件转换成文件
      * 解压缩
+     *
      * @param srcPath
      * @throws Exception
      */
-    public static void decompress(String srcPath) throws Exception{
+    public static void decompress(String srcPath, Charset charset) throws Exception {
         File srcFile = new File(srcPath);
-        decompress(srcFile);
+        decompress(srcFile, charset);
     }
 
     /**
      * 压缩一个文件（目录）
      * 到同级的目录下
+     *
      * @param srcFile
      * @throws Exception
      */
-    public static void decompress(File srcFile) throws Exception{
+    public static void decompress(File srcFile, Charset charset) throws Exception {
         // 获取需解压文件的父目录,将当前文件解压到同级目录中
         String basePath = srcFile.getParent();
-        decompress(srcFile, basePath);
+        decompress(srcFile, basePath, charset);
     }
 
     /**
      * 将srcFile解压缩到destFile中
+     *
      * @param srcFile
      * @param destFile
      * @throws Exception
      */
-    public static void decompress(File srcFile, File destFile) throws Exception{
+    public static void decompress(File srcFile, File destFile, Charset charset) throws Exception {
         // 创建一个Zip输入流,将文件解压到destFile中
-        ZipInputStream zis = new ZipInputStream(new
-                FileInputStream(srcFile));
+//        Charset charset = Charset.forName("GBK");
+        ZipInputStream zis = null;
+        if (charset == null) {
+            zis = new ZipInputStream(new
+                    FileInputStream(srcFile));
+        } else {
+            zis = new ZipInputStream(new FileInputStream(srcFile), charset);
+        }
         decompress(destFile, zis);
         zis.close();
     }
@@ -183,8 +200,8 @@ public class ZipUtils {
      * @param destPath
      * @throws Exception
      */
-    public static void decompress(File srcFile, String destPath) throws Exception{
-        decompress(srcFile, new File(destPath));
+    public static void decompress(File srcFile, String destPath, Charset charset) throws Exception {
+        decompress(srcFile, new File(destPath), charset);
     }
 
     /**
@@ -192,24 +209,24 @@ public class ZipUtils {
      * @param destPath
      * @throws Exception
      */
-    public static void decompress(String srcPath, String destPath) throws Exception{
+    public static void decompress(String srcPath, String destPath, Charset charset) throws Exception {
         File srcFile = new File(srcPath);
-        decompress(srcFile, destPath);
+        decompress(srcFile, destPath, charset);
     }
 
-    public static void decompress(File destFile, ZipInputStream zis) throws Exception{
+    public static void decompress(File destFile, ZipInputStream zis) throws Exception {
         ZipEntry entry = null;
 
-        while((entry = zis.getNextEntry()) != null){
+        while ((entry = zis.getNextEntry()) != null) {
             // 文件
             String dir = destFile.getPath() + File.separator + entry.getName();
             File dirFile = new File(dir);
             //文件检查
             fileProber(dirFile);
 
-            if(entry.isDirectory()){
+            if (entry.isDirectory()) {
                 dirFile.mkdirs();
-            }else{
+            } else {
                 decompressFile(dirFile, zis);
             }
             zis.closeEntry();
@@ -218,11 +235,12 @@ public class ZipUtils {
 
     /**
      * 当父目录不存在的时候，创建目录
+     *
      * @param dirFile
      */
-    private static void fileProber(File dirFile){
+    private static void fileProber(File dirFile) {
         File parentFile = dirFile.getParentFile();
-        if(!parentFile.exists()){
+        if (!parentFile.exists()) {
             fileProber(parentFile);
             parentFile.mkdir();
         }
@@ -230,23 +248,28 @@ public class ZipUtils {
 
     /**
      * 解压缩单个文件
+     *
      * @param destFile
      * @param zis
      * @throws Exception
      */
-    private static void decompressFile(File destFile, ZipInputStream zis) throws Exception{
+    private static void decompressFile(File destFile, ZipInputStream zis) throws Exception {
         BufferedOutputStream bos = new BufferedOutputStream(
                 new FileOutputStream(destFile)
         );
         int count;
         byte data[] = new byte[BUFFER];
-        while((count = zis.read(data, 0, BUFFER)) != -1){
+        while ((count = zis.read(data, 0, BUFFER)) != -1) {
             bos.write(data, 0, count);
         }
         bos.close();
     }
 
     public static void main(String[] args) throws Exception {
-        decompress("/Users/belle/Desktop/归档.zip");
+//        decompress("/Users/belle/Documents/MasonLuo/Idea/DreamComprehensive_platform/target/Dream.Comprehensive_platform/upload/海洋学院/第一/2019/08/15/material/c07052a9ce434cda9592cbd64d0655a0 关于参加2019.7.6打扫宿舍志愿时公示.zip");
+        decompress("/Users/belle/Desktop/压缩文件/关于参加2019.7.6打扫宿舍志愿时公示.zip", Charset.forName("GBK"));
+//        decompress("/Users/belle/Desktop/压缩文件/图片.zip");
+//        decompress("/Users/belle/Desktop/压缩文件/打扫卫生.zip");
+//        decompress("/Users/belle/Desktop/压缩文件/材料.zip");
     }
 }

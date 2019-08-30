@@ -52,7 +52,7 @@ public class Base64 {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-        String str = getImageStr("/Users/belle/Desktop/material/u407.jpg");
+        String str = getImageStr("/Users/belle/Documents/MasonLuo/Idea/DreamComprehensive_platform/target/Dream.Comprehensive_platform/upload/海洋学院/第一/2019/08/09/material/c2e38dee9b9e4a7780e659c31f3940bf/图片/51563545892_.pic 7.jpg");
         System.out.println(str.length());
     }
 }

@@ -23,6 +23,8 @@ import java.util.*;
 //@Scope("prototype")  //每次都创建一个示例
 public class ActivityController {
 
+    // TODO 删除一个活动（输入密码再删除）
+
     @Autowired
     private ActivityService activityService;
 

@@ -6,6 +6,7 @@ import com.Dream.commons.cache.Entity;
 import com.Dream.entity.SignIn;
 
 import java.util.List;
+import java.util.Set;
 
 public interface SignedInService {
 
@@ -37,6 +38,13 @@ public interface SignedInService {
      * @return
      */
     SignIn doSignIn(String token, SignIn record);
+
+    /**
+     * 根据token获取当前签到的情况
+     * @param token
+     * @return
+     */
+    Set<SignIn> getRecords(String token);
 
     List<SignIn> getSignInList(Integer activityID);
 }

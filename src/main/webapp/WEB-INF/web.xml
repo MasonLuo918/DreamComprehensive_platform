@@ -16,6 +16,9 @@
       classpath:log4j.properties
     </param-value>
   </context-param>
+  <session-config>
+    <session-timeout>10</session-timeout>
+  </session-config>
 
   <!--配置字符编码过滤器-->
   <filter>

@@ -14,6 +14,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,14 +35,14 @@ public class ActivityProveParser implements Runnable {
     private UploadFileDao uploadFileDao;
 
 
-    public boolean decompress() {
+    public boolean decompress(Charset charset) {
         if (uploadFile == null || uploadFile.getPath() == null || !uploadFile.getPath().endsWith("zip")) {
             return false;
         }
         File srcFile = new File(uploadFile.getPath());
         String destPath = srcFile.getParent() + File.separator + uploadFile.getUuid();
         try {
-            ZipUtils.decompress(srcFile, destPath);
+            ZipUtils.decompress(srcFile, destPath, charset);
             uploadFile.setPath(uploadFile.getPath() + ";" + destPath);
             uploadFileDao.update(uploadFile);
             return true;
@@ -68,7 +69,9 @@ public class ActivityProveParser implements Runnable {
     public void run() {
         switch (fileType) {
             case FileType.MATERIAL:
-                decompress();
+                if(!decompress(null)){
+                    decompress(Charset.forName("GBK"));
+                };
                 break;
             case FileType.ACTIVITY_PROVE_DOC:
                 parseDocument();

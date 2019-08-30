@@ -2,20 +2,20 @@ package com.Dream.controller;
 
 import com.Dream.commons.bean.SignedTokenProperty;
 import com.Dream.commons.bean.TokenProperty;
+import com.Dream.commons.cache.Cache;
 import com.Dream.commons.cache.Entity;
+import com.Dream.commons.result.Result;
+import com.Dream.commons.result.ResultCodeEnum;
 import com.Dream.entity.Activity;
 import com.Dream.entity.SignIn;
 import com.Dream.service.ActivityService;
 import com.Dream.service.SignedInService;
 import com.Dream.util.ExportWordUtil;
 import com.Dream.util.ParamUtil;
-import org.apache.ibatis.type.JdbcType;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -23,12 +23,11 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 @Controller
 @RequestMapping("/admin/signed/")
 public class SignInController {
-
-    // TODO 如果已经签到，则不允许签到了
 
     @Autowired
     private SignedInService singedInService;
@@ -43,21 +42,37 @@ public class SignInController {
      */
     @RequestMapping("/create")
     @ResponseBody
-    public Map<String, Object> create(@RequestBody TokenProperty tokenProperty){
+    public Map<String, Object> create(@RequestBody TokenProperty tokenProperty) {
         Map<String, Object> resultMap = new HashMap<>();
-        if(tokenProperty == null || tokenProperty.getId() == null || tokenProperty.getUrl() == null ||
-                tokenProperty.getValidity() == null){
-            resultMap.put("status","002");
-            resultMap.put("message","传输参数丢失");
+        if (tokenProperty == null || tokenProperty.getId() == null || tokenProperty.getUrl() == null ||
+                tokenProperty.getValidity() == null) {
+            resultMap.put("status", "002");
+            resultMap.put("message", "传输参数丢失");
             return resultMap;
         }
 
         String token = singedInService.start(tokenProperty);
-        resultMap.put("status","200");
-        resultMap.put("token",token);
+        resultMap.put("status", "200");
+        resultMap.put("token", token);
         System.out.println(token);
-        resultMap.put("validity",tokenProperty.getValidity());
+        resultMap.put("validity", tokenProperty.getValidity());
         return resultMap;
+    }
+
+    /**
+     * 获取已经进行签到学生的列表(签到器还未结束)
+     * @param token 活动签到器的token
+     * @return
+     * // TODO 写API文档
+     */
+    @RequestMapping("/signInList")
+    @ResponseBody
+    public Result<Set<SignIn>> getSignedInSet(@RequestParam("token") String token){
+        if(Cache.get(token) == null){
+            return new Result(ResultCodeEnum.FAIL);
+        }
+        Set<SignIn> set = singedInService.getRecords(token);
+        return new Result<Set<SignIn>>(ResultCodeEnum.SUCCESS, set);
     }
 
     /**
@@ -150,6 +165,11 @@ public class SignInController {
         return resultMap;
     }
 
+    /**
+     * 查看签到完成后的签到情况
+     * @param requestMap
+     * @return
+     */
     @RequestMapping("/getCheckInStatus")
     @ResponseBody
     public Map<String, Object> getCheckInStatus(@RequestBody Map<String, Object> requestMap){
