@@ -67,11 +67,11 @@ public class YiBanOauthController {
      * 进行初次登录的绑定操作
      *
      * @param session session会话
-     * @param code    用户登录授权令牌
      * @return
      */
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public Result login(HttpSession session, @RequestParam("code") String code) {
+    @RequestMapping(value = "/login")
+    public Result login(HttpSession session, @RequestBody Map<String, String> map) {
+        String code = map.get("code");
         Map<String, Object> loginResult = oauthService.login(code, session);
         int status = (int) loginResult.get("status");
         ResultMap result = null;
@@ -98,11 +98,11 @@ public class YiBanOauthController {
     }
 
     /**
-     * @param account 要查询的account
      * @return 返回查询的结果
      */
-    @RequestMapping(value = "/getAccount", method = RequestMethod.GET)
-    public Result<Department> getAccount(@RequestParam("account") String account){
+    @RequestMapping(value = "/getAccount")
+    public Result<Department> getAccount(@RequestBody Map<String, String> map){
+        String account = map.get("account");
         Department department = departmentService.findByEmail(account);
         if(department == null){
             Result<Department> result = new Result<Department>(ResultCodeEnum.FAIL);

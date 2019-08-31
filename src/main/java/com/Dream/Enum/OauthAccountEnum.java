@@ -6,7 +6,7 @@ package com.Dream.Enum;
  */
 public enum  OauthAccountEnum {
 
-    YIBAN("7670ac12371bee65","d8a36533e2a15baa0d7a1211b8053658","http://localhost:8090/oauth/yiban/redirect");
+    YIBAN("7670ac12371bee65","d8a36533e2a15baa0d7a1211b8053658","http://localhost:8080/oauth/yiban/redirect");
 
     private String appID;
 

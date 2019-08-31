@@ -5,6 +5,7 @@ import com.Dream.commons.bean.TokenProperty;
 import com.Dream.commons.cache.Entity;
 import com.Dream.entity.SignIn;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Set;
 
@@ -45,6 +46,8 @@ public interface SignedInService {
      * @return
      */
     Set<SignIn> getRecords(String token);
+
+    boolean stopSignIn(String token, HttpSession session);
 
     List<SignIn> getSignInList(Integer activityID);
 }

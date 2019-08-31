@@ -1,3 +1,6 @@
+package java;
+
+
 import com.Dream.Enum.OauthTypeEnum;
 import com.Dream.dao.ActivityDao;
 import com.Dream.dao.DepartmentDao;

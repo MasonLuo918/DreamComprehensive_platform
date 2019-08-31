@@ -10,7 +10,31 @@
                         http://www.springframework.org/schema/mvc
                         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
     <!-- 开启注解驱动 -->
+
+    <!--<bean id="jsonFilterConverter"-->
+          <!--class="com.Dream.converter.JsonFilterConverter">-->
+        <!--<property name="supportedMediaTypes">-->
+            <!--<list>-->
+                <!--<value>text/html;charset=UTF-8</value>-->
+                <!--<value>application/json</value>-->
+            <!--</list>-->
+        <!--</property>-->
+        <!--&lt;!&ndash;        <property name="features">&ndash;&gt;-->
+        <!--&lt;!&ndash;            <list>&ndash;&gt;-->
+        <!--&lt;!&ndash;                &lt;!&ndash;设置null值也要输出，fastjson默认是关闭的 &ndash;&gt;&ndash;&gt;-->
+        <!--&lt;!&ndash;                &lt;!&ndash; <value>WriteMapNullValue</value> &ndash;&gt;&ndash;&gt;-->
+        <!--&lt;!&ndash;                &lt;!&ndash;设置使用文本方式输出日期，fastjson默认是long &ndash;&gt;&ndash;&gt;-->
+        <!--&lt;!&ndash;                <value>WriteDateUseDateFormat</value>&ndash;&gt;-->
+        <!--&lt;!&ndash;            </list>&ndash;&gt;-->
+        <!--&lt;!&ndash;        </property>&ndash;&gt;-->
+    <!--</bean>-->
+
     <mvc:annotation-driven/>
+        <!--<mvc:message-converters register-defaults="true">-->
+            <!--&lt;!&ndash; 配置Fastjson支持 &ndash;&gt;-->
+            <!--<ref bean="jsonFilterConverter" />-->
+        <!--</mvc:message-converters>-->
+    <!--</mvc:annotation-driven>-->
     <context:component-scan base-package="com.Dream.controller"/>
     <bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
         <property name="supportedMediaTypes">
@@ -19,6 +43,16 @@
             </list>
         </property>
     </bean>
+
+<!--    转换器-->
+<!--    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">-->
+<!--        <property name="converters">-->
+<!--            <list>-->
+<!--                <bean class="com.Dream.converter.JsonFilterConverter"/>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--    </bean>-->
+
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/"/>
         <property name="suffix" value=".html"/>
@@ -45,6 +79,7 @@
             <bean class="com.Dream.interceptor.FileUploadInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
+    <!-- 跨域请求-->
     <mvc:cors>
         <mvc:mapping path="/**/"/>
     </mvc:cors>

@@ -1,5 +1,6 @@
 package com.Dream.controller;
 
+import com.Dream.Annotation.SerializeField;
 import com.Dream.commons.bean.SignedTokenProperty;
 import com.Dream.commons.bean.TokenProperty;
 import com.Dream.commons.cache.Cache;
@@ -17,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URLEncoder;
@@ -63,10 +65,25 @@ public class SignInController {
      * 获取已经进行签到学生的列表(签到器还未结束)
      * @param token 活动签到器的token
      * @return
-     * // TODO 写API文档
+     * {
+     *   "data": [
+     *     {
+     *       "activityID": 12,
+     *       "createTime": "2019-08-30",
+     *       "id": null,
+     *       "note": null,
+     *       "stuID": "2012i0320",
+     *       "stuName": "djalkfjla",
+     *       "stuProfessionAndClass": "2016dajfldjal"
+     *     }
+     *   ],
+     *   "message": "请求成功",
+     *   "status": "200"
+     * }
      */
     @RequestMapping("/signInList")
     @ResponseBody
+//    @SerializeField(clazz=SignIn.class, includes = {"stuID", "stuName", "stuProfessionAndClass"})
     public Result<Set<SignIn>> getSignedInSet(@RequestParam("token") String token){
         if(Cache.get(token) == null){
             return new Result(ResultCodeEnum.FAIL);
@@ -163,6 +180,27 @@ public class SignInController {
         resultMap.put("stu_class", record.getStuProfessionAndClass());
         resultMap.put("stu_num", record.getStuID());
         return resultMap;
+    }
+
+    /**
+     * 终止签到
+     * @param session
+     * @param requestMap
+     * @return
+     */
+    @RequestMapping("stop")
+    @ResponseBody
+    public Result stopSignedIn(HttpSession session, @RequestBody Map<String, String> requestMap){
+        String token = requestMap.get("token");
+        if(token == null){
+            return new Result(ResultCodeEnum.PARAMS_LOST);
+        }
+        boolean success = singedInService.stopSignIn(token, session);
+        if(success){
+            return new Result(ResultCodeEnum.SUCCESS);
+        }else{
+            return new Result(ResultCodeEnum.FAIL);
+        }
     }
 
     /**

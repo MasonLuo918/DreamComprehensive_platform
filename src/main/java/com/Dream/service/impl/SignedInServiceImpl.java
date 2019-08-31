@@ -7,6 +7,7 @@ import com.Dream.commons.cache.Entity;
 import com.Dream.dao.ActivityDao;
 import com.Dream.dao.SignInDao;
 import com.Dream.entity.Activity;
+import com.Dream.entity.Department;
 import com.Dream.entity.SignIn;
 import com.Dream.service.SignedInService;
 import com.Dream.util.Base64;
@@ -16,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
@@ -123,6 +125,22 @@ public class SignedInServiceImpl implements SignedInService {
     @Override
     public Set<SignIn> getRecords(String token) {
         return redisTemplate.opsForSet().members(token);
+    }
+
+    @Override
+    public boolean stopSignIn(String token, HttpSession session) {
+        if(session == null || session.getAttribute("user") == null || token == null){
+            return false;
+        }
+        Department department = (Department)session.getAttribute("user");
+        if(Cache.get(token) == null){
+            return false;
+        }
+        Entity<TokenProperty> entity = Cache.get(token);
+        entity.getFuture().cancel(true);
+        Cache.remove(token);
+        dealWithTokenExpire(token);
+        return true;
     }
 
     @Override
